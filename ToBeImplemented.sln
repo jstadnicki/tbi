@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+VisualStudioVersion = 12.0.30324.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Domain.Model", "Domain\ToBeImplemented.Domain.Model\ToBeImplemented.Domain.Model.csproj", "{360F03E7-7C3B-41E1-BA57-7223681833CB}"
 EndProject
@@ -12,6 +12,22 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Infrastructure.EFContext", "Infrastructure\ToBeImplemented.Infrastructure.EFContext\ToBeImplemented.Infrastructure.EFContext.csproj", "{184B37C5-7F6E-4DD0-98A0-81B75390A405}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Infrastructure.Repository", "Infrastructure\ToBeImplemented.Infrastructure.Repository\ToBeImplemented.Infrastructure.Repository.csproj", "{CDB7FB28-C97B-4D6E-870C-B07E5BFD6BB6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{69CF5C1E-3B49-4986-A72C-5AB99A2B1498}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bussiness", "Bussiness", "{8F78015B-2A21-45CE-94CF-35E05E94B7A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{FDC9479C-BD23-4D2A-9676-D4F7E5145B43}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{F46DDDC9-8765-4DE0-BDC0-BE8856F8921C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Service.Interfaces", "Service\ToBeImplemented.Service.Interfaces\ToBeImplemented.Service.Interfaces.csproj", "{806DEA7A-BBD3-4597-9052-5C3913DE2A16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Service.Implementations", "Service\ToBeImplemented.Service.Implementations\ToBeImplemented.Service.Implementations.csproj", "{93BF2DF2-7D34-4164-9A78-6F81487E1CF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Service.Implementations.Tests", "test\ToBeImplemented.Service.Implementations.Tests\ToBeImplemented.Service.Implementations.Tests.csproj", "{3EA47B3F-7DE4-4253-BCFF-41ADCA7FAA94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Tests.ObjectMothers", "test\ToBeImplemented.Tests.ObjectMothers\ToBeImplemented.Tests.ObjectMothers.csproj", "{7738151A-346C-432C-9E99-CCB202D88CB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +47,22 @@ Global
 		{CDB7FB28-C97B-4D6E-870C-B07E5BFD6BB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDB7FB28-C97B-4D6E-870C-B07E5BFD6BB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDB7FB28-C97B-4D6E-870C-B07E5BFD6BB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{806DEA7A-BBD3-4597-9052-5C3913DE2A16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{806DEA7A-BBD3-4597-9052-5C3913DE2A16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{806DEA7A-BBD3-4597-9052-5C3913DE2A16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{806DEA7A-BBD3-4597-9052-5C3913DE2A16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93BF2DF2-7D34-4164-9A78-6F81487E1CF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93BF2DF2-7D34-4164-9A78-6F81487E1CF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93BF2DF2-7D34-4164-9A78-6F81487E1CF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93BF2DF2-7D34-4164-9A78-6F81487E1CF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EA47B3F-7DE4-4253-BCFF-41ADCA7FAA94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EA47B3F-7DE4-4253-BCFF-41ADCA7FAA94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EA47B3F-7DE4-4253-BCFF-41ADCA7FAA94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EA47B3F-7DE4-4253-BCFF-41ADCA7FAA94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7738151A-346C-432C-9E99-CCB202D88CB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7738151A-346C-432C-9E99-CCB202D88CB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7738151A-346C-432C-9E99-CCB202D88CB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7738151A-346C-432C-9E99-CCB202D88CB7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,5 +71,9 @@ Global
 		{360F03E7-7C3B-41E1-BA57-7223681833CB} = {15158D31-6070-4DAE-9B92-78226FA97B7B}
 		{184B37C5-7F6E-4DD0-98A0-81B75390A405} = {B62A9401-C920-43F8-A795-E96B45362AD0}
 		{CDB7FB28-C97B-4D6E-870C-B07E5BFD6BB6} = {B62A9401-C920-43F8-A795-E96B45362AD0}
+		{806DEA7A-BBD3-4597-9052-5C3913DE2A16} = {69CF5C1E-3B49-4986-A72C-5AB99A2B1498}
+		{93BF2DF2-7D34-4164-9A78-6F81487E1CF1} = {69CF5C1E-3B49-4986-A72C-5AB99A2B1498}
+		{3EA47B3F-7DE4-4253-BCFF-41ADCA7FAA94} = {F46DDDC9-8765-4DE0-BDC0-BE8856F8921C}
+		{7738151A-346C-432C-9E99-CCB202D88CB7} = {F46DDDC9-8765-4DE0-BDC0-BE8856F8921C}
 	EndGlobalSection
 EndGlobal

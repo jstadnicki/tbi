@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CDB7FB28-C97B-4D6E-870C-B07E5BFD6BB6}</ProjectGuid>
+    <ProjectGuid>{806DEA7A-BBD3-4597-9052-5C3913DE2A16}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ToBeImplemented.Infrastructure.Repository</RootNamespace>
-    <AssemblyName>ToBeImplemented.Infrastructure.Repository</AssemblyName>
+    <RootNamespace>ToBeImplemented.Service.Interfaces</RootNamespace>
+    <AssemblyName>ToBeImplemented.Service.Interfaces</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,14 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,8 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IConceptRepository.cs" />
-    <Compile Include="ITBIRepository.cs" />
+    <Compile Include="IConceptService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -55,14 +47,6 @@
       <Project>{360F03E7-7C3B-41E1-BA57-7223681833CB}</Project>
       <Name>ToBeImplemented.Domain.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ToBeImplemented.Infrastructure.EFContext\ToBeImplemented.Infrastructure.EFContext.csproj">
-      <Project>{184B37C5-7F6E-4DD0-98A0-81B75390A405}</Project>
-      <Name>ToBeImplemented.Infrastructure.EFContext</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
