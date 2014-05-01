@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4E4A4B7D-4F0F-4CA1-81E1-AABA321B27A2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ToBeImplemented.Business.Implementations.Tests</RootNamespace>
+    <AssemblyName>ToBeImplemented.Business.Implementations.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Moq">
+      <HintPath>..\..\packages\Moq.4.2.1402.2112\lib\net40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConceptLogicTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Business\ToBeImplemented.Business.Implementations\ToBeImplemented.Business.Implementations.csproj">
+      <Project>{20E46D57-C6B9-4658-9765-86290F62804D}</Project>
+      <Name>ToBeImplemented.Business.Implementations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Business\ToBeImplemented.Business.Interfaces\ToBeImplemented.Business.Interfaces.csproj">
+      <Project>{A5A75736-8C6A-4D09-B4C3-398C68C8FA99}</Project>
+      <Name>ToBeImplemented.Business.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\business\ToBeImplemented.Business.Mapper\ToBeImplemented.Business.Mapper.csproj">
+      <Project>{74E4090B-A7A8-4ECD-8B2E-A32382718F96}</Project>
+      <Name>ToBeImplemented.Business.Mapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\ToBeImplemented.Domain.Model\ToBeImplemented.Domain.Model.csproj">
+      <Project>{360f03e7-7c3b-41e1-ba57-7223681833cb}</Project>
+      <Name>ToBeImplemented.Domain.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\domain\ToBeImplemented.Domain.ViewModel\ToBeImplemented.Domain.ViewModel.csproj">
+      <Project>{e240383f-0c66-41ea-a2bd-847c7a51d6f7}</Project>
+      <Name>ToBeImplemented.Domain.ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Service\ToBeImplemented.Service.Interfaces\ToBeImplemented.Service.Interfaces.csproj">
+      <Project>{806DEA7A-BBD3-4597-9052-5C3913DE2A16}</Project>
+      <Name>ToBeImplemented.Service.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ToBeImplemented.Service.Implementations.Tests\ToBeImplemented.Service.Implementations.Tests.csproj">
+      <Project>{3EA47B3F-7DE4-4253-BCFF-41ADCA7FAA94}</Project>
+      <Name>ToBeImplemented.Service.Implementations.Tests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ToBeImplemented.Tests.ObjectMothers\ToBeImplemented.Tests.ObjectMothers.csproj">
+      <Project>{7738151A-346C-432C-9E99-CCB202D88CB7}</Project>
+      <Name>ToBeImplemented.Tests.ObjectMothers</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

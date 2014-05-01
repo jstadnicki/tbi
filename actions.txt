@@ -30,3 +30,5 @@ tbi/tag/dog
 tbi/tag/cat/order/date
 tbi/tag/fish/order/date/ascending/page/10
 
+/////////////////////////////
+{Action}{Controller}ViewModel

@@ -34,6 +34,29 @@
 
             return Enumerable.Repeat(concept, count).ToList();
         }
+
+        public static Concept Create()
+        {
+            var now = new DateTime(2014, 1, 1);
+            var result = new Concept
+                             {
+                                 Author = null,
+                                 AuthorId = 321,
+                                 Comments = null,
+                                 Created = now,
+                                 Description = "test-concept-description",
+                                 DisplayCount = 3,
+                                 EditCount = 2,
+                                 Id = 3333,
+                                 LastUpdate = now,
+                                 Tags = null,
+                                 Title = "test-concept-title",
+                                 VoteDown = 3,
+                                 VoteUp = 2
+                             };
+
+            return result;
+        }
     }
 
     public class CommentModelFactory
