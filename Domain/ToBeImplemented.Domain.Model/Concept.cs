@@ -22,5 +22,7 @@ namespace ToBeImplemented.Domain.Model
         public long AuthorId { get; set; }
 
         public List<Tag> Tags { get; set; }
+
+        public List<Comment> Comments { get; set; } 
     }
 }

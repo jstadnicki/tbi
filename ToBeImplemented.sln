@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Service.Imp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Tests.ObjectMothers", "test\ToBeImplemented.Tests.ObjectMothers\ToBeImplemented.Tests.ObjectMothers.csproj", "{7738151A-346C-432C-9E99-CCB202D88CB7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Infrastructure.Repository.Tests", "test\ToBeImplemented.Infrastructure.Repository.Tests\ToBeImplemented.Infrastructure.Repository.Tests.csproj", "{91B50B56-939B-4E8D-8419-13C2AD3E4751}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{7738151A-346C-432C-9E99-CCB202D88CB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7738151A-346C-432C-9E99-CCB202D88CB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7738151A-346C-432C-9E99-CCB202D88CB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91B50B56-939B-4E8D-8419-13C2AD3E4751}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91B50B56-939B-4E8D-8419-13C2AD3E4751}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91B50B56-939B-4E8D-8419-13C2AD3E4751}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91B50B56-939B-4E8D-8419-13C2AD3E4751}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,5 +81,6 @@ Global
 		{93BF2DF2-7D34-4164-9A78-6F81487E1CF1} = {69CF5C1E-3B49-4986-A72C-5AB99A2B1498}
 		{3EA47B3F-7DE4-4253-BCFF-41ADCA7FAA94} = {F46DDDC9-8765-4DE0-BDC0-BE8856F8921C}
 		{7738151A-346C-432C-9E99-CCB202D88CB7} = {F46DDDC9-8765-4DE0-BDC0-BE8856F8921C}
+		{91B50B56-939B-4E8D-8419-13C2AD3E4751} = {F46DDDC9-8765-4DE0-BDC0-BE8856F8921C}
 	EndGlobalSection
 EndGlobal

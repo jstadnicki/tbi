@@ -1,5 +1,7 @@
 ﻿namespace ToBeImplemented.Service.Implementations.Tests
 {
+    using System.Linq;
+
     using Moq;
 
     using NUnit.Framework;
@@ -42,6 +44,9 @@
             // assert
             Assert.NotNull(result);
             Assert.AreEqual(4, result.Count);
+            Assert.NotNull(result.ElementAt(3).Author);
+            Assert.NotNull(result.ElementAt(3).Comments);
+            Assert.NotNull(result.ElementAt(3).Tags);
 
             // assert-mock
             this.mockConceptRepository.Verify(x => x.GetAllConceptsWithAllCollections(), Times.Once);
