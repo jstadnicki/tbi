@@ -77,6 +77,17 @@ namespace ToBeImplemented.Infrastructure.EFContext.Migrations
                 .Index(t => t.UserId);
             
             CreateTable(
+                "dbo.PasswordResets",
+                c => new
+                    {
+                        Id = c.Long(nullable: false, identity: true),
+                        Token = c.String(),
+                        UserId = c.Long(nullable: false),
+                        ExpirationTime = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.ConceptsTags",
                 c => new
                     {
@@ -89,39 +100,24 @@ namespace ToBeImplemented.Infrastructure.EFContext.Migrations
                 .Index(t => t.ConceptId)
                 .Index(t => t.TagId);
             
-            CreateTable(
-                "dbo.PasswordResets",
-                c => new
-                    {
-                        Id = c.Long(nullable: false, identity: true),
-                        Token = c.String(),
-                        UserId = c.Long(nullable: false),
-                        ExpirationTime = c.DateTime(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.UserConceptVotes", "UserId", "dbo.Users");
             DropForeignKey("dbo.ConceptsTags", "TagId", "dbo.Tags");
             DropForeignKey("dbo.ConceptsTags", "ConceptId", "dbo.Concepts");
-            DropForeignKey("dbo.UserConceptVotes", "UserId", "dbo.Users");
-            DropForeignKey("dbo.TagConcepts", "Concept_Id", "dbo.Concepts");
-            DropForeignKey("dbo.TagConcepts", "Tag_Id", "dbo.Tags");
             DropForeignKey("dbo.Comments", "ConceptId", "dbo.Concepts");
             DropForeignKey("dbo.Concepts", "AuthorId", "dbo.Users");
             DropForeignKey("dbo.Comments", "AuthorId", "dbo.Users");
-            DropIndex("dbo.TagConcepts", new[] { "Concept_Id" });
-            DropIndex("dbo.TagConcepts", new[] { "Tag_Id" });
             DropIndex("dbo.ConceptsTags", new[] { "TagId" });
             DropIndex("dbo.ConceptsTags", new[] { "ConceptId" });
             DropIndex("dbo.UserConceptVotes", new[] { "UserId" });
             DropIndex("dbo.Concepts", new[] { "AuthorId" });
             DropIndex("dbo.Comments", new[] { "ConceptId" });
             DropIndex("dbo.Comments", new[] { "AuthorId" });
-            DropTable("dbo.TagConcepts");
-            DropTable("dbo.PasswordResets");
             DropTable("dbo.ConceptsTags");
+            DropTable("dbo.PasswordResets");
             DropTable("dbo.UserConceptVotes");
             DropTable("dbo.Tags");
             DropTable("dbo.Concepts");
