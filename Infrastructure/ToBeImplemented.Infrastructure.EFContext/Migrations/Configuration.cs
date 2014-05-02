@@ -17,18 +17,20 @@ namespace ToBeImplemented.Infrastructure.EFContext.Migrations
 
         protected override void Seed(ToBeImplemented.Infrastructure.EFContext.TbiContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            context.Database.Delete();
+            context.Database.Create();
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            var t1 = new Tag { Text = "qwe" };
+            var t2 = new Tag { Text = "lol" };
+            var t3 = new Tag { Text = "zxc" };
+            var t4 = new Tag { Text = "d" };
+            var t5 = new Tag { Text = "flaksj fdoi" };
+            var t6 = new Tag { Text = "poi098 da" };
+            var t7 = new Tag { Text = "asdasd fdoi" };
+            var t8 = new Tag { Text = "a asd j fdoi" };
+
+            context.Tags.AddOrUpdate(tg => tg.Id, t1, t2, t3, t4, t5, t6, t7, t8);
+            context.SaveChanges();
 
             var user = new User
                                {
@@ -60,7 +62,7 @@ Wygenerowano 5 akapitów, 474 s³ów, 3248 bajtów Lorem Ipsum",
                     DisplayCount = 3,
                     EditCount = 0,
                     LastUpdate = DateTime.Now,
-                    Tags = new List<Tag>(),
+                    Tags = new List<Tag> { t1, t2, t3, t4, t5, t6, t7, t8 },
                     Title = "Lorem Ipsum jest tekstem stosowanym jako przyk³adowy wype³niacz w przemyœle poligraficznym. Zosta³ po raz pierwszy u¿yty w XV w. przez nieznanego drukarza do wype³nienia tekstem próbnej ksi¹¿ki",
                     VoteDown = 0,
                     VoteUp = 0,
