@@ -4,6 +4,7 @@ using System.Web.Routing;
 namespace ToBeImplemented.Application.Web
 {
     using ToBeImplemented.Application.Web.TbiDependencyResolver;
+    using ToBeImplemented.Business.Mapper;
 
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -12,6 +13,7 @@ namespace ToBeImplemented.Application.Web
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             TbiAutofacResolver.Initialize();
+            TbiMapper.Initialize();
         }
     }
 }

@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>To be implemented</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-2.1.0.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <meta name="description" content="The description of my page" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <div class="container">
+        @Html.Partial("_Navigation")
+    </div>
+    <div class="container" style="position: relative; top:70px;">
+        @RenderBody()
+    </div>
+</body>
+</html>

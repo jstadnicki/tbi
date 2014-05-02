@@ -5,7 +5,6 @@
     using AutoMapper;
 
     using ToBeImplemented.Business.Interfaces;
-    using ToBeImplemented.Domain.Model;
     using ToBeImplemented.Domain.ViewModel;
     using ToBeImplemented.Service.Interfaces;
 

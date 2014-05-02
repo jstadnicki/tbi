@@ -93,7 +93,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-2.1.0.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.0.js" />
+    <Content Include="Scripts\jquery-2.1.0.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -108,6 +123,10 @@
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Views\Concept\List.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-2.1.0.min.map" />
+    <Content Include="Views\Shared\_Navigation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -123,6 +142,10 @@
     <ProjectReference Include="..\..\Business\ToBeImplemented.Business.Interfaces\ToBeImplemented.Business.Interfaces.csproj">
       <Project>{A5A75736-8C6A-4D09-B4C3-398C68C8FA99}</Project>
       <Name>ToBeImplemented.Business.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\business\ToBeImplemented.Business.Mapper\ToBeImplemented.Business.Mapper.csproj">
+      <Project>{74E4090B-A7A8-4ECD-8B2E-A32382718F96}</Project>
+      <Name>ToBeImplemented.Business.Mapper</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\domain\ToBeImplemented.Domain.ViewModel\ToBeImplemented.Domain.ViewModel.csproj">
       <Project>{E240383F-0C66-41EA-A2BD-847C7A51D6F7}</Project>
