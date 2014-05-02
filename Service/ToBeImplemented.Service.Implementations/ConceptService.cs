@@ -20,5 +20,11 @@
             var result = this.conceptRepository.GetAllConceptsWithAllCollections();
             return result;
         }
+
+        public Concept Details(long id)
+        {
+            var result = this.conceptRepository.Details(id);
+            return result;
+        }
     }
 }

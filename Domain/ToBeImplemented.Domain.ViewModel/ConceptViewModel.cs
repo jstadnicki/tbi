@@ -25,28 +25,4 @@ namespace ToBeImplemented.Domain.ViewModel
 
         public List<CommentViewModel> Comments { get; set; }
     }
-
-    public class CommentViewModel
-    {
-        public long Id { get; set; }
-        public string Text { get; set; }
-
-        public string AuthorDisplayName { get; set; }
-        public long AuthorId { get; set; }
-    }
-
-    public class TagViewModel
-    {
-        public long Id { get; set; }
-        public string Text { get; set; }
-
-        public List<ConceptViewModel> Concepts { get; set; }
-    }
-
-    public class AuthorViewModel
-    {
-        public long Id { get; set; }
-        public string DisplayName { get; set; }
-        public string Email { get; set; }
-    }
 }

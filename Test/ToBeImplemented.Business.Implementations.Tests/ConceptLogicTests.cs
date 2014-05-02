@@ -1,5 +1,6 @@
 ﻿namespace ToBeImplemented.Business.Implementations.Tests
 {
+    using System;
     using System.Linq;
 
     using Moq;
@@ -8,6 +9,8 @@
 
     using ToBeImplemented.Business.Interfaces;
     using ToBeImplemented.Business.Mapper;
+    using ToBeImplemented.Domain.Model;
+    using ToBeImplemented.Domain.ViewModel;
     using ToBeImplemented.Service.Implementations.Tests;
     using ToBeImplemented.Service.Interfaces;
     using ToBeImplemented.Tests.ObjectMothers;
@@ -49,6 +52,41 @@
 
             // assert-mock
             this.mockConceptService.Verify(v => v.GetAllConceptsWithAllCollections(), Times.Once);
+        }
+
+
+        [Test]
+        public void T002_Details_Must_Fetch_All_Concept_Details_All_Comments_Details_From_Service_And_Return_ViewModel_To_Caller()
+        {
+            // arrange
+            long dummyId = 42;
+            var concept = ConceptModelFactory.CreateFull(1).Single();
+
+            // arrange-mock
+            this.mockConceptService.Setup(s => s.Details(It.IsAny<long>())).Returns(concept);
+
+            // act
+            var result = this.sut.Details(dummyId);
+
+            // assert
+            Assert.AreEqual(typeof(ConceptViewModel), result.GetType());
+            Assert.NotNull(result);
+            Assert.NotNull(result.Author);
+            Assert.NotNull(result.Tags);
+            Assert.NotNull(result.Comments);
+            Assert.AreEqual(322, result.Id);
+            Assert.AreEqual("test-concept-title", result.Title);
+            Assert.AreEqual("test-concept-description", result.Description);
+            Assert.AreEqual(new DateTime(2003, 4, 4), result.Created);
+            Assert.AreEqual(new DateTime(2003, 4, 4), result.LastUpdate);
+            Assert.AreEqual(33, result.EditCount);
+            Assert.AreEqual(44, result.VoteUp);
+            Assert.AreEqual(3, result.VoteDown);
+            Assert.AreEqual(43, result.DisplayCount);
+            Assert.AreEqual(99, result.AuthorId);
+
+            // assert-mock
+            this.mockConceptService.Verify(x => x.Details(It.IsAny<long>()), Times.Once);
         }
     }
 }

@@ -1,9 +1,12 @@
 ﻿namespace ToBeImplemented.Infrastructure.Repository.Tests
 {
+    using System;
+    using System.Collections.Generic;
     using System.Linq;
 
     using Moq;
 
+    using ToBeImplemented.Domain.Model;
     using ToBeImplemented.Infrastructure.EFContext;
     using ToBeImplemented.Service.Implementations.Tests;
     using NUnit.Framework;
@@ -46,6 +49,48 @@
             Assert.NotNull(result.ElementAt(0).Author);
             Assert.NotNull(result.ElementAt(0).Comments);
             Assert.NotNull(result.ElementAt(0).Tags);
+
+            // assert-mock
+            this.mockContext.Verify(v => v.Concepts, Times.Once);
+        }
+
+
+        [Test]
+        public void T002_Details_Must_Read_From_Repository_With_All_Navigation_Properties_With_Matching_Id()
+        {
+            // arrange
+            var list = new List<Concept>();
+            list.AddRange(ConceptModelFactory.CreateFull(1));
+            list.AddRange(ConceptModelFactory.CreateFull(1));
+            list.AddRange(ConceptModelFactory.CreateFull(1));
+            list.AddRange(ConceptModelFactory.CreateFull(1));
+            for (int i = 0; i < 4; i++)
+            {
+                list[i].Id = i;
+            }
+
+            // arrange-mock
+            this.mockContext.Setup(s => s.Concepts).Returns(list.AsQueryable);
+
+            // act
+            var result = this.sut.Details(3);
+
+            // assert
+            Assert.AreEqual(typeof(Concept), result.GetType());
+            Assert.NotNull(result);
+            Assert.NotNull(result.Author);
+            Assert.NotNull(result.Tags);
+            Assert.NotNull(result.Comments);
+            Assert.AreEqual(3, result.Id);
+            Assert.AreEqual("test-concept-title", result.Title);
+            Assert.AreEqual("test-concept-description", result.Description);
+            Assert.AreEqual(new DateTime(2003, 4, 4), result.Created);
+            Assert.AreEqual(new DateTime(2003, 4, 4), result.LastUpdate);
+            Assert.AreEqual(33, result.EditCount);
+            Assert.AreEqual(44, result.VoteUp);
+            Assert.AreEqual(3, result.VoteDown);
+            Assert.AreEqual(43, result.DisplayCount);
+            Assert.AreEqual(99, result.AuthorId);
 
             // assert-mock
             this.mockContext.Verify(v => v.Concepts, Times.Once);

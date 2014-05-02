@@ -18,5 +18,11 @@ namespace ToBeImplemented.Application.Web.Controllers
             var viewModel = this.conceptLogic.List();
             return View("List", viewModel);
         }
+
+        public ActionResult Details(long id)
+        {
+            var viewModel = this.conceptLogic.Details(id);
+            return this.View("Details", viewModel);
+        }
     }
 }

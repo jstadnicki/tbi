@@ -25,5 +25,12 @@
             var result = new ListConceptViewModel { Concepts = listofConceptsVm };
             return result;
         }
+
+        public ConceptViewModel Details(long id)
+        {
+            var concept = this.conceptService.Details(id);
+            var result = Mapper.Map<ConceptViewModel>(concept);
+            return result;
+        }
     }
 }

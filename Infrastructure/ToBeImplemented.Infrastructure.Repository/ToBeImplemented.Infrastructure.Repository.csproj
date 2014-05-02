@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConceptRepository.cs" />
     <Compile Include="IConceptRepository.cs" />
     <Compile Include="ITBIRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

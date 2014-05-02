@@ -39,9 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Concept.cs" />
+    <Compile Include="CommentViewModel.cs" />
+    <Compile Include="AuthorViewModel.cs" />
+    <Compile Include="ConceptViewModel.cs" />
     <Compile Include="ListConceptViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TagViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

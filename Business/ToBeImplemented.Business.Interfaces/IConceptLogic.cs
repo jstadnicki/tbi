@@ -5,5 +5,7 @@
     public interface IConceptLogic
     {
         ListConceptViewModel List();
+
+        ConceptViewModel Details(long id);
     }
 }

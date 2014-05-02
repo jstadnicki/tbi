@@ -7,5 +7,7 @@ namespace ToBeImplemented.Service.Interfaces
     public interface IConceptService
     {
         List<Concept> GetAllConceptsWithAllCollections();
+
+        Concept Details(long id);
     }
 }

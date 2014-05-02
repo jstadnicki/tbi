@@ -14,17 +14,18 @@
             var author = UserModelFactory.Create();
             var tag = TagModelFactory.Create();
             var comment = CommentModelFactory.Create();
+            var now = new DateTime(2003, 4, 4);
             var concept = new Concept
                               {
                                   Author = author,
                                   AuthorId = author.Id,
-                                  Created = DateTime.Now,
+                                  Created = now,
                                   Comments = Enumerable.Repeat(comment, 4).ToList(),
                                   Description = "test-concept-description",
                                   DisplayCount = 43,
                                   EditCount = 33,
                                   Id = 322,
-                                  LastUpdate = DateTime.Now,
+                                  LastUpdate = now,
                                   Tags = new List<Tag> { tag },
                                   Title = "test-concept-title",
                                   VoteDown = 3,
