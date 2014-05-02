@@ -18,11 +18,10 @@ namespace ToBeImplemented.Domain.Model
         public long VoteDown { get; set; }
         public long DisplayCount { get; set; }
 
-        public User Author { get; set; }
+        public virtual User Author { get; set; }
         public long AuthorId { get; set; }
 
-        public List<Tag> Tags { get; set; }
-
-        public List<Comment> Comments { get; set; } 
+        public virtual List<Tag> Tags { get; set; }
+        public virtual List<Comment> Comments { get; set; } 
     }
 }

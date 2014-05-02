@@ -23,7 +23,7 @@ namespace ToBeImplemented.Domain.ViewModel
 
         public List<TagViewModel> Tags { get; set; }
 
-        public List<CommentViewModel> Comments { get; set; } 
+        public List<CommentViewModel> Comments { get; set; }
     }
 
     public class CommentViewModel
@@ -39,6 +39,8 @@ namespace ToBeImplemented.Domain.ViewModel
     {
         public long Id { get; set; }
         public string Text { get; set; }
+
+        public List<ConceptViewModel> Concepts { get; set; }
     }
 
     public class AuthorViewModel

@@ -86,6 +86,7 @@ namespace ToBeImplemented.Business.Mapper.Tests
 
             // assert
             Assert.NotNull(result);
+            Assert.NotNull(result.Concepts);
             Assert.AreEqual(331, result.Id);
             Assert.AreEqual("test-tag-text", result.Text);
 

@@ -7,12 +7,12 @@
 
     public interface ITbiContext
     {
-        IQueryable<User> Users { get; set; }
-        IQueryable<Concept> Concepts { get; set; }
-        IQueryable<Comment> Comments { get; set; }
-        IQueryable<Tag> Tags { get; set; }
-        IQueryable<PasswordReset> PasswordResets { get; set; }
-        IQueryable<UserConceptVote> UsersConceptsVotes { get; set; }
+        IQueryable<User> Users { get;  }
+        IQueryable<Concept> Concepts { get;  }
+        IQueryable<Comment> Comments { get;  }
+        IQueryable<Tag> Tags { get; }
+        IQueryable<PasswordReset> PasswordResets { get;  }
+        IQueryable<UserConceptVote> UsersConceptsVotes { get;  }
 
         Task<int> Save();
     }

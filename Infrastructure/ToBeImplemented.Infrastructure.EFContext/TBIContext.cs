@@ -8,16 +8,39 @@
 
     public class TbiContext : DbContext, ITbiContext
     {
-        public IQueryable<User> Users { get; set; }
-        public IQueryable<Concept> Concepts { get; set; }
-        public IQueryable<Comment> Comments { get; set; }
-        public IQueryable<Tag> Tags { get; set; }
-        public IQueryable<PasswordReset> PasswordResets { get; set; }
-        public IQueryable<UserConceptVote> UsersConceptsVotes { get; set; }
+        public TbiContext()
+            : base("tbi")
+        {
+
+        }
+
+        public DbSet<User> Users { get; set; }
+        public DbSet<Concept> Concepts { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<PasswordReset> PasswordResets { get; set; }
+        public DbSet<UserConceptVote> UsersConceptsVotes { get; set; }
+        public DbSet<ConceptsTags> ConceptsTags { get; set; }
+
+        IQueryable<User> ITbiContext.Users
+        { get { return this.Users; } }
+
+        IQueryable<Concept> ITbiContext.Concepts
+        { get { return this.Concepts; } }
+
+        IQueryable<Comment> ITbiContext.Comments
+        { get { return this.Comments; } }
+
+        IQueryable<Tag> ITbiContext.Tags
+        { get { return this.Tags; } }
+
+        IQueryable<PasswordReset> ITbiContext.PasswordResets
+        { get { return this.PasswordResets; } }
+
+        IQueryable<UserConceptVote> ITbiContext.UsersConceptsVotes
+        { get { return this.UsersConceptsVotes; } }
 
         public async Task<int> Save()
-        {
-            return await this.SaveChangesAsync();
-        }
+        { return await this.SaveChangesAsync(); }
     }
 }

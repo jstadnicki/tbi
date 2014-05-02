@@ -10,7 +10,8 @@
         public string Email { get; set; }
         public string PasswordHash { get; set; }
 
-        public List<Concept> Concepts { get; set; }
-        public List<Comment> Comments { get; set; } 
+        public virtual List<Concept> Concepts { get; set; }
+        public virtual List<Comment> Comments { get; set; }
+        public virtual List<UserConceptVote> UserConceptVotes { get; set; }
     }
 }
