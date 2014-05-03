@@ -7,5 +7,9 @@
         ListConceptViewModel List();
 
         ConceptViewModel Details(long id);
+
+        AddConceptViewModel GetAddConceptViewModel();
+
+        long Add(AddConceptViewModel model);
     }
 }

@@ -6,6 +6,7 @@ namespace ToBeImplemented.Business.Mapper.Tests
 
     using NUnit.Framework;
 
+    using ToBeImplemented.Domain.Model;
     using ToBeImplemented.Domain.ViewModel;
     using ToBeImplemented.Service.Implementations.Tests;
     using ToBeImplemented.Tests.ObjectMothers;
@@ -113,6 +114,35 @@ namespace ToBeImplemented.Business.Mapper.Tests
             Assert.AreEqual("test-comment-text", result.Text);
             Assert.AreEqual(new DateTime(1998, 5, 6), result.Created);
 
+            // assert-mock
+        }
+
+
+        [Test]
+        public void T005_Can_Map_From_AddConceptViewModelWithoutTags_To_Concept()
+        {
+            // arrange
+            var source = AddConceptViewModelFactory.CreateValidWithoutTags();
+
+            // arrange-mock
+
+            // act
+            var result = Mapper.Map<Concept>(source);
+
+            // assert
+            Assert.Null(result.Author);
+            Assert.NotNull(result);
+            Assert.NotNull(result.Comments);
+            Assert.NotNull(result.Tags);
+            Assert.AreEqual(44, result.AuthorId);
+            Assert.AreEqual("test-add-concept-view-model-descriptions", result.Description);
+            Assert.AreEqual(0, result.DisplayCount);
+            Assert.AreEqual(0, result.EditCount);
+            Assert.AreEqual(0, result.Id);
+            Assert.AreEqual("test-add-concept-view-model-title", result.Title);
+            Assert.AreEqual(0, result.VoteDown);
+            Assert.AreEqual(0, result.VoteUp);
+            
             // assert-mock
         }
     }

@@ -9,5 +9,7 @@
         List<Concept> GetAllConceptsWithAllCollections();
 
         Concept Details(long id);
+
+        long Add(Concept concept);
     }
 }

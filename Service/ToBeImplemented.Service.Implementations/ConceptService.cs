@@ -26,5 +26,11 @@
             var result = this.conceptRepository.Details(id);
             return result;
         }
+
+        public long Add(Concept concept)
+        {
+            var result = this.conceptRepository.Add(concept);
+            return result;
+        }
     }
 }

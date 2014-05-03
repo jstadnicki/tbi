@@ -88,5 +88,52 @@
             // assert-mock
             this.mockConceptService.Verify(x => x.Details(It.IsAny<long>()), Times.Once);
         }
+
+
+        [Test]
+        public void T003_GetAddConceptViewModel_Must_Create_ViewModel_That_Will_Be_Used_When_Crating_New_Concept()
+        {
+            // arrange
+
+            // arrange-mock
+
+            // act
+            var result = this.sut.GetAddConceptViewModel();
+
+            // assert
+            Assert.NotNull(result);
+            Assert.NotNull(result.AuthorId);
+            Assert.True(string.IsNullOrEmpty(result.Title));
+            Assert.True(string.IsNullOrEmpty(result.Description));
+            Assert.True(string.IsNullOrEmpty(result.Tags));
+
+            // assert-mock
+        }
+
+
+        [Test]
+        public void T004_Add_Must_Convert_To_Model_Setup_Dates_Pass_Model_To_Service_And_Return_Id_Of_Freshly_Added_Entity()
+        {
+            // arrange
+            AddConceptViewModel model = AddConceptViewModelFactory.CreateValidWithoutTags();
+            var now = DateTime.Now;
+
+            // arrange-mock
+            this.mockConceptService.Setup(s => s.Add(It.IsAny<Concept>())).Returns(33);
+
+            // act
+            var result = this.sut.Add(model);
+
+            // assert
+            Assert.AreEqual(33, result);
+
+            // assert-mock
+            this.mockConceptService.Verify(
+                v => v.Add(It.Is<Concept>(
+                    i => 
+                        i.Created >= now && 
+                        i.LastUpdate >= now)),
+                Times.Once());
+        }
     }
 }

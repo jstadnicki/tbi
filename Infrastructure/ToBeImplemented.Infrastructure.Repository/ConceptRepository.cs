@@ -37,5 +37,13 @@
                 .Single(x => x.Id == id);
             return result;
         }
+
+        public long Add(Concept concept)
+        {
+            this.tbiContext.Concepts.Add(concept);
+            this.tbiContext.Save();
+            return concept.Id;
+
+        }
     }
 }

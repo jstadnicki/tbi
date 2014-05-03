@@ -77,7 +77,7 @@
             Assert.AreEqual(322, result.Id);
             Assert.AreEqual("test-concept-title", result.Title);
             Assert.AreEqual("test-concept-description", result.Description);
-            Assert.AreEqual(new DateTime(2003,4,4), result.Created);
+            Assert.AreEqual(new DateTime(2003, 4, 4), result.Created);
             Assert.AreEqual(new DateTime(2003, 4, 4), result.LastUpdate);
             Assert.AreEqual(33, result.EditCount);
             Assert.AreEqual(44, result.VoteUp);
@@ -87,6 +87,26 @@
 
             // assert-mock
             this.mockConceptRepository.Verify(v => v.Details(It.IsAny<long>()), Times.Once);
+        }
+
+
+        [Test]
+        public void T003_Add_Must_Pass_Concept_To_Repository_And_Return_Saved_Id_Value()
+        {
+            // arrange
+            var model = ConceptModelFactory.Create();
+
+            // arrange-mock
+            this.mockConceptRepository.Setup(s => s.Add(It.IsAny<Concept>())).Returns(15);
+
+            // act
+            var result = this.sut.Add(model);
+
+            // assert
+            Assert.AreEqual(15, result);
+
+            // assert-mock
+            this.mockConceptRepository.Verify(v => v.Add(It.IsAny<Concept>()), Times.Once);
         }
     }
 }
