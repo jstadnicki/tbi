@@ -1,5 +1,7 @@
 namespace ToBeImplemented.Domain.ViewModel
 {
+    using System;
+
     public class CommentViewModel
     {
         public long Id { get; set; }
@@ -7,5 +9,7 @@ namespace ToBeImplemented.Domain.ViewModel
 
         public string AuthorDisplayName { get; set; }
         public long AuthorId { get; set; }
+
+        public DateTime Created { get; set; }
     }
 }

@@ -65,7 +65,12 @@
         public static Comment Create()
         {
             var author = UserModelFactory.Create();
-            var result = new Comment { Author = author, AuthorId = author.Id, Id = 99876, Text = "test-comment-text" };
+            var now = new DateTime(1998, 5, 6);
+            var result = new Comment { Author = author,
+                AuthorId = author.Id,
+                Id = 99876, 
+                Created = now,
+                Text = "test-comment-text" };
 
             return result;
         }

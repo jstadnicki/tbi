@@ -111,6 +111,7 @@ namespace ToBeImplemented.Business.Mapper.Tests
             Assert.AreEqual(99, result.AuthorId);
             Assert.AreEqual(99876, result.Id);
             Assert.AreEqual("test-comment-text", result.Text);
+            Assert.AreEqual(new DateTime(1998, 5, 6), result.Created);
 
             // assert-mock
         }
