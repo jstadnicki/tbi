@@ -48,5 +48,19 @@ namespace ToBeImplemented.Application.Web.Controllers
                 return this.View("Add", model);
             }
         }
+
+        [HttpGet]
+        public ActionResult Delete(long id)
+        {
+            var viewModel = this.conceptLogic.GetDeleteViewModel(id);
+            return this.View("Delete", viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(DeleteConceptViewModel model)
+        {
+            this.conceptLogic.Delete(model.Id);
+            return this.RedirectToAction("List", "Concept");
+        }
     }
 }

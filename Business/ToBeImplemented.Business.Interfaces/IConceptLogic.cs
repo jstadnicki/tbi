@@ -11,5 +11,9 @@
         AddConceptViewModel GetAddConceptViewModel();
 
         long Add(AddConceptViewModel model);
+
+        DeleteConceptViewModel GetDeleteViewModel(long id);
+
+        void Delete(long id);
     }
 }

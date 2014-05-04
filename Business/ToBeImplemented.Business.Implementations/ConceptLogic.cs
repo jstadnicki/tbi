@@ -44,11 +44,25 @@
         public long Add(AddConceptViewModel model)
         {
             var concept = Mapper.Map<Concept>(model);
-            var  now = DateTime.Now;
+            var now = DateTime.Now;
             concept.Created = now;
             concept.LastUpdate = now;
             var id = this.conceptService.Add(concept);
             return id;
+        }
+
+        public DeleteConceptViewModel GetDeleteViewModel(long id)
+        {
+            var title = this.conceptService.GetConceptTitle(id);
+            var confirmation = "test-concept-delete-confirmation";
+
+            var result = new DeleteConceptViewModel { Title = title, Confirmation = confirmation, Id = id };
+            return result;
+        }
+
+        public void Delete(long id)
+        {
+            this.conceptService.Delete(id);
         }
     }
 }

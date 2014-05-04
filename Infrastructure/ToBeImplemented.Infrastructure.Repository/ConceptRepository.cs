@@ -44,5 +44,18 @@
             this.tbiContext.Save();
             return concept.Id;
         }
+
+        public string GetConceptTitle(long id)
+        {
+            var result = this.tbiContext.Concepts.Where(x => x.Id == id).Select(x => x.Title).Single();
+            return result;
+        }
+
+        public void Delete(long id)
+        {
+            var concept = this.tbiContext.Concepts.Where(x => x.Id == id).First();
+            this.tbiContext.Concepts.Remove(concept);
+            this.tbiContext.Save();
+        }
     }
 }

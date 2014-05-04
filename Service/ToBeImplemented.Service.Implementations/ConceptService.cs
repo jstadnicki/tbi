@@ -32,5 +32,16 @@
             var result = this.conceptRepository.Add(concept);
             return result;
         }
+
+        public string GetConceptTitle(long id)
+        {
+            var result = this.conceptRepository.GetConceptTitle(id);
+            return result;
+        }
+
+        public void Delete(long id)
+        {
+            this.conceptRepository.Delete(id);
+        }
     }
 }

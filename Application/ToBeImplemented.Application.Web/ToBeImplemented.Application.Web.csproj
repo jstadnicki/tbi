@@ -129,6 +129,7 @@
     <Content Include="Views\Shared\_Navigation.cshtml" />
     <Content Include="Views\Concept\Details.cshtml" />
     <Content Include="Views\Concept\Add.cshtml" />
+    <Content Include="Views\Concept\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

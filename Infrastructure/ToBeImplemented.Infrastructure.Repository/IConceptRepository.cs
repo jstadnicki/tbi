@@ -11,5 +11,9 @@
         Concept Details(long id);
 
         long Add(Concept concept);
+
+        string GetConceptTitle(long id);
+
+        void Delete(long id);
     }
 }

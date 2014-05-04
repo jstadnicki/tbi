@@ -108,5 +108,41 @@
             // assert-mock
             this.mockConceptRepository.Verify(v => v.Add(It.IsAny<Concept>()), Times.Once);
         }
+
+
+        [Test]
+        public void T004_GetConceptTitle_Must_Read_Title_From_Repository_Based_On_Passed_Id_And_Return_It_To_The_Caller()
+        {
+            // arrange
+
+            // arrange-mock
+            this.mockConceptRepository.Setup(s => s.GetConceptTitle(It.IsAny<long>())).Returns("test-concept-title");
+
+            // act
+            var result = this.sut.GetConceptTitle(444);
+
+            // assert
+            Assert.AreEqual("test-concept-title", result);
+
+            // assert-mock
+            this.mockConceptRepository.Verify(x => x.GetConceptTitle(It.IsAny<long>()), Times.Once);
+        }
+
+
+        [Test]
+        public void T005_Delete_Must_Pass_Delete_To_Repository()
+        {
+            // arrange
+
+            // arrange-mock
+
+            // act
+            this.sut.Delete(345);
+
+            // assert
+
+            // assert-mock
+            this.mockConceptRepository.Verify(v => v.Delete(It.Is<long>(vv => vv == 345)), Times.Once);
+        }
     }
 }

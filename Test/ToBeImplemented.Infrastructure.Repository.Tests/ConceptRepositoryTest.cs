@@ -130,5 +130,68 @@
             this.mockContext.Verify(v => v.Concepts, Times.Once);
             this.mockContext.Verify(v => v.Save(), Times.Once);
         }
+
+
+        [Test]
+        public void T004_GetConceptTitle_Must_Fetch_Concept_Based_On_Id_And_Select_Title_Only()
+        {
+            var list = new List<Concept>();
+            list.AddRange(ConceptModelFactory.CreateFull(1));
+            list.AddRange(ConceptModelFactory.CreateFull(1));
+            list.AddRange(ConceptModelFactory.CreateFull(1));
+            list.AddRange(ConceptModelFactory.CreateFull(1));
+            for (int i = 0; i < 4; i++)
+            {
+                list[i].Id = i;
+                list[i].Title = string.Format("test-valid-title-{0}", i);
+            }
+
+            // arrange-mock
+            this.mockContext.Setup(s => s.Concepts.Provider).Returns(list.AsQueryable().Provider);
+            this.mockContext.Setup(s => s.Concepts.Expression).Returns(list.AsQueryable().Expression);
+            this.mockContext.Setup(s => s.Concepts.ElementType).Returns(list.AsQueryable().ElementType);
+            this.mockContext.Setup(s => s.Concepts.GetEnumerator()).Returns(list.AsQueryable().GetEnumerator());
+
+            // act
+            var result = this.sut.GetConceptTitle(2);
+
+            // assert
+            Assert.AreEqual("test-valid-title-2", result);
+
+            // assert-mock
+            this.mockContext.Verify(v => v.Concepts, Times.Once);
+        }
+
+
+        [Test]
+        public void T005_Delete_Must_Delete_From_Context_And_Save_Changes()
+        {
+            // arrange
+            var list = new List<Concept>();
+            list.AddRange(ConceptModelFactory.CreateFull(1));
+            list.AddRange(ConceptModelFactory.CreateFull(1));
+            list.AddRange(ConceptModelFactory.CreateFull(1));
+            list.AddRange(ConceptModelFactory.CreateFull(1));
+            for (int i = 0; i < 4; i++)
+            {
+                list[i].Id = i;
+                list[i].Title = string.Format("test-valid-title-{0}", i);
+            }
+
+            // arrange-mock
+            this.mockContext.Setup(s => s.Concepts.Provider).Returns(list.AsQueryable().Provider);
+            this.mockContext.Setup(s => s.Concepts.Expression).Returns(list.AsQueryable().Expression);
+            this.mockContext.Setup(s => s.Concepts.ElementType).Returns(list.AsQueryable().ElementType);
+            this.mockContext.Setup(s => s.Concepts.GetEnumerator()).Returns(list.AsQueryable().GetEnumerator());
+
+            // act
+            this.sut.Delete(2);
+
+            // assert
+
+            // assert-mock
+            this.mockContext.Verify(v => v.Concepts, Times.Exactly(2));
+            this.mockContext.Verify(v => v.Save(), Times.Once);
+        }
     }
 }

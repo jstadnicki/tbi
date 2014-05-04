@@ -11,5 +11,9 @@ namespace ToBeImplemented.Service.Interfaces
         Concept Details(long id);
 
         long Add(Concept concept);
+
+        string GetConceptTitle(long p);
+
+        void Delete(long id);
     }
 }

@@ -3,6 +3,7 @@ tbi/about
 tbi/contact
 tbi/concept/add
 tbi/concept/edit/321312
+tbi/concept/delete/333
 tbi/concept/list
 tbi/concept/list/order/date
 tbi/concept/list/order/voteup

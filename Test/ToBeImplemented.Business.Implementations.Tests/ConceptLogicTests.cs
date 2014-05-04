@@ -130,10 +130,48 @@
             // assert-mock
             this.mockConceptService.Verify(
                 v => v.Add(It.Is<Concept>(
-                    i => 
-                        i.Created >= now && 
+                    i =>
+                        i.Created >= now &&
                         i.LastUpdate >= now)),
                 Times.Once());
+        }
+
+
+        [Test]
+        public void T005_GetDeleteViewModel_Must_Fetch_Concept_Title_From_Db_Add_Confirmation_Text_And_Return_To_Controller()
+        {
+            // arrange
+
+            // arrange-mock
+            this.mockConceptService.Setup(s => s.GetConceptTitle(It.IsAny<long>())).Returns("test-concept-title");
+
+            // act
+            var result = this.sut.GetDeleteViewModel(333);
+
+            // assert
+            Assert.AreEqual("test-concept-title", result.Title);
+            Assert.AreEqual("test-concept-delete-confirmation", result.Confirmation);
+            Assert.AreEqual(333, result.Id);
+
+            // assert-mock
+            this.mockConceptService.Verify(v => v.GetConceptTitle(It.IsAny<long>()), Times.Once);
+        }
+
+
+        [Test]
+        public void T006_Delete_Must_Call_Service_To_Delete_Concept_With_Proper_Id()
+        {
+            // arrange
+
+            // arrange-mock
+
+            // act
+            this.sut.Delete(3);
+
+            // assert
+
+            // assert-mock
+            this.mockConceptService.Verify(v => v.Delete(It.Is<long>(vv => vv == 3)), Times.Once);
         }
     }
 }
