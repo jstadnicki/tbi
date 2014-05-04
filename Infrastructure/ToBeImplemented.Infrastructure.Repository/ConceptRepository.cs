@@ -43,7 +43,6 @@
             this.tbiContext.Concepts.Add(concept);
             this.tbiContext.Save();
             return concept.Id;
-
         }
     }
 }

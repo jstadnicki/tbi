@@ -1,7 +1,6 @@
 ﻿namespace ToBeImplemented.Infrastructure.EFContext
 {
     using System.Data.Entity;
-    using System.Threading.Tasks;
 
     using ToBeImplemented.Domain.Model;
 
@@ -10,7 +9,6 @@
         public TbiContext()
             : base("tbi")
         {
-
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

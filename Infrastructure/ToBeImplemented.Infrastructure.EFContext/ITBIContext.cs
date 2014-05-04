@@ -1,8 +1,6 @@
 ﻿namespace ToBeImplemented.Infrastructure.EFContext
 {
     using System.Data.Entity;
-    using System.Linq;
-    using System.Threading.Tasks;
 
     using ToBeImplemented.Domain.Model;
 
