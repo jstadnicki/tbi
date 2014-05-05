@@ -45,6 +45,7 @@
     <Compile Include="AuthorViewModel.cs" />
     <Compile Include="ConceptViewModel.cs" />
     <Compile Include="DeleteConceptViewModel.cs" />
+    <Compile Include="EditConceptViewModel.cs" />
     <Compile Include="ListConceptViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TagViewModel.cs" />

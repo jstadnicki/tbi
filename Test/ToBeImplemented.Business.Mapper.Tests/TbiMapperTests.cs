@@ -2,6 +2,9 @@
 
 namespace ToBeImplemented.Business.Mapper.Tests
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
     using AutoMapper;
 
     using NUnit.Framework;
@@ -142,7 +145,71 @@ namespace ToBeImplemented.Business.Mapper.Tests
             Assert.AreEqual("test-add-concept-view-model-title", result.Title);
             Assert.AreEqual(0, result.VoteDown);
             Assert.AreEqual(0, result.VoteUp);
-            
+
+            // assert-mock
+        }
+
+
+        [Test]
+        public void T006_Can_Map_From_Concept_To_EditConceptViewModel()
+        {
+            // arrange
+            var source = ConceptModelFactory.CreateFull(1).Single();
+
+            // arrange-mock
+
+            // act
+            var result = Mapper.Map<EditConceptViewModel>(source);
+
+            // assert
+            Assert.NotNull(result);
+            Assert.NotNull(result.Tags);
+            Assert.AreEqual(322, result.Id);
+            Assert.AreEqual(99, result.AuthorId);
+            Assert.AreEqual("test-concept-description", result.Description);
+            Assert.False(string.IsNullOrWhiteSpace(result.Tags));
+            Assert.True(result.Tags.Contains("test-tag-text"));
+            Assert.AreEqual("test-concept-title", result.Title);
+
+            // assert-mock
+        }
+
+
+        [Test]
+        public void T007_Can_Map_From_Tag_To_String()
+        {
+            // arrange
+            var source = TagModelFactory.Create();
+
+            // arrange-mock
+
+            // act
+            var result = Mapper.Map<string>(source);
+
+            // assert
+            Assert.AreEqual("test-tag-text", result);
+
+            // assert-mock
+        }
+
+        [Test]
+        public void T008_Can_Map_From_List_Of_Tags_To_String_Semicolon_Separated()
+        {
+            // arrange
+            var s1 = TagModelFactory.Create("s");
+            var s2 = TagModelFactory.Create("d");
+            var s3 = TagModelFactory.Create("g");
+
+            var tagsList = new List<Tag> { s1, s2, s3 };
+
+            // arrange-mock
+
+            // act
+            var result = Mapper.Map<string>(tagsList);
+
+            // assert
+            Assert.AreEqual("s;d;g", result);
+
             // assert-mock
         }
     }

@@ -64,5 +64,12 @@
         {
             this.conceptService.Delete(id);
         }
+
+        public EditConceptViewModel GetEditConceptViewModel(long id)
+        {
+            var model = this.conceptService.GetConceptWithTags(id);
+            var viewmodel = Mapper.Map<EditConceptViewModel>(model);
+            return viewmodel;
+        }
     }
 }

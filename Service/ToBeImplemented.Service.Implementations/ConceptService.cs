@@ -43,5 +43,11 @@
         {
             this.conceptRepository.Delete(id);
         }
+
+        public Concept GetConceptWithTags(long id)
+        {
+            var concept = this.conceptRepository.GetConceptWithTags(id);
+            return concept;
+        }
     }
 }

@@ -57,5 +57,11 @@
             this.tbiContext.Concepts.Remove(concept);
             this.tbiContext.Save();
         }
+
+        public Concept GetConceptWithTags(long id)
+        {
+            var concept = this.tbiContext.Concepts.First(x => x.Id == id);
+            return concept;
+        }
     }
 }

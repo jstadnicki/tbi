@@ -130,6 +130,7 @@
     <Content Include="Views\Concept\Details.cshtml" />
     <Content Include="Views\Concept\Add.cshtml" />
     <Content Include="Views\Concept\Delete.cshtml" />
+    <Content Include="Views\Concept\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

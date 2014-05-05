@@ -6,9 +6,9 @@
 
     public class TagModelFactory
     {
-        public static Tag Create()
+        public static Tag Create(string text = "test-tag-text")
         {
-            var result = new Tag { Text = "test-tag-text", Id = 331 , Concepts = new List<Concept>()};
+            var result = new Tag { Text = text, Id = 331, Concepts = new List<Concept>() };
             return result;
         }
     }

@@ -15,5 +15,7 @@
         string GetConceptTitle(long id);
 
         void Delete(long id);
+
+        Concept GetConceptWithTags(long id);
     }
 }

@@ -173,5 +173,31 @@
             // assert-mock
             this.mockConceptService.Verify(v => v.Delete(It.Is<long>(vv => vv == 3)), Times.Once);
         }
+
+
+        [Test]
+        public void T007_GetEditConceptViewModel_Must_Read_Concept_With_Tags_From_Service_Map_To_View_Model_And_Return()
+        {
+            // arrange
+            var concept = ConceptModelFactory.Create();
+            concept.Id = 44;
+            
+            // arrange-mock
+            this.mockConceptService.Setup(s => s.GetConceptWithTags(It.IsAny<long>())).Returns(concept);
+
+            // act
+            var result = this.sut.GetEditConceptViewModel(44);
+
+            // assert
+            Assert.AreEqual(typeof(EditConceptViewModel), result.GetType());
+            Assert.AreEqual(44, result.Id);
+            Assert.AreEqual(321, result.AuthorId);
+            Assert.AreEqual("test-concept-description", result.Description);
+            Assert.IsNull(result.Tags);
+            Assert.AreEqual("test-concept-title", result.Title);
+
+            // assert-mock
+            this.mockConceptService.Verify(v => v.GetConceptWithTags(It.Is<long>(vv => vv == 44)), Times.Once);
+        }
     }
 }

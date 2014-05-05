@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
+    using System.Diagnostics;
     using System.Linq;
 
     using Moq;
@@ -192,6 +193,56 @@
             // assert-mock
             this.mockContext.Verify(v => v.Concepts, Times.Exactly(2));
             this.mockContext.Verify(v => v.Save(), Times.Once);
+        }
+
+
+        [Test]
+        public void T006_GetConceptWithTags_Must_Get_Concept_With_Proper_Id_And_Include_Tags_For_Concept()
+        {
+            // arrange
+            var list = new List<Concept>();
+            list.AddRange(ConceptModelFactory.CreateFull(1));
+            list.AddRange(ConceptModelFactory.CreateFull(1));
+            list.AddRange(ConceptModelFactory.CreateFull(1));
+            list.AddRange(ConceptModelFactory.CreateFull(1));
+            for (int i = 0; i < 4; i++)
+            {
+                list[i].Id = i;
+                list[i].Title = string.Format("test-valid-title-{0}", i);
+            }
+
+            var data = list.AsQueryable();
+
+            // arrange-mock
+            this.mockContext.Setup(s => s.Concepts.Provider).Returns(data.Provider);
+            this.mockContext.Setup(s => s.Concepts.Expression).Returns(data.Expression);
+            this.mockContext.Setup(s => s.Concepts.ElementType).Returns(data.ElementType);
+            this.mockContext.Setup(s => s.Concepts.GetEnumerator()).Returns(data.GetEnumerator());
+
+            // act
+            var result = this.sut.GetConceptWithTags(3);
+
+            // assert
+            Assert.NotNull(result);
+            Assert.NotNull(result.Tags);
+//            Assert.Null(result.Comments);
+//            Assert.Null(result.Author);
+            Assert.AreEqual(3, result.Id);
+            Assert.AreEqual(99, result.AuthorId);
+            Assert.AreEqual(new DateTime(2003, 4, 4), result.Created);
+            Assert.AreEqual("test-concept-description", result.Description);
+            Assert.AreEqual(43, result.DisplayCount);
+            Assert.AreEqual(33, result.EditCount);
+            Assert.AreEqual(new DateTime(2003, 4, 4), result.LastUpdate);
+            Assert.AreEqual("test-tag-text", result.Tags.ElementAt(0).Text);
+            Assert.AreEqual(1, result.Tags.Count);
+            Assert.AreEqual("test-valid-title-3", result.Title);
+            Assert.AreEqual(3, result.VoteDown);
+            Assert.AreEqual(44, result.VoteUp);
+            
+
+            // assert-mock
+            this.mockContext.Verify(v=>v.Concepts, Times.Once);
         }
     }
 }

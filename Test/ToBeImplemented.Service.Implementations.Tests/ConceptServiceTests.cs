@@ -144,5 +144,39 @@
             // assert-mock
             this.mockConceptRepository.Verify(v => v.Delete(It.Is<long>(vv => vv == 345)), Times.Once);
         }
+
+
+        [Test]
+        public void T006_GetConceptWithTags_Must_Fetch_ConceptModel_WithTags_From_Repository_And_Return_To_Caller()
+        {
+            // arrange
+            var concept = ConceptModelFactory.CreateFull(1).Single();
+            concept.Id = 998;
+
+            // arrange-mock
+            this.mockConceptRepository.Setup(s => s.GetConceptWithTags(It.IsAny<long>())).Returns(concept);
+
+            // act
+            var result = this.sut.GetConceptWithTags(998);
+
+            // assert
+            Assert.NotNull(result);
+            Assert.AreEqual(998, result.Id);
+            //            Assert.Null(result.Comments);
+            //            Assert.Null(result.Author);
+            Assert.AreEqual(99, result.AuthorId);
+            Assert.AreEqual(new DateTime(2003, 4, 4), result.Created);
+            Assert.AreEqual("test-concept-description", result.Description);
+            Assert.AreEqual(43, result.DisplayCount);
+            Assert.AreEqual(33, result.EditCount);
+            Assert.AreEqual(new DateTime(2003, 4, 4), result.LastUpdate);
+            Assert.NotNull(result.Tags);
+            Assert.AreEqual("test-concept-title", result.Title);
+            Assert.AreEqual(3, result.VoteDown);
+            Assert.AreEqual(44, result.VoteUp);
+
+            // assert-mock
+            this.mockConceptRepository.Verify(v => v.GetConceptWithTags(It.Is<long>(vv => vv == 998)), Times.Once);
+        }
     }
 }
