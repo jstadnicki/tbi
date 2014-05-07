@@ -1,9 +1,8 @@
 ﻿namespace ToBeImplemented.Domain.ViewModel
 {
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class EditConceptViewModel
+    public class UpdateConceptViewModel
     {
         [Required]
         public long Id { get; set; }

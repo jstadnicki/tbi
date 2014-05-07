@@ -63,5 +63,10 @@
             var concept = this.tbiContext.Concepts.First(x => x.Id == id);
             return concept;
         }
+
+        public void Save()
+        {
+            this.tbiContext.Save();
+        }
     }
 }

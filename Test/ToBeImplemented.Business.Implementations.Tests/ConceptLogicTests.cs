@@ -181,7 +181,7 @@
             // arrange
             var concept = ConceptModelFactory.Create();
             concept.Id = 44;
-            
+
             // arrange-mock
             this.mockConceptService.Setup(s => s.GetConceptWithTags(It.IsAny<long>())).Returns(concept);
 
@@ -189,7 +189,7 @@
             var result = this.sut.GetEditConceptViewModel(44);
 
             // assert
-            Assert.AreEqual(typeof(EditConceptViewModel), result.GetType());
+            Assert.AreEqual(typeof(UpdateConceptViewModel), result.GetType());
             Assert.AreEqual(44, result.Id);
             Assert.AreEqual(321, result.AuthorId);
             Assert.AreEqual("test-concept-description", result.Description);
@@ -198,6 +198,25 @@
 
             // assert-mock
             this.mockConceptService.Verify(v => v.GetConceptWithTags(It.Is<long>(vv => vv == 44)), Times.Once);
+        }
+
+
+        [Test]
+        public void T008_UpdateConcept_Must_Convert_To_Model_And_Pass_It_To_Service_For_Updating_Version_Without_Tags()
+        {
+            // arrange
+            var model = UpdateConceptViewModelFactory.CreateValidWithoutTags();
+
+            // arrange-mock
+            this.mockConceptService.Setup(s => s.UpdateConcept(It.IsAny<UpdateConcept>())).Verifiable();
+
+            // act
+            this.sut.UpdateConcept(model);
+
+            // assert
+
+            // assert-mock
+            this.mockConceptService.Verify(v => v.UpdateConcept(It.Is<UpdateConcept>(r => r.Id == 14)), Times.Once);
         }
     }
 }

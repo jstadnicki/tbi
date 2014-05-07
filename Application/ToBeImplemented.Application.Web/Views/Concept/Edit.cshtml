@@ -1,4 +1,4 @@
-﻿@model ToBeImplemented.Domain.ViewModel.EditConceptViewModel
+﻿@model ToBeImplemented.Domain.ViewModel.UpdateConceptViewModel
 
 <div class="row">
     <form role="form" method="POST">
@@ -15,5 +15,6 @@
             @Html.LabelFor(m => m.Tags)
             @Html.TextBoxFor(m => m.Tags, new { @class = "form-control", placeholder = "semicolon separated" })
         </div>
+        <input type="submit" class="btn pull-right" value="update"/>
     </form>
 </div>

@@ -69,5 +69,16 @@ namespace ToBeImplemented.Application.Web.Controllers
             var viewModel = this.conceptLogic.GetEditConceptViewModel(id);
             return this.View("Edit", viewModel);
         }
+
+        [HttpPost]
+        public ActionResult Edit(UpdateConceptViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                this.conceptLogic.UpdateConcept(model);
+                return this.RedirectToAction("Details", "Concept", new { id = model.Id });
+            }
+            return this.View("Edit", model);
+        }
     }
 }

@@ -91,7 +91,7 @@ namespace ToBeImplemented.Business.Mapper.Tests
             // assert
             Assert.NotNull(result);
             Assert.NotNull(result.Concepts);
-            Assert.AreEqual(331, result.Id);
+            Assert.AreEqual(3, result.Id);
             Assert.AreEqual("test-tag-text", result.Text);
 
             // assert-mock
@@ -159,7 +159,7 @@ namespace ToBeImplemented.Business.Mapper.Tests
             // arrange-mock
 
             // act
-            var result = Mapper.Map<EditConceptViewModel>(source);
+            var result = Mapper.Map<UpdateConceptViewModel>(source);
 
             // assert
             Assert.NotNull(result);
@@ -196,9 +196,9 @@ namespace ToBeImplemented.Business.Mapper.Tests
         public void T008_Can_Map_From_List_Of_Tags_To_String_Semicolon_Separated()
         {
             // arrange
-            var s1 = TagModelFactory.Create("s");
-            var s2 = TagModelFactory.Create("d");
-            var s3 = TagModelFactory.Create("g");
+            var s1 = TagModelFactory.Create(2, "s");
+            var s2 = TagModelFactory.Create(3, "d");
+            var s3 = TagModelFactory.Create(4, "g");
 
             var tagsList = new List<Tag> { s1, s2, s3 };
 
@@ -209,6 +209,75 @@ namespace ToBeImplemented.Business.Mapper.Tests
 
             // assert
             Assert.AreEqual("s;d;g", result);
+
+            // assert-mock
+        }
+
+
+        [Test]
+        public void T009_Can_Map_From_UpdateConceptViewModelWithoutTags_To_UpdateConcept()
+        {
+            // arrange
+            var source = UpdateConceptViewModelFactory.CreateValidWithoutTags();
+
+            // arrange-mock
+
+            // act
+            var result = Mapper.Map<UpdateConcept>(source);
+
+            // assert
+            Assert.AreEqual(14, result.Id);
+            Assert.AreEqual(15, result.AuthorId);
+            Assert.AreEqual("test-edit-concept-description-view-model", result.Description);
+            Assert.NotNull(result.Tags);
+            Assert.AreEqual(0, result.Tags.Count);
+            Assert.AreEqual("test-edit-concept-title-view-model", result.Title);
+
+            // assert-mock
+        }
+
+
+        [Test]
+        public void T010_Can_Map_Tags_Semicolon_Separated_To_List_Of_Strings()
+        {
+            // arrange
+            var source = "tag1;tag2;tag";
+
+            // arrange-mock
+
+            // act
+            var result = Mapper.Map<List<string>>(source);
+
+            // assert
+            Assert.AreEqual(3, result.Count);
+            Assert.AreEqual("tag1", result.ElementAt(0));
+            Assert.AreEqual("tag2", result.ElementAt(1));
+            Assert.AreEqual("tag", result.ElementAt(2));
+
+            // assert-mock
+        }
+
+        [Test]
+        public void T01_Can_Map_From_UpdateConceptViewModelWithTags_To_UpdateConcept()
+        {
+            // arrange
+            var source = UpdateConceptViewModelFactory.CreateWithTags();
+
+            // arrange-mock
+
+            // act
+            var result = Mapper.Map<UpdateConcept>(source);
+
+            // assert
+            Assert.AreEqual(14, result.Id);
+            Assert.AreEqual(15, result.AuthorId);
+            Assert.AreEqual("test-edit-concept-description-view-model", result.Description);
+            Assert.NotNull(result.Tags);
+            Assert.AreEqual(3, result.Tags.Count);
+            Assert.AreEqual("tag", result.Tags.ElementAt(0));
+            Assert.AreEqual("mark", result.Tags.ElementAt(1));
+            Assert.AreEqual("hash", result.Tags.ElementAt(2));
+            Assert.AreEqual("test-edit-concept-title-view-model", result.Title);
 
             // assert-mock
         }

@@ -16,6 +16,8 @@
 
         void Delete(long id);
 
-        EditConceptViewModel GetEditConceptViewModel(long id);
+        UpdateConceptViewModel GetEditConceptViewModel(long id);
+
+        void UpdateConcept(UpdateConceptViewModel model);
     }
 }

@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Threading;
 
     using ToBeImplemented.Domain.Model;
 
@@ -36,7 +35,7 @@
             return Enumerable.Repeat(concept, count).ToList();
         }
 
-        public static Concept Create()
+        public static Concept Create(long id = 3333)
         {
             var now = new DateTime(2014, 1, 1);
             var result = new Concept
@@ -48,7 +47,7 @@
                                  Description = "test-concept-description",
                                  DisplayCount = 3,
                                  EditCount = 2,
-                                 Id = 3333,
+                                 Id = id,
                                  LastUpdate = now,
                                  Tags = null,
                                  Title = "test-concept-title",
@@ -58,19 +57,30 @@
 
             return result;
         }
-    }
 
-    public class CommentModelFactory
-    {
-        public static Comment Create()
+        public static Concept CreateWithTags(long id = 443)
         {
-            var author = UserModelFactory.Create();
-            var now = new DateTime(1998, 5, 6);
-            var result = new Comment { Author = author,
-                AuthorId = author.Id,
-                Id = 99876, 
+            var t1 = TagModelFactory.Create(1, "tag-1");
+            var t2 = TagModelFactory.Create(2, "tag-1");
+            var t3 = TagModelFactory.Create(3, "tag-1");
+
+            var now = new DateTime(2014, 1, 1);
+            var result = new Concept
+            {
+                Author = null,
+                AuthorId = 321,
+                Comments = null,
                 Created = now,
-                Text = "test-comment-text" };
+                Description = "test-concept-description",
+                DisplayCount = 3,
+                EditCount = 2,
+                Id = id,
+                LastUpdate = now,
+                Tags = new List<Tag> { t1, t2, t3 },
+                Title = "test-concept-title",
+                VoteDown = 3,
+                VoteUp = 2
+            };
 
             return result;
         }

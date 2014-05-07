@@ -1,6 +1,7 @@
 ﻿namespace ToBeImplemented.Service.Implementations.Tests
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
 
     using Moq;
@@ -18,6 +19,7 @@
         private IConceptService sut;
 
         private Mock<IConceptRepository> mockConceptRepository;
+        private Mock<ITagRepository> mockTagRepository;
 
         public override void Once()
         {
@@ -27,8 +29,11 @@
         public override void OncePerTest()
         {
             this.mockConceptRepository = new Mock<IConceptRepository>();
-            this.sut = new ConceptService(this.mockConceptRepository.Object);
+            this.mockTagRepository = new Mock<ITagRepository>();
 
+            this.sut = new ConceptService(
+                this.mockConceptRepository.Object,
+                this.mockTagRepository.Object);
         }
 
         [Test]
@@ -177,6 +182,60 @@
 
             // assert-mock
             this.mockConceptRepository.Verify(v => v.GetConceptWithTags(It.Is<long>(vv => vv == 998)), Times.Once);
+        }
+
+
+        [Test]
+        public void T007_UpdateConcept_Must_Fetch_Concept_From_Repository_Update_Based_On_Passed_Model_And_Save_Into_Repository()
+        {
+            // arrange
+            var model = ConceptModelFactory.CreateWithTags(4343);
+            var updateModel = UpdateConceptModelFactory.CreateValidWithoutTags(4343);
+            var tagModel = TagModelFactory.Create(1, "tag");
+            var markModel = TagModelFactory.Create(2, "mark");
+            var conceptModel = TagModelFactory.Create(3, "concept");
+
+
+            // arrange-mock
+            this.mockConceptRepository.Setup(s => s.GetConceptWithTags(It.IsAny<long>())).Returns(model);
+            this.mockTagRepository.Setup(s => s.GetTags(It.IsAny<List<string>>()))
+                .Returns(new List<Tag> { tagModel, markModel, conceptModel });
+
+            // act
+            this.sut.UpdateConcept(updateModel);
+
+            // assert
+
+            // assert-mock
+            this.mockConceptRepository.Verify(v => v.GetConceptWithTags(It.Is<long>(r => r == model.Id)), Times.Once);
+            this.mockConceptRepository.Verify(v => v.Save(), Times.Once);
+        }
+
+
+        [Test]
+        public void T008_Update_Concept_Given_Tag_List_That_Has_New_Tag_Must_Change_The_Tags_Associated_With_Model()
+        {
+            // arrange
+            var model = ConceptModelFactory.CreateWithTags(4343);
+            var updateModel = UpdateConceptModelFactory.CreateWithTags(4343);
+            var tagModel = TagModelFactory.Create(1, "tag");
+            var markModel = TagModelFactory.Create(2, "mark");
+            var conceptModel = TagModelFactory.Create(3, "concept");
+
+            // arrange-mock
+            this.mockConceptRepository.Setup(s => s.GetConceptWithTags(It.IsAny<long>())).Returns(model);
+            this.mockTagRepository.Setup(s => s.GetTags(It.IsAny<List<string>>()))
+                .Returns(new List<Tag> { tagModel, markModel, conceptModel });
+
+            // act
+            this.sut.UpdateConcept(updateModel);
+
+            // assert
+
+            // assert-mock
+            this.mockTagRepository.Verify(x => x.GetTags(It.IsAny<List<string>>()), Times.Once);
+            this.mockConceptRepository.Verify(v => v.GetConceptWithTags(It.Is<long>(r => r == model.Id)), Times.Once);
+            this.mockConceptRepository.Verify(v => v.Save(), Times.Once);
         }
     }
 }

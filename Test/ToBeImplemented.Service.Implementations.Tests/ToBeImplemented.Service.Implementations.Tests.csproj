@@ -57,6 +57,10 @@
       <Project>{360F03E7-7C3B-41E1-BA57-7223681833CB}</Project>
       <Name>ToBeImplemented.Domain.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\domain\ToBeImplemented.Domain.ViewModel\ToBeImplemented.Domain.ViewModel.csproj">
+      <Project>{E240383F-0C66-41EA-A2BD-847C7A51D6F7}</Project>
+      <Name>ToBeImplemented.Domain.ViewModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\ToBeImplemented.Infrastructure.Repository\ToBeImplemented.Infrastructure.Repository.csproj">
       <Project>{CDB7FB28-C97B-4D6E-870C-B07E5BFD6BB6}</Project>
       <Name>ToBeImplemented.Infrastructure.Repository</Name>

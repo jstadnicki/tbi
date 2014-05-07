@@ -80,5 +80,22 @@
             Assert.AreEqual(typeof(ConceptLogic), result.GetType());
             // assert-mock
         }
+
+
+        [Test]
+        public void T004_Registers_Tags_Repository()
+        {
+            // arrange
+
+            // arrange-mock
+
+            // act
+            var result = sut.Resolve<ITagRepository>();
+
+            // assert
+            Assert.NotNull(result);
+            Assert.AreEqual(typeof(TagRepository), result.GetType());
+            // assert-mock
+        }
     }
 }

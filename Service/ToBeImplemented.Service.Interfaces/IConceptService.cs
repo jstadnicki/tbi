@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace ToBeImplemented.Service.Interfaces
+﻿namespace ToBeImplemented.Service.Interfaces
 {
+    using System.Collections.Generic;
+
     using ToBeImplemented.Domain.Model;
 
     public interface IConceptService
@@ -17,5 +17,7 @@ namespace ToBeImplemented.Service.Interfaces
         void Delete(long id);
 
         Concept GetConceptWithTags(long id);
+
+        void UpdateConcept(UpdateConcept concept);
     }
 }

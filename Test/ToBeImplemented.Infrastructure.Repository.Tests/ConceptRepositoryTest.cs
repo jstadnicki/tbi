@@ -225,8 +225,8 @@
             // assert
             Assert.NotNull(result);
             Assert.NotNull(result.Tags);
-//            Assert.Null(result.Comments);
-//            Assert.Null(result.Author);
+            //            Assert.Null(result.Comments);
+            //            Assert.Null(result.Author);
             Assert.AreEqual(3, result.Id);
             Assert.AreEqual(99, result.AuthorId);
             Assert.AreEqual(new DateTime(2003, 4, 4), result.Created);
@@ -239,10 +239,28 @@
             Assert.AreEqual("test-valid-title-3", result.Title);
             Assert.AreEqual(3, result.VoteDown);
             Assert.AreEqual(44, result.VoteUp);
-            
+
 
             // assert-mock
-            this.mockContext.Verify(v=>v.Concepts, Times.Once);
+            this.mockContext.Verify(v => v.Concepts, Times.Once);
+        }
+
+
+        [Test]
+        public void T007_Save_Must_Passed_Save_Command_To_Context()
+        {
+            // arrange
+
+            // arrange-mock
+            this.mockContext.Setup(s => s.Save()).Verifiable();
+
+            // act
+            this.sut.Save();
+
+            // assert
+
+            // assert-mock
+            this.mockContext.Verify(v => v.Save(), Times.Once);
         }
     }
 }

@@ -17,5 +17,7 @@
         void Delete(long id);
 
         Concept GetConceptWithTags(long id);
+
+        void Save();
     }
 }

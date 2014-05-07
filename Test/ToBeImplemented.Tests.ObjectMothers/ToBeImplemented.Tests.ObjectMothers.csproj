@@ -40,9 +40,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddConceptViewModelFactory.cs" />
+    <Compile Include="CommentModelFactory.cs" />
     <Compile Include="ConceptModelFactory.cs" />
+    <Compile Include="UpdateConceptViewModelFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TagModelFactory.cs" />
+    <Compile Include="UpdateConceptModelFactory.cs" />
     <Compile Include="UserModelFactory.cs" />
   </ItemGroup>
   <ItemGroup>
