@@ -9,7 +9,6 @@
 
     using ToBeImplemented.Business.Implementations;
     using ToBeImplemented.Business.Interfaces;
-    using ToBeImplemented.Domain.Model;
     using ToBeImplemented.Infrastructure.EFContext;
     using ToBeImplemented.Infrastructure.Repository;
     using ToBeImplemented.Service.Implementations;
