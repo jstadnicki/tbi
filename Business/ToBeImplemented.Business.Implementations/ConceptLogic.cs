@@ -43,10 +43,7 @@
 
         public long Add(AddConceptViewModel model)
         {
-            var concept = Mapper.Map<Concept>(model);
-            var now = DateTime.Now;
-            concept.Created = now;
-            concept.LastUpdate = now;
+            var concept = Mapper.Map<AddConcept>(model);
             var id = this.conceptService.Add(concept);
             return id;
         }

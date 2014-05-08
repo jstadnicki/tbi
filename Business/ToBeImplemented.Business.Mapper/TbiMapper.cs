@@ -2,6 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Reflection;
+    using System.Runtime.InteropServices;
 
     using ToBeImplemented.Domain.Model;
     using ToBeImplemented.Domain.ViewModel;
@@ -15,12 +17,18 @@
             User2AuthorViewModel();
             Tag2TagViewModel();
             Comment2CommentViewModel();
-            AddConceptViewModel2Concept();
             Concept2EditConceptViewModel();
             Tag2String();
             ListOfTags2StringSemicolonSeparated();
             UpdateConceptViewModel2UpdateConcept();
             StringOfSemicolonSeparated2ListOfStrings();
+            AddConceptViewModel2AddConcept();
+        }
+
+        private static void AddConceptViewModel2AddConcept()
+        {
+            AutoMapper.Mapper.CreateMap<AddConceptViewModel, AddConcept>()
+                .ForMember(x => x.Tags, o => o.NullSubstitute(new List<string>()));
         }
 
         private static void StringOfSemicolonSeparated2ListOfStrings()
@@ -55,7 +63,10 @@
         private static void AddConceptViewModel2Concept()
         {
             AutoMapper.Mapper.CreateMap<AddConceptViewModel, Concept>()
-                .ForMember(d => d.Comments, o => o.UseValue(new List<Comment>()));
+                .ForMember(d => d.Comments, o => o.UseValue(new List<Comment>()))
+                .ForMember(d => d.Tags, o => o.MapFrom(d => d.Tags));
+
+
         }
 
         private static void Comment2CommentViewModel()

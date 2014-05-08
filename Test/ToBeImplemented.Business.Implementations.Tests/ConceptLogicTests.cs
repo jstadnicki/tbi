@@ -116,10 +116,9 @@
         {
             // arrange
             AddConceptViewModel model = AddConceptViewModelFactory.CreateValidWithoutTags();
-            var now = DateTime.Now;
 
             // arrange-mock
-            this.mockConceptService.Setup(s => s.Add(It.IsAny<Concept>())).Returns(33);
+            this.mockConceptService.Setup(s => s.Add(It.IsAny<AddConcept>())).Returns(33);
 
             // act
             var result = this.sut.Add(model);
@@ -128,12 +127,7 @@
             Assert.AreEqual(33, result);
 
             // assert-mock
-            this.mockConceptService.Verify(
-                v => v.Add(It.Is<Concept>(
-                    i =>
-                        i.Created >= now &&
-                        i.LastUpdate >= now)),
-                Times.Once());
+            this.mockConceptService.Verify(v => v.Add(It.IsAny<AddConcept>()), Times.Once);
         }
 
 

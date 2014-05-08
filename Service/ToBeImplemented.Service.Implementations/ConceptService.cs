@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
 
     using ToBeImplemented.Domain.Model;
     using ToBeImplemented.Infrastructure.Repository;
@@ -31,10 +30,22 @@
             return result;
         }
 
-        public long Add(Concept concept)
+        public long Add(AddConcept concept)
         {
-            var result = this.conceptRepository.Add(concept);
-            return result;
+            var tags = this.tagRepository.GetTags(concept.Tags);
+
+            var newConcept = new Concept
+                               {
+                                   AuthorId = concept.AuthorId,
+                                   Description = concept.Description,
+                                   Title = concept.Title,
+                                   Created = DateTime.Now,
+                                   LastUpdate = DateTime.Now,
+                                   Tags = tags
+                               };
+
+            var id = this.conceptRepository.Add(newConcept);
+            return id;
         }
 
         public string GetConceptTitle(long id)

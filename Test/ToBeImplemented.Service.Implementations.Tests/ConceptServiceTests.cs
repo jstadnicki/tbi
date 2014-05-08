@@ -96,10 +96,10 @@
 
 
         [Test]
-        public void T003_Add_Must_Pass_Concept_To_Repository_And_Return_Saved_Id_Value()
+        public void T003_Add_Must_Construct_Concept_From_AddConceptModel_Mark_It_With_Current_Date_Add_Valid_Tags_Based_On_Passed_Model_And_Pass_Concept_To_Repository_And_Return_Saved_Id_Value()
         {
             // arrange
-            var model = ConceptModelFactory.Create();
+            var model = AddConceptModelFactory.CreateWithTags();
 
             // arrange-mock
             this.mockConceptRepository.Setup(s => s.Add(It.IsAny<Concept>())).Returns(15);
@@ -111,6 +111,7 @@
             Assert.AreEqual(15, result);
 
             // assert-mock
+            this.mockTagRepository.Verify(v => v.GetTags(It.IsAny<List<string>>()), Times.Once);
             this.mockConceptRepository.Verify(v => v.Add(It.IsAny<Concept>()), Times.Once);
         }
 
@@ -236,6 +237,22 @@
             this.mockTagRepository.Verify(x => x.GetTags(It.IsAny<List<string>>()), Times.Once);
             this.mockConceptRepository.Verify(v => v.GetConceptWithTags(It.Is<long>(r => r == model.Id)), Times.Once);
             this.mockConceptRepository.Verify(v => v.Save(), Times.Once);
+        }
+    }
+
+    public static class AddConceptModelFactory
+    {
+        public static AddConcept CreateWithTags()
+        {
+            var result = new AddConcept
+                             {
+                                 AuthorId = 99,
+                                 Description = "test-description-add-concept",
+                                 Tags = new List<string> { "tag", "concept", "mark" },
+                                 Title = "test-title-add-concept"
+                             };
+
+            return result;
         }
     }
 }

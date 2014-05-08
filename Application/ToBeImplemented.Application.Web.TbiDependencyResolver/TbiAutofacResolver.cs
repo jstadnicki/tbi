@@ -1,6 +1,5 @@
 ﻿namespace ToBeImplemented.Application.Web.TbiDependencyResolver
 {
-    using System.Collections.Generic;
     using System.Reflection;
     using System.Web.Mvc;
 

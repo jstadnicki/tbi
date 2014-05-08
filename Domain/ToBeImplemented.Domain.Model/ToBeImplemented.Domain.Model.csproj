@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddConcept.cs" />
     <Compile Include="UpdateConcept.cs" />
     <Compile Include="ITbiEntity.cs" />
     <Compile Include="UserConceptVote.cs" />

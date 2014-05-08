@@ -120,36 +120,6 @@ namespace ToBeImplemented.Business.Mapper.Tests
             // assert-mock
         }
 
-
-        [Test]
-        public void T005_Can_Map_From_AddConceptViewModelWithoutTags_To_Concept()
-        {
-            // arrange
-            var source = AddConceptViewModelFactory.CreateValidWithoutTags();
-
-            // arrange-mock
-
-            // act
-            var result = Mapper.Map<Concept>(source);
-
-            // assert
-            Assert.Null(result.Author);
-            Assert.NotNull(result);
-            Assert.NotNull(result.Comments);
-            Assert.NotNull(result.Tags);
-            Assert.AreEqual(44, result.AuthorId);
-            Assert.AreEqual("test-add-concept-view-model-descriptions", result.Description);
-            Assert.AreEqual(0, result.DisplayCount);
-            Assert.AreEqual(0, result.EditCount);
-            Assert.AreEqual(0, result.Id);
-            Assert.AreEqual("test-add-concept-view-model-title", result.Title);
-            Assert.AreEqual(0, result.VoteDown);
-            Assert.AreEqual(0, result.VoteUp);
-
-            // assert-mock
-        }
-
-
         [Test]
         public void T006_Can_Map_From_Concept_To_EditConceptViewModel()
         {
@@ -258,7 +228,7 @@ namespace ToBeImplemented.Business.Mapper.Tests
         }
 
         [Test]
-        public void T01_Can_Map_From_UpdateConceptViewModelWithTags_To_UpdateConcept()
+        public void T011_Can_Map_From_UpdateConceptViewModelWithTags_To_UpdateConcept()
         {
             // arrange
             var source = UpdateConceptViewModelFactory.CreateWithTags();
@@ -279,6 +249,44 @@ namespace ToBeImplemented.Business.Mapper.Tests
             Assert.AreEqual("hash", result.Tags.ElementAt(2));
             Assert.AreEqual("test-edit-concept-title-view-model", result.Title);
 
+            // assert-mock
+        }
+
+        [Test]
+        public void T013_Can_Map_From_AddConceptViewModelWithTags_To_AddConcept()
+        {
+            // arrange
+            var source = AddConceptViewModelFactory.CreateWithTags();
+
+            // arrange-mock
+
+            // act
+            var result = Mapper.Map<AddConcept>(source);
+
+            // assert
+            Assert.AreEqual(44, result.AuthorId);
+            Assert.AreEqual("test-add-concept-view-model-descriptions", result.Description);
+            Assert.AreEqual(3, result.Tags.Count);
+            Assert.AreEqual("test-add-concept-view-model-title", result.Title);
+            // assert-mock
+        }
+
+        [Test]
+        public void T014_Can_Map_From_AddConceptViewModelWithTags_To_AddConcept_When_Tags_Are_Null_Must_Create_Empty_List()
+        {
+            // arrange
+            var source = AddConceptViewModelFactory.CreateWithNullTags();
+
+            // arrange-mock
+
+            // act
+            var result = Mapper.Map<AddConcept>(source);
+
+            // assert
+            Assert.AreEqual(44, result.AuthorId);
+            Assert.AreEqual("test-add-concept-view-model-descriptions", result.Description);
+            Assert.AreEqual(0, result.Tags.Count);
+            Assert.AreEqual("test-add-concept-view-model-title", result.Title);
             // assert-mock
         }
     }

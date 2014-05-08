@@ -10,7 +10,7 @@
 
         Concept Details(long id);
 
-        long Add(Concept concept);
+        long Add(AddConcept concept);
 
         string GetConceptTitle(long id);
 
