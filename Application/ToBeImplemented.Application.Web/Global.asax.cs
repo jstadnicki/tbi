@@ -3,6 +3,8 @@ using System.Web.Routing;
 
 namespace ToBeImplemented.Application.Web
 {
+    using Autofac.Integration.Mvc;
+
     using ToBeImplemented.Application.Web.TbiDependencyResolver;
     using ToBeImplemented.Business.Mapper;
 
@@ -12,7 +14,12 @@ namespace ToBeImplemented.Application.Web
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            TbiAutofacResolver.Initialize();
+            var container = TbiAutofacResolver.Initialize();
+
+            var autofacDependencyResolver = new AutofacDependencyResolver(container);
+            DependencyResolver.SetResolver(autofacDependencyResolver);
+
+
             TbiMapper.Initialize();
         }
     }

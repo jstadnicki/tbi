@@ -165,6 +165,10 @@
       <Project>{806DEA7A-BBD3-4597-9052-5C3913DE2A16}</Project>
       <Name>ToBeImplemented.Service.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ToBeImplemented.Application.Web.TbiDependencyResolver\ToBeImplemented.Application.Web.TbiDependencyResolver.csproj">
+      <Project>{D56133AF-3FC6-4EE8-A9AD-8D6F022179ED}</Project>
+      <Name>ToBeImplemented.Application.Web.TbiDependencyResolver</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

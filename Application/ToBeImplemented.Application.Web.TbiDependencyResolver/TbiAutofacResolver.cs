@@ -5,6 +5,7 @@
 
     using Autofac;
     using Autofac.Integration.Mvc;
+    using Autofac.Integration.WebApi;
 
     using ToBeImplemented.Business.Implementations;
     using ToBeImplemented.Business.Interfaces;
@@ -20,6 +21,7 @@
             var containerBuilder = new ContainerBuilder();
 
             containerBuilder.RegisterControllers(Assembly.GetCallingAssembly());
+            containerBuilder.RegisterApiControllers(Assembly.GetCallingAssembly());
 
             containerBuilder.RegisterType<TbiContext>().As<ITbiContext>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<ConceptRepository>().As<IConceptRepository>();
@@ -29,8 +31,7 @@
 
             var container = containerBuilder.Build();
 
-            var autofacDependencyResolver = new AutofacDependencyResolver(container);
-            DependencyResolver.SetResolver(autofacDependencyResolver);
+            
 
             return container;
         }
