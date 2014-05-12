@@ -27,6 +27,14 @@
             return result;
         }
 
+        public List<Concept> ConceptsOnly()
+        {
+            var result = this.tbiContext.Concepts
+              .ToList();
+
+            return result;
+        }
+
         public Concept Details(long id)
         {
             var result = this.tbiContext
@@ -34,6 +42,14 @@
                 .Include(i => i.Author)
                 .Include(i => i.Comments)
                 .Include(i => i.Tags)
+                .Single(x => x.Id == id);
+            return result;
+        }
+
+        public Concept ConceptOnly(long id)
+        {
+            var result = this.tbiContext
+                .Concepts
                 .Single(x => x.Id == id);
             return result;
         }

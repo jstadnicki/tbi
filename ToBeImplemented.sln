@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30324.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Domain.Model", "Domain\ToBeImplemented.Domain.Model\ToBeImplemented.Domain.Model.csproj", "{360F03E7-7C3B-41E1-BA57-7223681833CB}"
 EndProject
@@ -50,6 +50,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Application.Web.TbiDependencyResolver", "Application\ToBeImplemented.Application.Web.TbiDependencyResolver\ToBeImplemented.Application.Web.TbiDependencyResolver.csproj", "{D56133AF-3FC6-4EE8-A9AD-8D6F022179ED}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MVC", "MVC", "{5DBF6BFD-B63A-4120-80E9-C47CFDE25CBB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{6EC397CB-723D-4E74-9FA3-87C88C498C5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Application.Api", "Application\ToBeImplemented.Application.Api\ToBeImplemented.Application.Api.csproj", "{9C583811-BE67-42D8-B946-50F84DA1FF0E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -125,6 +129,10 @@ Global
 		{D56133AF-3FC6-4EE8-A9AD-8D6F022179ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D56133AF-3FC6-4EE8-A9AD-8D6F022179ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D56133AF-3FC6-4EE8-A9AD-8D6F022179ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C583811-BE67-42D8-B946-50F84DA1FF0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C583811-BE67-42D8-B946-50F84DA1FF0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C583811-BE67-42D8-B946-50F84DA1FF0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C583811-BE67-42D8-B946-50F84DA1FF0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -148,5 +156,7 @@ Global
 		{FC95EA85-6563-4D61-9869-253C7C3CE482} = {F46DDDC9-8765-4DE0-BDC0-BE8856F8921C}
 		{D56133AF-3FC6-4EE8-A9AD-8D6F022179ED} = {5DBF6BFD-B63A-4120-80E9-C47CFDE25CBB}
 		{5DBF6BFD-B63A-4120-80E9-C47CFDE25CBB} = {FDC9479C-BD23-4D2A-9676-D4F7E5145B43}
+		{6EC397CB-723D-4E74-9FA3-87C88C498C5E} = {FDC9479C-BD23-4D2A-9676-D4F7E5145B43}
+		{9C583811-BE67-42D8-B946-50F84DA1FF0E} = {6EC397CB-723D-4E74-9FA3-87C88C498C5E}
 	EndGlobalSection
 EndGlobal

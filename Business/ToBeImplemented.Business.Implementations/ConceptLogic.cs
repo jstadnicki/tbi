@@ -28,9 +28,25 @@
             return result;
         }
 
+        public ListConceptViewModel ConceptsOnly()
+        {
+            var listOfConcepts = this.conceptService.ConceptsOnly();
+            var listofConceptsVm = Mapper.Map<List<ConceptViewModel>>(listOfConcepts);
+
+            var result = new ListConceptViewModel { Concepts = listofConceptsVm };
+            return result;
+        }
+
         public ConceptViewModel Details(long id)
         {
             var concept = this.conceptService.Details(id);
+            var result = Mapper.Map<ConceptViewModel>(concept);
+            return result;
+        }
+
+        public ConceptViewModel ConceptOnly(long id)
+        {
+            var concept = this.conceptService.ConceptOnly(id);
             var result = Mapper.Map<ConceptViewModel>(concept);
             return result;
         }

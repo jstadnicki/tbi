@@ -7,8 +7,10 @@
     public interface IConceptService
     {
         List<Concept> GetAllConceptsWithAllCollections();
+        List<Concept> ConceptsOnly();
 
         Concept Details(long id);
+        Concept ConceptOnly(long id);
 
         long Add(AddConcept concept);
 
@@ -19,5 +21,6 @@
         Concept GetConceptWithTags(long id);
 
         void UpdateConcept(UpdateConcept concept);
+
     }
 }

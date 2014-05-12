@@ -24,9 +24,21 @@
             return result;
         }
 
+        public List<Concept> ConceptsOnly()
+        {
+            var result = this.conceptRepository.ConceptsOnly();
+            return result;
+        }
+
         public Concept Details(long id)
         {
             var result = this.conceptRepository.Details(id);
+            return result;
+        }
+
+        public Concept ConceptOnly(long id)
+        {
+            var result = this.conceptRepository.ConceptOnly(id);
             return result;
         }
 

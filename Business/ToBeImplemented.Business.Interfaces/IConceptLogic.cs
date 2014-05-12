@@ -5,8 +5,10 @@
     public interface IConceptLogic
     {
         ListConceptViewModel List();
+        ListConceptViewModel ConceptsOnly();
 
         ConceptViewModel Details(long id);
+        ConceptViewModel ConceptOnly(long id);
 
         AddConceptViewModel GetAddConceptViewModel();
 
@@ -19,5 +21,6 @@
         UpdateConceptViewModel GetEditConceptViewModel(long id);
 
         void UpdateConcept(UpdateConceptViewModel model);
+
     }
 }

@@ -7,8 +7,10 @@
     public interface IConceptRepository
     {
         List<Concept> GetAllConceptsWithAllCollections();
+        List<Concept> ConceptsOnly();
 
         Concept Details(long id);
+        Concept ConceptOnly(long id);
 
         long Add(Concept concept);
 
@@ -19,5 +21,6 @@
         Concept GetConceptWithTags(long id);
 
         void Save();
+
     }
 }
