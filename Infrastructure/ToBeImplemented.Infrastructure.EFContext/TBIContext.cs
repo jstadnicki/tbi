@@ -9,6 +9,7 @@
         public TbiContext()
             : base("tbi")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

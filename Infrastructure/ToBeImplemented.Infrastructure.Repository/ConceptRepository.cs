@@ -76,7 +76,9 @@
 
         public Concept GetConceptWithTags(long id)
         {
-            var concept = this.tbiContext.Concepts.First(x => x.Id == id);
+            var concept = this.tbiContext.Concepts
+                .Include(x=>x.Tags)
+                .First(x => x.Id == id);
             return concept;
         }
 

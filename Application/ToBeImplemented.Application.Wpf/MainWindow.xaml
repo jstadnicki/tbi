@@ -1,0 +1,31 @@
+﻿<Window x:Class="ToBeImplemented.Application.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" >
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Left">
+            <Button Content="Concepts" Click="ConceptOnClick"></Button>
+            <Button Content="Update" Click="UpdateSelected"></Button>
+        </StackPanel>
+        <DockPanel Dock="Right">
+            <DockPanel>
+                <ScrollViewer DockPanel.Dock="Top">
+                    <ListBox x:Name="conceptList" Background="AliceBlue" Height="400"></ListBox>
+                </ScrollViewer>
+                <ContentPresenter Content="{Binding ElementName=conceptList, Path=SelectedItem}">
+                    <ContentPresenter.ContentTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock x:Name="conceptId" Text="{Binding Id}"></TextBlock>
+                                <TextBlock x:Name="conceptAuthorId" Text="{Binding AuthorId}"></TextBlock>
+                                <TextBox x:Name="conceptTitle" Text="{Binding Title, Mode=TwoWay}"></TextBox>
+                                <TextBox x:Name="conceptDescription" Text="{Binding Description, Mode=TwoWay}"></TextBox>
+                                <Separator Foreground="AntiqueWhite"></Separator>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ContentPresenter.ContentTemplate>
+                </ContentPresenter>
+            </DockPanel>
+        </DockPanel>
+    </DockPanel>
+</Window>
