@@ -6,6 +6,7 @@
     {
         ListConceptViewModel List();
         ListConceptViewModel ConceptsOnly();
+        ListConceptViewModel ConceptsWith(string include);
 
         ConceptViewModel Details(long id);
         ConceptViewModel ConceptOnly(long id);

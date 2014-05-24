@@ -1,0 +1,41 @@
+﻿<div class="row" ng-controller="ConceptDetailsController" ng-init="init()">
+    <div class="row">
+        <div ng-click="delete()" class="btn btn-danger btn-xs pull-right">delete</div>
+        <div ng-click="edit()" class="btn btn-warning btn-xs pull-right">edit</div>
+    </div>
+    <div class="row">
+        <div class="row">
+            <div class="col-md-12">{{concept.Title}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-1">{{concept.DisplayCount}}</div>
+            <div class="col-md-1">{{concept.VoteDown}}</div>
+            <div class="col-md-1">{{concept.VoteUp}}</div>
+            <div class="col-md-2 col-lg-offset-5 text-right">{{concept.Created}}</div>
+            <div class="col-md-2 text-right">{{concept.Author.DisplayName}}</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{concept.Description}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-lg-offset-2">
+            <!--            @foreach (var comment in @Model.Comments)-->
+            <!--            {-->
+            <!--            <div class="row">-->
+            <!--                <div class="row">-->
+            <!--                    @comment.Text-->
+            <!--                </div>-->
+            <!--                <div class="row col-md-2 col-lg-offset-8">-->
+            <!--                    @comment.Created-->
+            <!--                </div>-->
+            <!--                <div class="row col-md-2 ">-->
+            <!--                    @comment.AuthorDisplayName-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            }-->
+        </div>
+    </div>
+</div>

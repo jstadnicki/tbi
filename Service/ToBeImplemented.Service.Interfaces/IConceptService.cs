@@ -8,6 +8,7 @@
     {
         List<Concept> GetAllConceptsWithAllCollections();
         List<Concept> ConceptsOnly();
+        List<Concept> ConceptsWithProperties(IEnumerable<string> propertiesList);
 
         Concept Details(long id);
         Concept ConceptOnly(long id);
@@ -21,6 +22,7 @@
         Concept GetConceptWithTags(long id);
 
         void UpdateConcept(UpdateConcept concept);
+
 
     }
 }

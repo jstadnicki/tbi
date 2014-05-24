@@ -30,6 +30,12 @@
             return result;
         }
 
+        public List<Concept> ConceptsWithProperties(IEnumerable<string> propertiesList)
+        {
+            var result = this.conceptRepository.ConceptsWithProperties(propertiesList);
+            return result;
+        }
+
         public Concept Details(long id)
         {
             var result = this.conceptRepository.Details(id);

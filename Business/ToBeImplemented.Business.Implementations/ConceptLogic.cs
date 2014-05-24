@@ -51,6 +51,15 @@
             return result;
         }
 
+        public ListConceptViewModel ConceptsWith(string include)
+        {
+            var propertiesList = include.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            var list = this.conceptService.ConceptsWithProperties(propertiesList);
+            var listofConceptsVm = Mapper.Map<List<ConceptViewModel>>(list);
+            var result = new ListConceptViewModel { Concepts = listofConceptsVm };
+            return result;
+        }
+
         public AddConceptViewModel GetAddConceptViewModel()
         {
             var result = new AddConceptViewModel { AuthorId = 1, };

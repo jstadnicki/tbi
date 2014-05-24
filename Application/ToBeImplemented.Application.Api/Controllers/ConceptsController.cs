@@ -22,9 +22,9 @@ namespace ToBeImplemented.Application.Api.Controllers
         }
 
         [System.Web.Http.HttpGet]
-        public JsonResult Get()
+        public JsonResult Get(string include = "")
         {
-            var viewModel = this.conceptLogic.ConceptsOnly();
+            var viewModel = this.conceptLogic.ConceptsWith(include);
             var json = JsonConvert.SerializeObject(viewModel);
             var result = new JsonResult { Data = json, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
 

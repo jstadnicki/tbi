@@ -35,6 +35,18 @@
             return result;
         }
 
+        public List<Concept> ConceptsWithProperties(IEnumerable<string> propertiesList)
+        {
+            var c = this.tbiContext.Concepts;
+            IQueryable<Concept> x = c.AsQueryable();
+            foreach (var property in propertiesList)
+            {
+                x = x.Include(property);
+            }
+            var result = x.ToList();
+            return result;
+        }
+
         public Concept Details(long id)
         {
             var result = this.tbiContext
@@ -77,7 +89,7 @@
         public Concept GetConceptWithTags(long id)
         {
             var concept = this.tbiContext.Concepts
-                .Include(x=>x.Tags)
+                .Include(x => x.Tags)
                 .First(x => x.Id == id);
             return concept;
         }
