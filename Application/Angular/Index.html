@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="ToBeImplemented">
+<head>
+    <title></title>
+    <script src="scripts/jquery-2.1.1.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
+    <script src="scripts/bootstrap.js"></script>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    <script>
+        angular.module('ToBeImplemented', ['ngRoute'])
+            .config(function ($routeProvider) {
+                $routeProvider
+                    .when('/about', {
+                        templateUrl: '/Application/Views/About/about.html',
+                        controller: 'AboutController'
+                    })
+                    .otherwise({
+                        templateUrl: '/Application/Views/Concepts/list.html'
+                    });
+            });
+    </script>
+    <script src="application/controllers/ListController.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div ng-include="'/Application/Views/Navigation.html'"></div>
+    </div>
+
+    <div class="container" style="position: relative; top:70px;" ng-view>
+    </div>
+</body>
+</html>

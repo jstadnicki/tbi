@@ -3,7 +3,7 @@
 namespace ToBeImplemented.Application.Api.Controllers
 {
     using System.Linq;
-    using System.Web.Http.Results;
+    using System.Web.Http.Cors;
     using System.Web.Mvc;
 
     using Newtonsoft.Json;
@@ -11,11 +11,12 @@ namespace ToBeImplemented.Application.Api.Controllers
     using ToBeImplemented.Business.Interfaces;
     using ToBeImplemented.Domain.ViewModel;
 
-    public class ConceptController : ApiController
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    public class ConceptsController : ApiController
     {
         private readonly IConceptLogic conceptLogic;
 
-        public ConceptController(IConceptLogic conceptLogic)
+        public ConceptsController(IConceptLogic conceptLogic)
         {
             this.conceptLogic = conceptLogic;
         }
@@ -26,6 +27,7 @@ namespace ToBeImplemented.Application.Api.Controllers
             var viewModel = this.conceptLogic.ConceptsOnly();
             var json = JsonConvert.SerializeObject(viewModel);
             var result = new JsonResult { Data = json, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+
             return result;
         }
 
