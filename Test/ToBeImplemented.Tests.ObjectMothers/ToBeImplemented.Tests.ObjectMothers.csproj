@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddConceptModelFactory.cs" />
     <Compile Include="AddConceptViewModelFactory.cs" />
     <Compile Include="CommentModelFactory.cs" />
     <Compile Include="ConceptModelFactory.cs" />

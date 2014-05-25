@@ -238,21 +238,71 @@
             this.mockConceptRepository.Verify(v => v.GetConceptWithTags(It.Is<long>(r => r == model.Id)), Times.Once);
             this.mockConceptRepository.Verify(v => v.Save(), Times.Once);
         }
-    }
 
-    public static class AddConceptModelFactory
-    {
-        public static AddConcept CreateWithTags()
+
+        [Test]
+        public void T009_ConceptsOnly_Must_Call_To_Repository_And_Return_Result()
         {
-            var result = new AddConcept
-                             {
-                                 AuthorId = 99,
-                                 Description = "test-description-add-concept",
-                                 Tags = new List<string> { "tag", "concept", "mark" },
-                                 Title = "test-title-add-concept"
-                             };
+            // arrange
 
-            return result;
+            // arrange-mock
+            this.mockConceptRepository.Setup(s => s.ConceptsOnly()).Returns(Enumerable.Empty<Concept>().ToList());
+
+            // act
+            var result = this.sut.ConceptsOnly();
+
+            // assert
+            Assert.NotNull(result);
+            Assert.AreEqual(typeof(List<Concept>), result.GetType());
+
+            // assert-mock
+            this.mockConceptRepository.Verify(v => v.ConceptsOnly(), Times.Once);
+        }
+
+
+        [Test]
+        public void T010_ConceptsWithProperties_Must_Pass_Params_To_Repository_And_Return_Result()
+        {
+            // arrange
+
+            // arrange-mock
+            this.mockConceptRepository.Setup(s => s.ConceptsWithProperties(It.IsAny<IEnumerable<string>>()))
+                .Returns(Enumerable.Empty<Concept>().ToList());
+
+            // act
+            var result = this.sut.ConceptsWithProperties(new[] { "A", "B" });
+
+            // assert
+            Assert.NotNull(result);
+            Assert.AreEqual(typeof(List<Concept>), result.GetType());
+
+            // assert-mock
+            this.mockConceptRepository.Verify(
+                v =>
+                v.ConceptsWithProperties(
+                    It.Is<IEnumerable<string>>(r => r.Count() == 2 && r.Contains("A") && r.Contains("B"))),
+                Times.Once);
+        }
+
+
+        [Test]
+        public void T011_ConceptOnly_Must_Call_For_Concept_Only_And_Return_Result()
+        {
+            // arrange
+            var stub = ConceptModelFactory.Create(33);
+
+            // arrange-mock
+            this.mockConceptRepository.Setup(s => s.ConceptOnly(It.IsAny<long>())).Returns(stub);
+
+            // act
+            var result = this.sut.ConceptOnly(33);
+
+            // assert
+            Assert.NotNull(result);
+            Assert.AreEqual(typeof(Concept), result.GetType());
+
+            // assert-mock
+            this.mockConceptRepository.Verify(v => v.ConceptOnly(It.IsAny<long>()), Times.Once);
         }
     }
 }

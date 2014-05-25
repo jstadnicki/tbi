@@ -1,6 +1,8 @@
 ﻿namespace ToBeImplemented.Business.Implementations.Tests
 {
     using System;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     using Moq;
@@ -211,6 +213,129 @@
 
             // assert-mock
             this.mockConceptService.Verify(v => v.UpdateConcept(It.Is<UpdateConcept>(r => r.Id == 14)), Times.Once);
+        }
+
+
+        [Test]
+        public void T009_ConceptsOnly_Must_Fetch_Concepts_Only_From_Service_And_Return_ViewModel()
+        {
+            // arrange
+
+            // arrange-mock
+            this.mockConceptService.Setup(s => s.ConceptsOnly()).Returns(Enumerable.Empty<Concept>().ToList());
+
+            // act
+            var result = this.sut.ConceptsOnly();
+
+            // assert
+            Assert.NotNull(result);
+            Assert.AreEqual(typeof(ListConceptViewModel), result.GetType());
+
+            // assert-mock
+            this.mockConceptService.Verify(v => v.ConceptsOnly(), Times.Once);
+        }
+
+
+        [Test]
+        public void T010_ConceptOnly_Must_Fetch_Only_Concept_From_Service_And_Return_ViewModel()
+        {
+            // arrange
+            var stub = ConceptModelFactory.Create(42);
+
+            // arrange-mock
+            this.mockConceptService.Setup(s => s.ConceptOnly(It.IsAny<long>())).Returns(stub);
+
+            // act
+            var result = this.sut.ConceptOnly(42);
+
+            // assert
+            Assert.NotNull(result);
+            Assert.AreEqual(typeof(ConceptViewModel), result.GetType());
+
+            // assert-mock
+            this.mockConceptService.Verify(v => v.ConceptOnly(It.IsAny<long>()), Times.Once);
+        }
+
+
+        [Test]
+        public void T011_ConceptsWith_Must_Split_String_Using_Colon_As_Separator_And_Return_View_Model_As_A_Result()
+        {
+            // arrange
+
+            // arrange-mock
+            this.mockConceptService.Setup(s => s.ConceptsWithProperties(It.IsAny<IEnumerable<string>>()))
+                .Returns(Enumerable.Empty<Concept>().ToList());
+
+            // act
+            var result = this.sut.ConceptsWith("A,B,C");
+
+            // assert
+            Assert.NotNull(result);
+            Assert.AreEqual(typeof(ListConceptViewModel), result.GetType());
+
+            // assert-mock
+            this.mockConceptService.Verify(v => v.ConceptsWithProperties(It.Is<IEnumerable<string>>(
+                r =>
+
+                        r.Count() == 3 &&
+                        r.Contains("A") &&
+                        r.Contains("B") &&
+                        r.Contains("C")
+                    )), Times.Once);
+        }
+
+        [Test]
+        public void T012_ConceptsWith_Must_Split_String_Using_Colon_As_Separator_Empty_Includes_Must_Be_Ignored_And_Return_View_Model_As_A_Result()
+        {
+            // arrange
+
+            // arrange-mock
+            this.mockConceptService.Setup(s => s.ConceptsWithProperties(It.IsAny<IEnumerable<string>>()))
+                .Returns(Enumerable.Empty<Concept>().ToList());
+
+            // act
+            var result = this.sut.ConceptsWith("A,B,,,C");
+
+            // assert
+            Assert.NotNull(result);
+            Assert.AreEqual(typeof(ListConceptViewModel), result.GetType());
+
+            // assert-mock
+            this.mockConceptService.Verify(v => v.ConceptsWithProperties(It.Is<IEnumerable<string>>(
+                r =>
+
+                        r.Count() == 3 &&
+                        r.Contains("A") &&
+                        r.Contains("B") &&
+                        r.Contains("C")
+                    )), Times.Once);
+        }
+
+        [Test]
+        public void T013_ConceptsWith_Must_Split_String_Using_Colon_As_Separator_Navigation_Properties_Using_Dot_Must_Be_Preserved_And_Return_View_Model_As_A_Result()
+        {
+            // arrange
+
+            // arrange-mock
+            this.mockConceptService.Setup(s => s.ConceptsWithProperties(It.IsAny<IEnumerable<string>>()))
+                .Returns(Enumerable.Empty<Concept>().ToList());
+
+            // act
+            var result = this.sut.ConceptsWith("A.a,B,,,C");
+
+            // assert
+            Assert.NotNull(result);
+            Assert.AreEqual(typeof(ListConceptViewModel), result.GetType());
+
+            // assert-mock
+            this.mockConceptService.Verify(v => v.ConceptsWithProperties(It.Is<IEnumerable<string>>(
+                r =>
+
+                        r.Count() == 3 &&
+                        r.Contains("A.a") &&
+                        r.Contains("B") &&
+                        r.Contains("C")
+                    )), Times.Once);
         }
     }
 }
