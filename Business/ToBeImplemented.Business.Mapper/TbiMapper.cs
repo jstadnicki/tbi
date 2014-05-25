@@ -60,15 +60,6 @@
             AutoMapper.Mapper.CreateMap<Concept, UpdateConceptViewModel>();
         }
 
-        private static void AddConceptViewModel2Concept()
-        {
-            AutoMapper.Mapper.CreateMap<AddConceptViewModel, Concept>()
-                .ForMember(d => d.Comments, o => o.UseValue(new List<Comment>()))
-                .ForMember(d => d.Tags, o => o.MapFrom(d => d.Tags));
-
-
-        }
-
         private static void Comment2CommentViewModel()
         {
             AutoMapper.Mapper.CreateMap<Comment, CommentViewModel>();
