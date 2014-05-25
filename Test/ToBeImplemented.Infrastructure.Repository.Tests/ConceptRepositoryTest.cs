@@ -41,9 +41,6 @@
             var concepts = ConceptModelFactory.CreateFull(2).AsQueryable();
 
             // arrange-mock
-            //            this.mockContext.Setup(x => x.Concepts.Provider).Returns(concepts.Provider);
-            //            this.mockContext.Setup(x => x.Concepts.Expression).Returns(concepts.Expression);
-            //            this.mockContext.Setup(x => x.Concepts.ElementType).Returns(concepts.ElementType);
             this.mockContext.Setup(x => x.Concepts.GetEnumerator()).Returns(concepts.GetEnumerator());
 
             // act
@@ -261,6 +258,82 @@
 
             // assert-mock
             this.mockContext.Verify(v => v.Save(), Times.Once);
+        }
+
+
+        [Test]
+        public void T008_ConceptOnly_Calls_To_Context_And_Returns_Return()
+        {
+            // arrange
+            var stub = ConceptModelFactory.CreateFull(3);
+
+            // arrange-mock
+            this.mockContext.Setup(s => s.Concepts.GetEnumerator()).Returns(stub.GetEnumerator());
+
+            // act
+            var result = this.sut.ConceptsOnly();
+
+            // assert
+            Assert.NotNull(result);
+            Assert.AreEqual(typeof(List<Concept>), result.GetType());
+
+            // assert-mock
+            this.mockContext.Verify(v => v.Concepts, Times.Once);
+        }
+
+
+        [Test]
+        public void T009_ConceptsWithProperties_Must_Call_For_Concepts_From_Context_And_Ask_For_Additional_Properties_From_Passed_In_Argument_And_Return_Result_()
+        {
+            // arrange
+            var stub = ConceptModelFactory.CreateFull(3).AsQueryable();
+
+            // arrange-mock
+            this.mockContext.Setup(s => s.Concepts.GetEnumerator()).Returns(stub.GetEnumerator());
+            this.mockContext.Setup(s => s.Concepts.Provider).Returns(stub.Provider);
+            this.mockContext.Setup(s => s.Concepts.Expression).Returns(stub.Expression);
+            this.mockContext.Setup(s => s.Concepts.ElementType).Returns(stub.ElementType);
+            //            this.mockContext.Setup(s => s.Concepts.Include(It.IsAny<string>())).Returns<string>(stub.Include);
+
+            // act
+            var result = this.sut.ConceptsWithProperties(new[] { "a", "b" });
+
+            // assert
+            Assert.NotNull(result);
+            Assert.AreEqual(typeof(List<Concept>), result.GetType());
+
+            // assert-mock
+            this.mockContext.Verify(v => v.Concepts, Times.Once);
+            //            this.mockContext.Verify(v => v.Concepts.Include(It.Is<string>(r => r == "a")));
+            //            this.mockContext.Verify(v => v.Concepts.Include(It.Is<string>(r => r == "b")));
+        }
+
+
+        [Test]
+        public void T010_ConceptOnly_Must_Call_For_Concepts_From_Context_And_Return_Without_Additional_Properties()
+        {
+            // arrange
+            var list = ConceptModelFactory.CreateFull(1);
+
+            list[0].Id = 2;
+
+            var stub = list.AsQueryable();
+
+            // arrange-mock
+            this.mockContext.Setup(s => s.Concepts.GetEnumerator()).Returns(stub.GetEnumerator());
+            this.mockContext.Setup(s => s.Concepts.Provider).Returns(stub.Provider);
+            this.mockContext.Setup(s => s.Concepts.Expression).Returns(stub.Expression);
+            this.mockContext.Setup(s => s.Concepts.ElementType).Returns(stub.ElementType);
+
+            // act
+            var result = this.sut.ConceptOnly(2);
+
+            // assert
+            Assert.NotNull(result);
+            Assert.AreEqual(typeof(Concept), result.GetType());
+
+            // assert-mock
+            this.mockContext.Verify(v => v.Concepts, Times.Once);
         }
     }
 }
