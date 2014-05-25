@@ -27,8 +27,10 @@ angular.module('ToBeImplemented')
                 .error(function (data) {
                     $scope.error = data;
                 });
-        }
+        };
 
-        $scope.edit = function () { }
+        $scope.edit = function () {
+            $location.path('/concepts/edit/' + $scope.data.id);
+        };
 
     });

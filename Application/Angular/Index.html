@@ -16,17 +16,23 @@
                         templateUrl: '/Application/Views/About/about.html',
                         controller: 'AboutController'
                     })
-                    .when('/concept/:id', {
+                    .when('/concepts/:id', {
                         templateUrl: '/Application/Views/Concepts/details.html',
                         controller: 'ConceptDetailsController'
+                    })
+                    .when('/concepts/edit/:id', {
+                        templateUrl: '/Application/Views/Concepts/edit.html',
+                        controller:'EditConceptController'
                     })
                     .otherwise({
                         templateUrl: '/Application/Views/Concepts/list.html'
                     });
             });
     </script>
+    <script src="application/controllers/AboutController.js"></script>
     <script src="application/controllers/ListController.js"></script>
     <script src="application/controllers/ConceptDetailsController.js"></script>
+    <script src="application/controllers/EditConceptController.js"></script>
 </head>
 <body>
     <div class="container">

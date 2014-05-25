@@ -35,3 +35,7 @@ tbi/tag/fish/order/date/ascending/page/10
 {Action}{Controller}ViewModel
 
 // test
+
+
+//webapi
+/tbi/concepts?include='authors,tags'

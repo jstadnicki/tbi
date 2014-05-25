@@ -1,7 +1,7 @@
 ﻿<div class="row" ng-controller="ConceptDetailsController" ng-init="init()">
     <div class="row">
         <div ng-click="delete()" class="btn btn-danger btn-xs pull-right">delete</div>
-        <div ng-click="edit()" class="btn btn-warning btn-xs pull-right">edit</div>
+        <a href='#/concepts/edit/{{concept.Id}}' class="btn btn-warning btn-xs pull-right">edit</a>
     </div>
     <div class="row">
         <div class="row">
