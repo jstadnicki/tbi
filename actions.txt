@@ -39,3 +39,8 @@ tbi/tag/fish/order/date/ascending/page/10
 
 //webapi
 /tbi/concepts?include='authors,tags'
+
+
+//angular
+/tbi/concepts/details/1
+/tbi/concepts/add

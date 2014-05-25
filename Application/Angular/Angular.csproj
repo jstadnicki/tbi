@@ -57,8 +57,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="application\controllers\AddConceptController.js" />
     <Content Include="application\controllers\EditConceptController.js" />
     <Content Include="application\controllers\ConceptDetailsController.js" />
+    <Content Include="application\Views\Concepts\add.html" />
     <Content Include="application\Views\Concepts\details.html" />
     <Content Include="application\Views\Concepts\edit.html" />
     <Content Include="scripts\angular.min.js.map" />
