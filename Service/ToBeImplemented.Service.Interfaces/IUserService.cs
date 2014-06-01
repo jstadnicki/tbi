@@ -5,6 +5,6 @@
 
     public interface IUserService
     {
-        User RegisterUser(RegisterUser isAny);
+        long RegisterUser(RegisterUser isAny);
     }
 }

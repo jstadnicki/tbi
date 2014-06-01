@@ -33,6 +33,22 @@ namespace ToBeImplemented.Business.Mapper.Tests
             /* empty on purpose */
         }
 
+
+        [Test]
+        public void T000()
+        {
+            // arrange
+
+            // arrange-mock
+
+            // act
+            Mapper.AssertConfigurationIsValid();
+
+            // assert
+
+            // assert-mock
+        }
+
         [Test]
         public void T001_Can_Map_Concept_To_ConceptViewModel_Must_Map_Null_Collections_To_Empty_Collections()
         {
@@ -335,6 +351,24 @@ namespace ToBeImplemented.Business.Mapper.Tests
             // assert
             Assert.AreEqual(typeof(User), result.GetType());
             Assert.AreEqual(0, result.Id);
+
+            // assert-mock
+        }
+
+
+        [Test]
+        public void T017_Can_Map_From_User_To_UserProfileViewModel()
+        {
+            // arrange
+            var source = UserModelFactory.Create();
+            // arrange-mock
+
+            // act
+            var result = Mapper.Map<UserProfileViewModel>(source);
+
+            // assert
+            Assert.NotNull(result);
+            Assert.AreEqual(typeof(User), result.GetType());
 
             // assert-mock
         }

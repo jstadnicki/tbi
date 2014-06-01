@@ -135,6 +135,7 @@
     <Content Include="Views\Concepts\Delete.cshtml" />
     <Content Include="Views\Concepts\Edit.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Views\User\Profile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

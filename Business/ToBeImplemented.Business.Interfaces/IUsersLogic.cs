@@ -6,6 +6,6 @@
     public interface IUsersLogic
     {
         RegisterUserViewModel GetRegisterViewModel();
-        UserViewModel RegisterUser(RegisterUserViewModel model);
+        UserProfileViewModel RegisterUser(RegisterUserViewModel model);
     }
 }

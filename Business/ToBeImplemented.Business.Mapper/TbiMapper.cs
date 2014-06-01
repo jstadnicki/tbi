@@ -27,6 +27,12 @@
             AddConceptViewModel2AddConcept();
             RegisterUserViewModel2RegisterUser();
             RegisterUser2User();
+            User2UserProfileViewModel();
+        }
+
+        private static void User2UserProfileViewModel()
+        {
+            AutoMapper.Mapper.CreateMap<User, UserProfileViewModel>();
         }
 
         private static void RegisterUser2User()

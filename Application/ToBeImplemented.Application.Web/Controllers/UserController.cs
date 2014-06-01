@@ -28,7 +28,7 @@
             if (this.ModelState.IsValid)
             {
                 this.usersLogic.RegisterUser(model);
-                return this.RedirectToAction("About", "User", new { id = model.DisplayName });
+                return this.RedirectToAction("Profile", "User", new { id = model.DisplayName });
             }
             else
             {
@@ -38,9 +38,10 @@
         }
 
         [HttpGet]
-        public ActionResult About(string id)
+        public ActionResult Profile(string id)
         {
-            throw new System.NotImplementedException();
+            var model = new UserProfileViewModel() { DisplayName = id };
+            return this.View("Profile", model);
         }
     }
 }

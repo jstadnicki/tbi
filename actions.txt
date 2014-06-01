@@ -25,6 +25,7 @@ tbi/user/register
 tbi/user/login
 tbi/user/me
 tbi/user/profile/user-login
+tbi/user/profile/displayName
 tbi/user/resetpassword
 
 tbi/tag/dog
