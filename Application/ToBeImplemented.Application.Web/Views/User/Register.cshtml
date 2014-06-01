@@ -1,8 +1,9 @@
-﻿@model ToBeImplemented.Domain.ViewModel.RegisterUserViewModel
+﻿@model ToBeImplemented.Domain.ViewModel.Users.RegisterUserViewModel
 
 <div class="row">
     <form role="form" method="POST">
         @Html.HiddenFor(m => m.ChallengeType)
+        @Html.HiddenFor(m => m.SecurityChallengeText)
         <div class="form-group">
             @Html.LabelFor(x => x.DisplayName)
             @Html.ValidationMessageFor(x => x.DisplayName)

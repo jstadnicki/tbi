@@ -19,11 +19,9 @@ namespace ToBeImplemented.Domain.ViewModel.Users
         [Required]
         public string Email { get; set; }
 
-        [Required]
         public string SecurityChallengeText { get; set; }
 
         [Required]
-        [Compare("SecurityChallengeText")]
         public string SecurityResult { get; set; }
 
         public ChallengeType ChallengeType { get; set; }

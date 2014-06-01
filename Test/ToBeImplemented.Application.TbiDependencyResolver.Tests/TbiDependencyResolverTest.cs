@@ -189,5 +189,23 @@
 
             // assert-mock
         }
+
+
+        [Test]
+        public void T008_Registers_UserRepository()
+        {
+            // arrange
+
+            // arrange-mock
+
+            // act
+            var result = sut.Resolve<IUserRepository>();
+
+            // assert
+            Assert.NotNull(result);
+            Assert.AreEqual(typeof(UserRepository), result.GetType());
+
+            // assert-mock
+        }
     }
 }

@@ -1,5 +1,10 @@
 namespace ToBeImplemented.Service.Implementations
 {
+    using System;
+    using System.Linq;
+    using System.Text;
+
+    using ToBeImplemented.Domain.Model;
     using ToBeImplemented.Domain.ViewModel;
     using ToBeImplemented.Infrastructure.Interfaces.Adapters;
     using ToBeImplemented.Service.Interfaces;
@@ -31,9 +36,72 @@ namespace ToBeImplemented.Service.Implementations
             return result;
         }
 
-        public bool IsChallengeValid(string p1, string p2, ChallengeType challengeType)
+        public bool IsChallengeValid(string challenge, string userInput, ChallengeType challengeType)
         {
-            throw new System.NotImplementedException();
+            string expected;
+            switch (challengeType)
+            {
+                case ChallengeType.CharactersOnly:
+                    expected = this.GetCharactesOnly(challenge);
+                    break;
+                case ChallengeType.EvenNumbers:
+                    expected = this.GetEvenNumber(challenge);
+                    break;
+                case ChallengeType.OddNumbers:
+                    expected = this.GetOddNumbers(challenge);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("challengeType");
+            }
+            return expected.ToLower() == userInput.ToLower();
+        }
+
+        private string GetOddNumbers(string challenge)
+        {
+            StringBuilder sb = new StringBuilder();
+            challenge.ToList().ForEach(
+                x =>
+                {
+                    if (char.IsDigit(x))
+                    {
+                        if (int.Parse(x.ToString()) % 2 != 0)
+                        {
+                            sb.Append(x);
+                        }
+                    }
+                });
+            return sb.ToString();
+        }
+
+        private string GetEvenNumber(string challenge)
+        {
+            StringBuilder sb = new StringBuilder();
+            challenge.ToList().ForEach(
+                x =>
+                {
+                    if (char.IsDigit(x))
+                    {
+                        if (int.Parse(x.ToString()) % 2 == 0)
+                        {
+                            sb.Append(x);
+                        }
+                    }
+                });
+            return sb.ToString();
+        }
+
+        private string GetCharactesOnly(string challenge)
+        {
+            StringBuilder sb = new StringBuilder();
+            challenge.ToList().ForEach(
+                x =>
+                {
+                    if (char.IsLetter(x))
+                    {
+                        sb.Append(x);
+                    }
+                });
+            return sb.ToString();
         }
     }
 }

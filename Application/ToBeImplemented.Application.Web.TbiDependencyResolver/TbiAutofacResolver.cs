@@ -30,6 +30,7 @@
             containerBuilder.RegisterType<TbiContext>().As<ITbiContext>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<ConceptRepository>().As<IConceptRepository>();
             containerBuilder.RegisterType<TagRepository>().As<ITagRepository>();
+            containerBuilder.RegisterType<UserRepository>().As<IUserRepository>();
             
             containerBuilder.RegisterType<ConceptService>().As<IConceptService>();
             containerBuilder.RegisterType<UserService>().As<IUserService>();

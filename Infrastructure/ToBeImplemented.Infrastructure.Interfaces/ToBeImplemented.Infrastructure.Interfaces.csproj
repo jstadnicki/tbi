@@ -44,6 +44,7 @@
     <Compile Include="Adapters\IGuidAdapter.cs" />
     <Compile Include="ITagRepository.cs" />
     <Compile Include="ITBIRepository.cs" />
+    <Compile Include="IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -2,8 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Data.Entity;
-    using System.Diagnostics;
     using System.Linq;
 
     using Moq;
@@ -14,7 +12,6 @@
     using ToBeImplemented.Service.Implementations.Tests;
     using NUnit.Framework;
 
-    using ToBeImplemented.Tests.ObjectMothers;
     using ToBeImplemented.Tests.ObjectMothers.Concepts;
 
     [TestFixture]

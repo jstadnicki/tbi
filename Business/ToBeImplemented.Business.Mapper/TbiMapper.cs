@@ -26,6 +26,12 @@
             StringOfSemicolonSeparated2ListOfStrings();
             AddConceptViewModel2AddConcept();
             RegisterUserViewModel2RegisterUser();
+            RegisterUser2User();
+        }
+
+        private static void RegisterUser2User()
+        {
+            AutoMapper.Mapper.CreateMap<RegisterUser, User>().ForMember(x => x.Id, o => o.UseValue(0));
         }
 
         private static void RegisterUserViewModel2RegisterUser()

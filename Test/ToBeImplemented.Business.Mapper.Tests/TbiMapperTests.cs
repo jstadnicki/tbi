@@ -4,6 +4,7 @@ namespace ToBeImplemented.Business.Mapper.Tests
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Runtime.Remoting;
 
     using AutoMapper;
 
@@ -315,6 +316,25 @@ namespace ToBeImplemented.Business.Mapper.Tests
             Assert.AreEqual("ruvm-test-email", result.Email);
             Assert.AreEqual("ruvm-test-login-name", result.Login);
             Assert.AreEqual(string.Empty, result.PasswordHash);
+
+            // assert-mock
+        }
+
+
+        [Test]
+        public void T016_Can_Map_From_RegisterUser_To_User()
+        {
+            // arrange
+            var source = RegisterUserModelFactory.CreateValid();
+
+            // arrange-mock
+
+            // act
+            var result = Mapper.Map<User>(source);
+
+            // assert
+            Assert.AreEqual(typeof(User), result.GetType());
+            Assert.AreEqual(0, result.Id);
 
             // assert-mock
         }

@@ -108,5 +108,103 @@
             // assert-mock
             this.mockGuidAdapter.Verify(v => v.NewGuid(), Times.Once);
         }
+
+
+        [Test]
+        public void T005_Is_ChallengeValid_Must_Return_True_When_Passing_Only_Odd_Number_And_Challenge_Is_OddType()
+        {
+            // arrange
+
+            // arrange-mock
+
+            // act
+            var result = this.sut.IsChallengeValid("1234asd", "24", ChallengeType.EvenNumbers);
+
+            // assert
+            Assert.True(result);
+
+            // assert-mock
+        }
+
+        [Test]
+        public void T006_Is_ChallengeValid_Must_Return_False_When_Passing_Only_Odd_Number_And_Challenge_Is_Not_OddType()
+        {
+            // arrange
+
+            // arrange-mock
+
+            // act
+            var result = this.sut.IsChallengeValid("1234asd", "24", ChallengeType.OddNumbers);
+
+            // assert
+            Assert.False(result);
+
+            // assert-mock
+        }
+
+
+        [Test]
+        public void T007_Is_ChallengeValid_Must_Return_True_When_Entering_EvenNumber_And_Is_Of_Type_Odd()
+        {
+            // arrange
+
+            // arrange-mock
+
+            // act
+            var result = this.sut.IsChallengeValid("12a34a34sd", "133", ChallengeType.OddNumbers);
+
+            // assert
+            Assert.True(result);
+
+            // assert-mock
+        }
+
+        [Test]
+        public void T008_Is_ChallengeValid_Must_Return_False_When_Entering_EvenNumber_And_Is_Not_Of_Type_Odd()
+        {
+            // arrange
+
+            // arrange-mock
+
+            // act
+            var result = this.sut.IsChallengeValid("12a34a34sd", "133", ChallengeType.EvenNumbers);
+
+            // assert
+            Assert.False(result);
+
+            // assert-mock
+        }
+
+        [Test]
+        public void T009_Is_ChallengeValid_Must_Return_True_When_Entering_Characters_And_Challenge_Is_Characters()
+        {
+            // arrange
+
+            // arrange-mock
+
+            // act
+            var result = this.sut.IsChallengeValid("12a34a34sd", "aasd", ChallengeType.CharactersOnly);
+
+            // assert
+            Assert.True(result);
+
+            // assert-mock
+        }
+
+        [Test]
+        public void T010_Is_ChallengeValid_Must_Return_False_When_Entering_Characters_And_Challenge_Is_Characters()
+        {
+            // arrange
+
+            // arrange-mock
+
+            // act
+            var result = this.sut.IsChallengeValid("12a34a34sd", "24", ChallengeType.OddNumbers);
+
+            // assert
+            Assert.False(result);
+
+            // assert-mock
+        }
     }
 }
