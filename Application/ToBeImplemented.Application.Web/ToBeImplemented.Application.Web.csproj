@@ -115,7 +115,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\ConceptController.cs" />
+    <Compile Include="Controllers\ConceptsController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -124,15 +125,16 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <Content Include="Views\Concept\List.cshtml" />
+    <Content Include="Views\Concepts\List.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-2.1.0.min.map" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
-    <Content Include="Views\Concept\Details.cshtml" />
-    <Content Include="Views\Concept\Add.cshtml" />
-    <Content Include="Views\Concept\Delete.cshtml" />
-    <Content Include="Views\Concept\Edit.cshtml" />
+    <Content Include="Views\Concepts\Details.cshtml" />
+    <Content Include="Views\Concepts\Add.cshtml" />
+    <Content Include="Views\Concepts\Delete.cshtml" />
+    <Content Include="Views\Concepts\Edit.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -152,6 +154,10 @@
     <ProjectReference Include="..\..\business\ToBeImplemented.Business.Mapper\ToBeImplemented.Business.Mapper.csproj">
       <Project>{74E4090B-A7A8-4ECD-8B2E-A32382718F96}</Project>
       <Name>ToBeImplemented.Business.Mapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\ToBeImplemented.Domain.Model\ToBeImplemented.Domain.Model.csproj">
+      <Project>{360F03E7-7C3B-41E1-BA57-7223681833CB}</Project>
+      <Name>ToBeImplemented.Domain.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\domain\ToBeImplemented.Domain.ViewModel\ToBeImplemented.Domain.ViewModel.csproj">
       <Project>{E240383F-0C66-41EA-A2BD-847C7A51D6F7}</Project>

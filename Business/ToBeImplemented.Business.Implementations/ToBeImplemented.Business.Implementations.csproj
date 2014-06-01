@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="ConceptLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsersLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Domain\ToBeImplemented.Domain.Model\ToBeImplemented.Domain.Model.csproj">
@@ -64,6 +65,10 @@
     <ProjectReference Include="..\ToBeImplemented.Business.Interfaces\ToBeImplemented.Business.Interfaces.csproj">
       <Project>{A5A75736-8C6A-4D09-B4C3-398C68C8FA99}</Project>
       <Name>ToBeImplemented.Business.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ToBeImplemented.Business.Mapper\ToBeImplemented.Business.Mapper.csproj">
+      <Project>{74E4090B-A7A8-4ECD-8B2E-A32382718F96}</Project>
+      <Name>ToBeImplemented.Business.Mapper</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

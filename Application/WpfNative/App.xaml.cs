@@ -8,6 +8,7 @@ namespace WpfNative
     using ToBeImplemented.Business.Interfaces;
     using ToBeImplemented.Business.Mapper;
     using ToBeImplemented.Infrastructure.EFContext;
+    using ToBeImplemented.Infrastructure.Interfaces;
     using ToBeImplemented.Infrastructure.Repository;
     using ToBeImplemented.Service.Implementations;
     using ToBeImplemented.Service.Interfaces;

@@ -9,9 +9,11 @@
     using NUnit.Framework;
 
     using ToBeImplemented.Domain.Model;
+    using ToBeImplemented.Infrastructure.Interfaces;
     using ToBeImplemented.Infrastructure.Repository;
     using ToBeImplemented.Service.Interfaces;
     using ToBeImplemented.Tests.ObjectMothers;
+    using ToBeImplemented.Tests.ObjectMothers.Concepts;
 
     [TestFixture]
     public class ConceptServiceTests : TbiBaseTest

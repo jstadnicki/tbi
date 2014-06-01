@@ -1,0 +1,41 @@
+﻿@model ToBeImplemented.Domain.ViewModel.Concepts.ListConceptViewModel
+
+<div class="row">
+    @foreach (var c in Model.Concepts)
+    {
+        <div class="thumbnail col-md-3">
+            <div class="row">
+                <div class="col-md-4">@c.Created</div>
+                <div class="col-md-8 text-right">
+                    <a href="#">@c.Author.DisplayName</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <em>
+                        <a href=@Url.Action("Details", "Concepts", new { id = c.Id })>@c.Title</a>
+                    </em>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @c.Description
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">@c.DisplayCount</div>
+                <div class="col-md-3">@c.VoteUp</div>
+                <div class="col-md-3">@c.VoteDown</div>
+                <div class="col-md-3">@c.Comments.Count</div>
+            </div>
+            <div class="row">
+                @foreach (var tag in c.Tags)
+                {
+                    <span class="col-md-1" style="text-transform: uppercase;font-size: 0.75em;overflow: hidden">
+                        <a href="#">@tag.Text</a>
+                    </span>
+                }
+            </div>
+        </div>
+    }
+</div>

@@ -13,9 +13,11 @@
     using ToBeImplemented.Business.Mapper;
     using ToBeImplemented.Domain.Model;
     using ToBeImplemented.Domain.ViewModel;
+    using ToBeImplemented.Domain.ViewModel.Concepts;
     using ToBeImplemented.Service.Implementations.Tests;
     using ToBeImplemented.Service.Interfaces;
     using ToBeImplemented.Tests.ObjectMothers;
+    using ToBeImplemented.Tests.ObjectMothers.Concepts;
 
     [TestFixture]
     public class ConceptLogicTests : TbiBaseTest

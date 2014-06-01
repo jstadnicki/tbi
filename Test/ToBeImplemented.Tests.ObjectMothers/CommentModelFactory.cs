@@ -3,6 +3,7 @@ namespace ToBeImplemented.Tests.ObjectMothers
     using System;
 
     using ToBeImplemented.Domain.Model;
+    using ToBeImplemented.Tests.ObjectMothers.Users;
 
     public class CommentModelFactory
     {

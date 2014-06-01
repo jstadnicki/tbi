@@ -39,15 +39,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddConceptModelFactory.cs" />
-    <Compile Include="AddConceptViewModelFactory.cs" />
+    <Compile Include="Concepts\AddConceptModelFactory.cs" />
+    <Compile Include="Concepts\AddConceptViewModelFactory.cs" />
     <Compile Include="CommentModelFactory.cs" />
-    <Compile Include="ConceptModelFactory.cs" />
-    <Compile Include="UpdateConceptViewModelFactory.cs" />
+    <Compile Include="Concepts\ConceptModelFactory.cs" />
+    <Compile Include="RegisterUserViewModelFactory.cs" />
+    <Compile Include="Concepts\UpdateConceptViewModelFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TagModelFactory.cs" />
-    <Compile Include="UpdateConceptModelFactory.cs" />
-    <Compile Include="UserModelFactory.cs" />
+    <Compile Include="Concepts\UpdateConceptModelFactory.cs" />
+    <Compile Include="Users\UserModelFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Domain\ToBeImplemented.Domain.Model\ToBeImplemented.Domain.Model.csproj">

@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="ConceptServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecurityChallengeProviderTests.cs" />
     <Compile Include="TbiBaseTest.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +61,10 @@
     <ProjectReference Include="..\..\domain\ToBeImplemented.Domain.ViewModel\ToBeImplemented.Domain.ViewModel.csproj">
       <Project>{E240383F-0C66-41EA-A2BD-847C7A51D6F7}</Project>
       <Name>ToBeImplemented.Domain.ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\ToBeImplemented.Infrastructure.Interfaces\ToBeImplemented.Infrastructure.Interfaces.csproj">
+      <Project>{CA7A85AF-D23F-4C21-A9B2-287F4C2DD3D6}</Project>
+      <Name>ToBeImplemented.Infrastructure.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\ToBeImplemented.Infrastructure.Repository\ToBeImplemented.Infrastructure.Repository.csproj">
       <Project>{CDB7FB28-C97B-4D6E-870C-B07E5BFD6BB6}</Project>

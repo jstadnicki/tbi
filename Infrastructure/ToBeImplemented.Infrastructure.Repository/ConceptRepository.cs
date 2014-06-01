@@ -6,6 +6,7 @@
 
     using ToBeImplemented.Domain.Model;
     using ToBeImplemented.Infrastructure.EFContext;
+    using ToBeImplemented.Infrastructure.Interfaces;
 
     public class ConceptRepository : IConceptRepository
     {

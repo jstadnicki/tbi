@@ -2,12 +2,14 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Reflection;
-    using System.Runtime.InteropServices;
 
     using ToBeImplemented.Domain.Model;
+    using ToBeImplemented.Domain.Model.Users;
     using ToBeImplemented.Domain.ViewModel;
     using System.Linq;
+
+    using ToBeImplemented.Domain.ViewModel.Concepts;
+    using ToBeImplemented.Domain.ViewModel.Users;
 
     public class TbiMapper
     {
@@ -23,6 +25,13 @@
             UpdateConceptViewModel2UpdateConcept();
             StringOfSemicolonSeparated2ListOfStrings();
             AddConceptViewModel2AddConcept();
+            RegisterUserViewModel2RegisterUser();
+        }
+
+        private static void RegisterUserViewModel2RegisterUser()
+        {
+            AutoMapper.Mapper.CreateMap<RegisterUserViewModel, RegisterUser>()
+                .ForMember(x => x.PasswordHash, o => o.UseValue(string.Empty));
         }
 
         private static void AddConceptViewModel2AddConcept()

@@ -1,0 +1,20 @@
+﻿@model ToBeImplemented.Domain.ViewModel.Concepts.UpdateConceptViewModel
+
+<div class="row">
+    <form role="form" method="POST">
+        @Html.HiddenFor(m => m.AuthorId)
+        <div class="form-group">
+            @Html.LabelFor(m => m.Title)
+            @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Description)
+            @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Tags)
+            @Html.TextBoxFor(m => m.Tags, new { @class = "form-control", placeholder = "semicolon separated" })
+        </div>
+        <input type="submit" class="btn pull-right" value="update"/>
+    </form>
+</div>

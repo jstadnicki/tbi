@@ -5,6 +5,7 @@ namespace WpfNative
 {
     using ToBeImplemented.Business.Interfaces;
     using ToBeImplemented.Domain.ViewModel;
+    using ToBeImplemented.Domain.ViewModel.Concepts;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml

@@ -8,6 +8,9 @@
     using ToBeImplemented.Application.Web.TbiDependencyResolver;
     using ToBeImplemented.Business.Implementations;
     using ToBeImplemented.Business.Interfaces;
+    using ToBeImplemented.Infrastructure.Adapters;
+    using ToBeImplemented.Infrastructure.Interfaces;
+    using ToBeImplemented.Infrastructure.Interfaces.Adapters;
     using ToBeImplemented.Infrastructure.Repository;
     using ToBeImplemented.Service.Implementations;
     using ToBeImplemented.Service.Implementations.Tests;
@@ -95,6 +98,95 @@
             // assert
             Assert.NotNull(result);
             Assert.AreEqual(typeof(TagRepository), result.GetType());
+
+            // assert-mock
+        }
+
+
+        [Test]
+        public void T005_Registers_DateTime_Adapter()
+        {
+            // arrange
+
+            // arrange-mock
+
+            // act
+            var result = sut.Resolve<IDateTimeAdapter>();
+
+            // assert
+            Assert.NotNull(result);
+            Assert.AreEqual(typeof(DateTimeAdapter), result.GetType());
+
+            // assert-mock
+        }
+
+
+        [Test]
+        public void T006_Registers_Guid_Adapter()
+        {
+            // arrange
+
+            // arrange-mock
+
+            // act
+            var result = sut.Resolve<IGuidAdapter>();
+
+            // assert
+            Assert.NotNull(result);
+            Assert.AreEqual(typeof(GuidAdapter), result.GetType());
+
+            // assert-mock
+        }
+
+        [Test]
+        public void T006_Registers_Users_Logic()
+        {
+            // arrange
+
+            // arrange-mock
+
+            // act
+            var result = sut.Resolve<IUsersLogic>();
+
+            // assert
+            Assert.NotNull(result);
+            Assert.AreEqual(typeof(UsersLogic), result.GetType());
+
+            // assert-mock
+        }
+
+        [Test]
+        public void T006_Registers_SecurityChallengeProvider()
+        {
+            // arrange
+
+            // arrange-mock
+
+            // act
+            var result = sut.Resolve<ISecurityChallengeProvider>();
+
+            // assert
+            Assert.NotNull(result);
+            Assert.AreEqual(typeof(SimpleSecurityChallengeProvider), result.GetType());
+
+            // assert-mock
+        }
+
+
+        [Test]
+        public void T007_Registers_UserService()
+        {
+            // arrange
+
+            // arrange-mock
+
+            // act
+            var result = sut.Resolve<IUserService>();
+
+            // assert
+            Assert.NotNull(result);
+            Assert.AreEqual(typeof(UserService), result.GetType());
+
             // assert-mock
         }
     }

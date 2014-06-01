@@ -1,5 +1,6 @@
 ﻿namespace ToBeImplemented.Application.Web.TbiDependencyResolver
 {
+    using System;
     using System.Reflection;
     using System.Web.Mvc;
 
@@ -9,7 +10,10 @@
 
     using ToBeImplemented.Business.Implementations;
     using ToBeImplemented.Business.Interfaces;
+    using ToBeImplemented.Infrastructure.Adapters;
     using ToBeImplemented.Infrastructure.EFContext;
+    using ToBeImplemented.Infrastructure.Interfaces;
+    using ToBeImplemented.Infrastructure.Interfaces.Adapters;
     using ToBeImplemented.Infrastructure.Repository;
     using ToBeImplemented.Service.Implementations;
     using ToBeImplemented.Service.Interfaces;
@@ -26,8 +30,18 @@
             containerBuilder.RegisterType<TbiContext>().As<ITbiContext>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<ConceptRepository>().As<IConceptRepository>();
             containerBuilder.RegisterType<TagRepository>().As<ITagRepository>();
+            
             containerBuilder.RegisterType<ConceptService>().As<IConceptService>();
+            containerBuilder.RegisterType<UserService>().As<IUserService>();
+            
+            containerBuilder.RegisterType<SimpleSecurityChallengeProvider>().As<ISecurityChallengeProvider>();
+            
             containerBuilder.RegisterType<ConceptLogic>().As<IConceptLogic>();
+            containerBuilder.RegisterType<UsersLogic>().As<IUsersLogic>();
+            
+            
+            containerBuilder.RegisterType<DateTimeAdapter>().As<IDateTimeAdapter>();
+            containerBuilder.RegisterType<GuidAdapter>().As<IGuidAdapter>();
 
             var container = containerBuilder.Build();
 

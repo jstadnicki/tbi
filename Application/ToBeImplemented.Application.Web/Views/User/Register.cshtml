@@ -1,0 +1,46 @@
+﻿@model ToBeImplemented.Domain.ViewModel.RegisterUserViewModel
+
+<div class="row">
+    <form role="form" method="POST">
+        @Html.HiddenFor(m => m.ChallengeType)
+        <div class="form-group">
+            @Html.LabelFor(x => x.DisplayName)
+            @Html.ValidationMessageFor(x => x.DisplayName)
+            @Html.TextBoxFor(x => x.DisplayName, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Email)
+            @Html.ValidationMessageFor(x => x.Email)
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Login)
+            @Html.ValidationMessageFor(x => x.Login)
+            @Html.TextBoxFor(x => x.Login, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Password)
+            @Html.ValidationMessageFor(x => x.Password)
+            @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.PasswordConfirmation)
+            @Html.ValidationMessageFor(x => x.PasswordConfirmation)
+            @Html.TextBoxFor(x => x.PasswordConfirmation, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.ChallengeType)
+            @Html.DisplayTextFor(x => x.ChallengeType)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.SecurityChallengeText)
+            @Html.DisplayTextFor(x => x.SecurityChallengeText)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.SecurityResult)
+            @Html.ValidationMessageFor(x => x.SecurityResult)
+            @Html.TextBoxFor(x => x.SecurityResult, new { @class = "form-control" })
+        </div>
+        <button type="submit" class="btn btn-default pull-right">register</button>
+    </form>
+</div>

@@ -1,0 +1,44 @@
+﻿@model ToBeImplemented.Domain.ViewModel.Concepts.ConceptViewModel
+
+<div class="row">
+    <div class="row">
+        <a href="@Url.Action("Delete", "Concepts", new {id=Model.Id})" class="btn btn-danger btn-xs pull-right">delete</a>
+        <a href="@Url.Action("Edit", "Concepts", new {id=Model.Id})" class="btn btn-warning btn-xs pull-right">edit</a>
+    </div>
+    <div class="row">
+        <div class="row">
+            <div class="col-md-12">@Model.Title</div>
+        </div>
+        <div class="row">
+            <div class="col-md-1">@Model.DisplayCount</div>
+            <div class="col-md-1">@Model.VoteDown</div>
+            <div class="col-md-1">@Model.VoteUp</div>
+            <div class="col-md-2 col-lg-offset-5 text-right">@Model.Created</div>
+            <div class="col-md-2 text-right">@Model.Author.DisplayName</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            @Model.Description
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-lg-offset-2">
+
+            @foreach (var comment in @Model.Comments)
+            {
+                <div class="row">
+                    <div class="row">
+                        @comment.Text
+                    </div>
+                    <div class="row col-md-2 col-lg-offset-8">
+                        @comment.Created
+                    </div>
+                    <div class="row col-md-2 ">
+                        @comment.AuthorDisplayName
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

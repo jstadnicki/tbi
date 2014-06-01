@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30516.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Domain.Model", "Domain\ToBeImplemented.Domain.Model\ToBeImplemented.Domain.Model.csproj", "{360F03E7-7C3B-41E1-BA57-7223681833CB}"
 EndProject
@@ -68,6 +68,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SPA", "SPA", "{29272C8D-7F16-49B0-851B-695E5AC989AF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular", "Application\Angular\Angular.csproj", "{1B51CF39-DA59-4722-BA67-B24B0B668F72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Infrastructure.Interfaces", "Infrastructure\ToBeImplemented.Infrastructure.Interfaces\ToBeImplemented.Infrastructure.Interfaces.csproj", "{CA7A85AF-D23F-4C21-A9B2-287F4C2DD3D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Infrastructure.Adapters", "Infrastructure\ToBeImplemented.Infrastructure.Adapters\ToBeImplemented.Infrastructure.Adapters.csproj", "{F3715E4F-DF3F-4FB8-94E3-7FF09CAA7924}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -159,6 +163,14 @@ Global
 		{1B51CF39-DA59-4722-BA67-B24B0B668F72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B51CF39-DA59-4722-BA67-B24B0B668F72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B51CF39-DA59-4722-BA67-B24B0B668F72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA7A85AF-D23F-4C21-A9B2-287F4C2DD3D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA7A85AF-D23F-4C21-A9B2-287F4C2DD3D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA7A85AF-D23F-4C21-A9B2-287F4C2DD3D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA7A85AF-D23F-4C21-A9B2-287F4C2DD3D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3715E4F-DF3F-4FB8-94E3-7FF09CAA7924}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3715E4F-DF3F-4FB8-94E3-7FF09CAA7924}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3715E4F-DF3F-4FB8-94E3-7FF09CAA7924}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3715E4F-DF3F-4FB8-94E3-7FF09CAA7924}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -191,5 +203,7 @@ Global
 		{E15C3DDE-033B-445C-BF3C-BA7060C8E16C} = {38F1E1A5-BD4E-468B-8FC9-FF04DFE67D3E}
 		{29272C8D-7F16-49B0-851B-695E5AC989AF} = {FDC9479C-BD23-4D2A-9676-D4F7E5145B43}
 		{1B51CF39-DA59-4722-BA67-B24B0B668F72} = {29272C8D-7F16-49B0-851B-695E5AC989AF}
+		{CA7A85AF-D23F-4C21-A9B2-287F4C2DD3D6} = {B62A9401-C920-43F8-A795-E96B45362AD0}
+		{F3715E4F-DF3F-4FB8-94E3-7FF09CAA7924} = {B62A9401-C920-43F8-A795-E96B45362AD0}
 	EndGlobalSection
 EndGlobal

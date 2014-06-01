@@ -40,15 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddConceptViewModel.cs" />
+    <Compile Include="Concepts\AddConceptViewModel.cs" />
+    <Compile Include="ChallengeType.cs" />
     <Compile Include="CommentViewModel.cs" />
     <Compile Include="AuthorViewModel.cs" />
-    <Compile Include="ConceptViewModel.cs" />
-    <Compile Include="DeleteConceptViewModel.cs" />
-    <Compile Include="UpdateConceptViewModel.cs" />
-    <Compile Include="ListConceptViewModel.cs" />
+    <Compile Include="Concepts\ConceptViewModel.cs" />
+    <Compile Include="Concepts\DeleteConceptViewModel.cs" />
+    <Compile Include="Users\RegisterUserViewModel.cs" />
+    <Compile Include="Concepts\UpdateConceptViewModel.cs" />
+    <Compile Include="Concepts\ListConceptViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TagViewModel.cs" />
+    <Compile Include="Users\UserViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

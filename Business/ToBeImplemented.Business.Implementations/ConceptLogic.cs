@@ -8,6 +8,7 @@
     using ToBeImplemented.Business.Interfaces;
     using ToBeImplemented.Domain.Model;
     using ToBeImplemented.Domain.ViewModel;
+    using ToBeImplemented.Domain.ViewModel.Concepts;
     using ToBeImplemented.Service.Interfaces;
 
     public class ConceptLogic : IConceptLogic

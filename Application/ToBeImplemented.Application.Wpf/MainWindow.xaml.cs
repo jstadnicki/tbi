@@ -21,6 +21,7 @@ namespace ToBeImplemented.Application.Wpf
     using Newtonsoft.Json.Linq;
 
     using ToBeImplemented.Domain.ViewModel;
+    using ToBeImplemented.Domain.ViewModel.Concepts;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml

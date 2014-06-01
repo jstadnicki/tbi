@@ -10,9 +10,14 @@ namespace ToBeImplemented.Business.Mapper.Tests
     using NUnit.Framework;
 
     using ToBeImplemented.Domain.Model;
+    using ToBeImplemented.Domain.Model.Users;
     using ToBeImplemented.Domain.ViewModel;
+    using ToBeImplemented.Domain.ViewModel.Concepts;
+    using ToBeImplemented.Domain.ViewModel.Users;
     using ToBeImplemented.Service.Implementations.Tests;
     using ToBeImplemented.Tests.ObjectMothers;
+    using ToBeImplemented.Tests.ObjectMothers.Concepts;
+    using ToBeImplemented.Tests.ObjectMothers.Users;
 
     [TestFixture]
     public class TbiMapperTests : TbiBaseTest
@@ -287,6 +292,30 @@ namespace ToBeImplemented.Business.Mapper.Tests
             Assert.AreEqual("test-add-concept-view-model-descriptions", result.Description);
             Assert.AreEqual(0, result.Tags.Count);
             Assert.AreEqual("test-add-concept-view-model-title", result.Title);
+            // assert-mock
+        }
+
+
+        [Test]
+        public void T015_Can_Map_From_RegisterUserViewModel_To_RegisterModel()
+        {
+            // arrange
+            var source = RegisterUserViewModelFactory.CreateValid();
+
+            // arrange-mock
+
+            // act
+            var result = Mapper.Map<RegisterUser>(source);
+
+            // assert
+            Assert.AreEqual(typeof(RegisterUserViewModel), source.GetType());
+            Assert.AreEqual(typeof(RegisterUser), result.GetType());
+            Assert.NotNull(result);
+            Assert.AreEqual("ruvm-test-display-name", result.DisplayName);
+            Assert.AreEqual("ruvm-test-email", result.Email);
+            Assert.AreEqual("ruvm-test-login-name", result.Login);
+            Assert.AreEqual(string.Empty, result.PasswordHash);
+
             // assert-mock
         }
     }

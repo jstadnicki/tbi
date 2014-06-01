@@ -10,6 +10,7 @@ namespace ToBeImplemented.Application.Api.Controllers
 
     using ToBeImplemented.Business.Interfaces;
     using ToBeImplemented.Domain.ViewModel;
+    using ToBeImplemented.Domain.ViewModel.Concepts;
 
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ConceptsController : ApiController

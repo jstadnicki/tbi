@@ -10,6 +10,7 @@ namespace ToBeImplemented.Infrastructure.Repository.Tests
 
     using ToBeImplemented.Domain.Model;
     using ToBeImplemented.Infrastructure.EFContext;
+    using ToBeImplemented.Infrastructure.Interfaces;
     using ToBeImplemented.Service.Implementations.Tests;
     using ToBeImplemented.Tests.ObjectMothers;
 

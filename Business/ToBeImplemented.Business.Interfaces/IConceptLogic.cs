@@ -1,6 +1,7 @@
 ﻿namespace ToBeImplemented.Business.Interfaces
 {
     using ToBeImplemented.Domain.ViewModel;
+    using ToBeImplemented.Domain.ViewModel.Concepts;
 
     public interface IConceptLogic
     {
