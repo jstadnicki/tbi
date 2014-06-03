@@ -7,6 +7,7 @@ namespace ToBeImplemented.Infrastructure.EFContext.Migrations
     using System.Linq;
 
     using ToBeImplemented.Domain.Model;
+    using ToBeImplemented.Domain.Model.Users;
 
     internal sealed class Configuration : DbMigrationsConfiguration<ToBeImplemented.Infrastructure.EFContext.TbiContext>
     {

@@ -9,6 +9,7 @@ namespace ToBeImplemented.Infrastructure.Repository.Tests
 
     using ToBeImplemented.Business.Mapper;
     using ToBeImplemented.Domain.Model;
+    using ToBeImplemented.Domain.Model.Users;
     using ToBeImplemented.Infrastructure.EFContext;
     using ToBeImplemented.Infrastructure.Interfaces;
     using ToBeImplemented.Service.Implementations.Tests;

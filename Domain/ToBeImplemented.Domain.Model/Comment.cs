@@ -2,6 +2,8 @@
 {
     using System;
 
+    using ToBeImplemented.Domain.Model.Users;
+
     public class Comment : ITbiEntity
     {
         public long Id { get; set; }

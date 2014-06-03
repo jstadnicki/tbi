@@ -3,6 +3,8 @@ namespace ToBeImplemented.Domain.Model
     using System;
     using System.Collections.Generic;
 
+    using ToBeImplemented.Domain.Model.Users;
+
     public class Concept : ITbiEntity
     {
         public long Id { get; set; }

@@ -3,14 +3,13 @@
     using System.Web.Mvc;
 
     using ToBeImplemented.Business.Interfaces;
-    using ToBeImplemented.Domain.ViewModel;
     using ToBeImplemented.Domain.ViewModel.Users;
 
-    public class UserController : Controller
+    public class UsersController : Controller
     {
         private readonly IUsersLogic usersLogic;
 
-        public UserController(IUsersLogic usersLogic)
+        public UsersController(IUsersLogic usersLogic)
         {
             this.usersLogic = usersLogic;
         }
@@ -27,20 +26,19 @@
         {
             if (this.ModelState.IsValid)
             {
-                this.usersLogic.RegisterUser(model);
-                return this.RedirectToAction("Profile", "User", new { id = model.DisplayName });
+                var id = this.usersLogic.RegisterUser(model);
+                return this.RedirectToAction("Profile", "Users", new { id = id });
             }
             else
             {
                 return this.View("Register", model);
             }
-
         }
 
         [HttpGet]
-        public ActionResult Profile(string id)
+        public ActionResult Profile(long id)
         {
-            var model = new UserProfileViewModel() { DisplayName = id };
+            var model = new UserProfileViewModel() { DisplayName = id.ToString() };
             return this.View("Profile", model);
         }
     }

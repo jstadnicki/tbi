@@ -3,6 +3,7 @@
     using System.Data.Entity;
 
     using ToBeImplemented.Domain.Model;
+    using ToBeImplemented.Domain.Model.Users;
 
     public interface ITbiContext
     {

@@ -99,5 +99,11 @@
         {
             this.tbiContext.Save();
         }
+
+        public long GetConceptsCountByUserId(long authorId)
+        {
+            var result = this.tbiContext.Concepts.Count(x => x.AuthorId == authorId);
+            return result;
+        }
     }
 }

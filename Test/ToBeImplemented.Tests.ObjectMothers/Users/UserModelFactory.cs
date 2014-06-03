@@ -3,6 +3,7 @@
     using System.Collections.Generic;
 
     using ToBeImplemented.Domain.Model;
+    using ToBeImplemented.Domain.Model.Users;
 
     public class UserModelFactory
     {

@@ -27,20 +27,18 @@ namespace ToBeImplemented.Business.Implementations
             return result;
         }
 
-        public UserProfileViewModel RegisterUser(RegisterUserViewModel model)
+        public long RegisterUser(RegisterUserViewModel model)
         {
             var securityValidationResult = this.securityChallengeProvider.IsChallengeValid(
                 model.SecurityChallengeText,
                 model.SecurityResult,
                 model.ChallengeType);
 
-            UserProfileViewModel result = null;
-            if (securityValidationResult == true)
+            long result = 0;
+            if (securityValidationResult)
             {
                 var registerUserModel = Mapper.Map<RegisterUser>(model);
-                var userModel = this.userService.RegisterUser(registerUserModel);
-
-                result = Mapper.Map<UserProfileViewModel>(userModel);
+                result = this.userService.RegisterUser(registerUserModel);
             }
 
             return result;

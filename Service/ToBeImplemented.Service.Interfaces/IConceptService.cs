@@ -22,7 +22,5 @@
         Concept GetConceptWithTags(long id);
 
         void UpdateConcept(UpdateConcept concept);
-
-
     }
 }

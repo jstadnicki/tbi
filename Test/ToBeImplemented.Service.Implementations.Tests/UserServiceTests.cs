@@ -12,8 +12,7 @@
     public class UserServiceTests : TbiBaseTest
     {
         private IUserService sut;
-
-        private Mock<IUserRepository> mockUserRepository;
+        private Mock<IUserRepository> mockUsersRepository;
 
         public override void Once()
         {
@@ -22,8 +21,8 @@
 
         public override void OncePerTest()
         {
-            this.mockUserRepository = new Mock<IUserRepository>();
-            this.sut = new UserService(this.mockUserRepository.Object);
+            this.mockUsersRepository = new Mock<IUserRepository>();
+            this.sut = new UserService(this.mockUsersRepository.Object);
         }
 
 
@@ -34,7 +33,7 @@
             var registerModel = RegisterUserModelFactory.CreateValid();
 
             // arrange-mock
-            this.mockUserRepository.Setup(s => s.RegisterUser(It.IsAny<RegisterUser>())).Returns(999);
+            this.mockUsersRepository.Setup(s => s.RegisterUser(It.IsAny<RegisterUser>())).Returns(999);
 
             // act
             var result = this.sut.RegisterUser(registerModel);
@@ -43,7 +42,7 @@
             Assert.AreEqual(999, result);
 
             // assert-mock
-            this.mockUserRepository.Verify(x => x.RegisterUser(It.IsAny<RegisterUser>()), Times.Once);
+            this.mockUsersRepository.Verify(x => x.RegisterUser(It.IsAny<RegisterUser>()), Times.Once);
         }
     }
 }

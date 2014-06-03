@@ -334,5 +334,33 @@
             // assert-mock
             this.mockContext.Verify(v => v.Concepts, Times.Once);
         }
+
+
+        [Test]
+        public void T011_GetConceptsCountByUserId_Must_Return_Count_Of_Concepts_Which_Were_Authored_By_Given_Parameter()
+        {
+            // arrange
+            var concept1 = ConceptModelFactory.Create(1);
+            var concept2 = ConceptModelFactory.Create(2);
+            concept1.AuthorId = 1;
+            concept2.AuthorId = 2;
+
+            var stub = new List<Concept> { concept1, concept2 }.AsQueryable();
+
+            // arrange-mock
+            this.mockContext.Setup(s => s.Concepts.GetEnumerator()).Returns(stub.GetEnumerator());
+            this.mockContext.Setup(s => s.Concepts.Provider).Returns(stub.Provider);
+            this.mockContext.Setup(s => s.Concepts.Expression).Returns(stub.Expression);
+            this.mockContext.Setup(s => s.Concepts.ElementType).Returns(stub.ElementType);
+
+            // act
+            var result = this.sut.GetConceptsCountByUserId(2);
+
+            // assert
+            Assert.AreEqual(1, result);
+
+            // assert-mock
+            this.mockContext.Verify(v => v.Concepts, Times.Once);
+        }
     }
 }

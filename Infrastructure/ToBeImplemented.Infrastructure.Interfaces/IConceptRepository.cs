@@ -12,6 +12,7 @@
 
         Concept Details(long id);
         Concept ConceptOnly(long id);
+        Concept GetConceptWithTags(long id);
 
         long Add(Concept concept);
 
@@ -19,9 +20,8 @@
 
         void Delete(long id);
 
-        Concept GetConceptWithTags(long id);
-
         void Save();
 
+        long GetConceptsCountByUserId(long authorId);
     }
 }

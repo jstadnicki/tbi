@@ -1,4 +1,4 @@
-﻿namespace ToBeImplemented.Domain.Model
+﻿namespace ToBeImplemented.Domain.Model.Users
 {
     using System.Collections.Generic;
 

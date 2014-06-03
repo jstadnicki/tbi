@@ -206,5 +206,21 @@
 
             // assert-mock
         }
+
+
+        [Test, ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void T011_Is_ChallengeValid_Must_Throw_When_Security_Challenge_Type_Is_Unknown()
+        {
+            // arrange
+
+            // arrange-mock
+
+            // act
+            this.sut.IsChallengeValid("", "", 0);
+
+            // assert
+
+            // assert-mock
+        }
     }
 }
