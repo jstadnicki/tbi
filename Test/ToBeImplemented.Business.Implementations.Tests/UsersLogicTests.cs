@@ -1,10 +1,13 @@
 namespace ToBeImplemented.Business.Implementations.Tests
 {
+    using System.Linq;
+
     using Moq;
 
     using NUnit.Framework;
 
     using ToBeImplemented.Business.Interfaces;
+    using ToBeImplemented.Business.Interfaces.Common;
     using ToBeImplemented.Business.Mapper;
     using ToBeImplemented.Domain.Model.Users;
     using ToBeImplemented.Domain.ViewModel;
@@ -17,8 +20,8 @@ namespace ToBeImplemented.Business.Implementations.Tests
     public class UsersLogicTests : TbiBaseTest
     {
         private IUsersLogic sut;
-
         private Mock<ISecurityChallengeProvider> mockSecurityChallengeProvider;
+        private Mock<IUserService> mockUserService;
 
         public override void Once()
         {
@@ -44,7 +47,7 @@ namespace ToBeImplemented.Business.Implementations.Tests
             var result = this.sut.GetRegisterViewModel();
 
             // assert
-            Assert.AreEqual(typeof(RegisterUserViewModel), result.GetType());
+            Assert.AreEqual(typeof(BussinesResult<RegisterUserViewModel>), result.GetType());
 
             // assert-mock
         }
@@ -63,9 +66,10 @@ namespace ToBeImplemented.Business.Implementations.Tests
             var result = this.sut.GetRegisterViewModel();
 
             // assert
-            Assert.NotNull(result.SecurityChallengeText);
-            Assert.AreEqual(ChallengeType.CharactersOnly, result.ChallengeType);
-            Assert.AreEqual("abc", result.SecurityChallengeText);
+            Assert.AreEqual(true, result.Success);
+            Assert.NotNull(result.Data.SecurityChallengeText);
+            Assert.AreEqual(ChallengeType.CharactersOnly, result.Data.ChallengeType);
+            Assert.AreEqual("abc", result.Data.SecurityChallengeText);
 
             // assert-mock
             this.mockSecurityChallengeProvider.Verify(v => v.GetChallengeInput(), Times.Once);
@@ -118,6 +122,32 @@ namespace ToBeImplemented.Business.Implementations.Tests
                 Times.Once);
         }
 
-        public Mock<IUserService> mockUserService { get; set; }
+        [Test]
+        public void T005_RegisterUser_When_Challenge_Is_Not_Valid_Must_Return_Not_Successfull_With_Error_Message()
+        {
+            // arrange
+            var rvm = RegisterUserViewModelFactory.CreateValid();
+
+            // arrange-mock
+            this.mockSecurityChallengeProvider.Setup(
+                s => s.IsChallengeValid(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<ChallengeType>()))
+                .Returns(false);
+
+            // act
+            var result = this.sut.RegisterUser(rvm);
+
+            // assert
+            Assert.False(result.Success);
+            Assert.AreEqual(1, result.Errors.Count);
+            Assert.AreEqual(-1, result.Data);
+            Assert.AreEqual("--- security challenge failed ---", result.Errors.First());
+
+            // assert-mock
+            this.mockUserService.Verify(v => v.RegisterUser(It.IsAny<RegisterUser>()), Times.Never);
+            this.mockSecurityChallengeProvider.Verify(
+                v => v.IsChallengeValid(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<ChallengeType>()),
+                Times.Once);
+        }
+
     }
 }

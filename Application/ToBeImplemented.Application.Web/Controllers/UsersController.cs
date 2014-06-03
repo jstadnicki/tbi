@@ -1,5 +1,7 @@
 ﻿namespace ToBeImplemented.Application.Web.Controllers
 {
+    using System;
+    using System.Linq;
     using System.Web.Mvc;
 
     using ToBeImplemented.Business.Interfaces;
@@ -17,8 +19,14 @@
         [HttpGet]
         public ActionResult Register()
         {
-            var model = this.usersLogic.GetRegisterViewModel();
-            return this.View("Register", model);
+            var result = this.usersLogic.GetRegisterViewModel();
+
+            if (result.Success)
+            {
+                return this.View("Register", result.Data);
+            }
+
+            throw new Exception(result.Errors.First());
         }
 
         [HttpPost]
@@ -26,13 +34,15 @@
         {
             if (this.ModelState.IsValid)
             {
-                var id = this.usersLogic.RegisterUser(model);
-                return this.RedirectToAction("Profile", "Users", new { id = id });
+                var result = this.usersLogic.RegisterUser(model);
+                if (result.Success)
+                {
+                    return this.RedirectToAction("Profile", "Users", new { id = result.Data });
+                }
+                result.Errors.ForEach(x => ModelState.AddModelError(string.Empty, x));
             }
-            else
-            {
-                return this.View("Register", model);
-            }
+
+            return this.View("Register", model);
         }
 
         [HttpGet]
