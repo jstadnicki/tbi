@@ -41,7 +41,9 @@ namespace ToBeImplemented.Infrastructure.EFContext.Migrations
                                    Email = "user@email.com",
                                    Login = "test-login",
                                    PasswordHash = "test-password-hash",
-                                   UserConceptVotes = new List<UserConceptVote>()
+                                   UserConceptVotes = new List<UserConceptVote>(),
+                                   RegisterDateTime = DateTime.Now,
+                                   LastLoginDateTime = DateTime.Now
                                };
 
             context.Users.AddOrUpdate(x => x.Id, user);

@@ -1,5 +1,6 @@
 namespace ToBeImplemented.Domain.ViewModel.Users
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
 
     public class RegisterUserViewModel

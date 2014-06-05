@@ -58,6 +58,10 @@
       <Project>{E240383F-0C66-41EA-A2BD-847C7A51D6F7}</Project>
       <Name>ToBeImplemented.Domain.ViewModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\ToBeImplemented.Infrastructure.Interfaces\ToBeImplemented.Infrastructure.Interfaces.csproj">
+      <Project>{CA7A85AF-D23F-4C21-A9B2-287F4C2DD3D6}</Project>
+      <Name>ToBeImplemented.Infrastructure.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Service\ToBeImplemented.Service.Interfaces\ToBeImplemented.Service.Interfaces.csproj">
       <Project>{806DEA7A-BBD3-4597-9052-5C3913DE2A16}</Project>
       <Name>ToBeImplemented.Service.Interfaces</Name>

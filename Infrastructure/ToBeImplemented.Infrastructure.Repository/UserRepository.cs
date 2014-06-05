@@ -4,7 +4,6 @@ namespace ToBeImplemented.Infrastructure.Repository
 
     using AutoMapper;
 
-    using ToBeImplemented.Domain.Model;
     using ToBeImplemented.Domain.Model.Users;
     using ToBeImplemented.Infrastructure.EFContext;
     using ToBeImplemented.Infrastructure.Interfaces;

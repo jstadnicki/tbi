@@ -1,5 +1,7 @@
-namespace ToBeImplemented.Tests.ObjectMothers
+namespace ToBeImplemented.Tests.ObjectMothers.Users
 {
+    using System;
+
     using ToBeImplemented.Domain.ViewModel;
     using ToBeImplemented.Domain.ViewModel.Users;
 
@@ -16,7 +18,7 @@ namespace ToBeImplemented.Tests.ObjectMothers
                                  Password = "ruvm-test-password",
                                  PasswordConfirmation = "tvm-test-password",
                                  SecurityChallengeText = "12a",
-                                 SecurityResult = "a"
+                                 SecurityResult = "a",
                              };
 
             return result;

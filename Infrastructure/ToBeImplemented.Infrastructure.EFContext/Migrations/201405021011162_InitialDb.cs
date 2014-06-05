@@ -32,6 +32,7 @@ namespace ToBeImplemented.Infrastructure.EFContext.Migrations
                         DisplayName = c.String(),
                         Email = c.String(),
                         PasswordHash = c.String(),
+                        
                     })
                 .PrimaryKey(t => t.Id);
             

@@ -34,6 +34,7 @@
             
             containerBuilder.RegisterType<ConceptService>().As<IConceptService>();
             containerBuilder.RegisterType<UserService>().As<IUserService>();
+            containerBuilder.RegisterType<Md5UserPasswordHasher>().As<IUserPasswordHasher>();
             
             containerBuilder.RegisterType<SimpleSecurityChallengeProvider>().As<ISecurityChallengeProvider>();
             
