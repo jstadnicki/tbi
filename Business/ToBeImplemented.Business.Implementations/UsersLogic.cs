@@ -48,12 +48,12 @@ namespace ToBeImplemented.Business.Implementations
 
             if (securityValidationResult)
             {
-
                 var now = this.dateTimeAdapter.Now;
                 var registerUserModel = Mapper.Map<RegisterUser>(model);
-                
+
                 registerUserModel.PasswordHash = this.userPasswordHasher.GetHash(
-                    model.Password,now.ToFileTime().ToString());
+                    model.Password,
+                    now.ToFileTime().ToString());
                 registerUserModel.RegisterDateTime = now;
                 var registeredUserId = this.userService.RegisterUser(registerUserModel);
                 result = new BussinesResult<long>(registeredUserId);
