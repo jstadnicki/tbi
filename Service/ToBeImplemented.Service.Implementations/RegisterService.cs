@@ -4,11 +4,11 @@
     using ToBeImplemented.Infrastructure.Interfaces;
     using ToBeImplemented.Service.Interfaces;
 
-    public class UserService : IUserService
+    public class RegisterService : IRegisterService
     {
         private readonly IUserRepository userRepository;
 
-        public UserService(IUserRepository userRepository)
+        public RegisterService(IUserRepository userRepository)
         {
             this.userRepository = userRepository;
         }

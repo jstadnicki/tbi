@@ -2,7 +2,7 @@
 {
     using ToBeImplemented.Domain.Model.Users;
 
-    public interface IUserService
+    public interface IRegisterService
     {
         long RegisterUser(RegisterUser isAny);
     }

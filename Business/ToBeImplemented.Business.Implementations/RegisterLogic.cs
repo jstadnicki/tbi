@@ -9,21 +9,21 @@ namespace ToBeImplemented.Business.Implementations
     using ToBeImplemented.Infrastructure.Interfaces.Adapters;
     using ToBeImplemented.Service.Interfaces;
 
-    public class UsersLogic : IUsersLogic
+    public class RegisterLogic : IRegisterLogic
     {
         private readonly ISecurityChallengeProvider securityChallengeProvider;
-        private readonly IUserService userService;
+        private readonly IRegisterService registerService;
         private readonly IDateTimeAdapter dateTimeAdapter;
         private readonly IUserPasswordHasher userPasswordHasher;
 
-        public UsersLogic(
+        public RegisterLogic(
             ISecurityChallengeProvider securityChallengeProvider,
-            IUserService userService,
+            IRegisterService registerService,
             IDateTimeAdapter dateTimeAdapter,
             IUserPasswordHasher userPasswordHasher)
         {
             this.securityChallengeProvider = securityChallengeProvider;
-            this.userService = userService;
+            this.registerService = registerService;
             this.dateTimeAdapter = dateTimeAdapter;
             this.userPasswordHasher = userPasswordHasher;
         }
@@ -55,7 +55,7 @@ namespace ToBeImplemented.Business.Implementations
                     model.Password,
                     now.ToFileTime().ToString());
                 registerUserModel.RegisterDateTime = now;
-                var registeredUserId = this.userService.RegisterUser(registerUserModel);
+                var registeredUserId = this.registerService.RegisterUser(registerUserModel);
                 result = new BussinesResult<long>(registeredUserId);
             }
             else

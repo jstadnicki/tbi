@@ -21,9 +21,9 @@ namespace ToBeImplemented.Business.Implementations.Tests
     [TestFixture]
     public class UsersLogicTests : TbiBaseTest
     {
-        private IUsersLogic sut;
+        private IRegisterLogic sut;
         private Mock<ISecurityChallengeProvider> mockSecurityChallengeProvider;
-        private Mock<IUserService> mockUserService;
+        private Mock<IRegisterService> mockUserService;
         private Mock<IDateTimeAdapter> mockDateTimeAdapter;
 
         private Mock<IUserPasswordHasher> mockPasswordHasher;
@@ -36,11 +36,11 @@ namespace ToBeImplemented.Business.Implementations.Tests
         public override void OncePerTest()
         {
             this.mockSecurityChallengeProvider = new Mock<ISecurityChallengeProvider>();
-            this.mockUserService = new Mock<IUserService>();
+            this.mockUserService = new Mock<IRegisterService>();
             this.mockDateTimeAdapter = new Mock<IDateTimeAdapter>();
             this.mockPasswordHasher = new Mock<IUserPasswordHasher>();
 
-            this.sut = new UsersLogic(
+            this.sut = new RegisterLogic(
                 this.mockSecurityChallengeProvider.Object,
                 this.mockUserService.Object,
                 this.mockDateTimeAdapter.Object,

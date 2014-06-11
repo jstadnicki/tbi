@@ -7,42 +7,42 @@
     using ToBeImplemented.Business.Interfaces;
     using ToBeImplemented.Domain.ViewModel.Users;
 
-    public class UsersController : Controller
+    public class RegisterController : Controller
     {
-        private readonly IUsersLogic usersLogic;
+        private readonly IRegisterLogic registerLogic;
 
-        public UsersController(IUsersLogic usersLogic)
+        public RegisterController(IRegisterLogic registerLogic)
         {
-            this.usersLogic = usersLogic;
+            this.registerLogic = registerLogic;
         }
 
         [HttpGet]
-        public ActionResult Register()
+        public ActionResult Index()
         {
-            var result = this.usersLogic.GetRegisterViewModel();
+            var result = this.registerLogic.GetRegisterViewModel();
 
             if (result.Success)
             {
-                return this.View("Register", result.Data);
+                return this.View("Index", result.Data);
             }
 
             throw new Exception(result.Errors.First());
         }
 
         [HttpPost]
-        public ActionResult Register(RegisterUserViewModel model)
+        public ActionResult Index(RegisterUserViewModel model)
         {
             if (this.ModelState.IsValid)
             {
-                var result = this.usersLogic.RegisterUser(model);
+                var result = this.registerLogic.RegisterUser(model);
                 if (result.Success)
                 {
-                    return this.RedirectToAction("Profile", "Users", new { id = result.Data });
+                    return this.RedirectToAction("Profile", "Register", new { id = result.Data });
                 }
                 result.Errors.ForEach(x => ModelState.AddModelError(string.Empty, x));
             }
 
-            return this.View("Register", model);
+            return this.View("Index", model);
         }
 
         [HttpGet]
@@ -51,5 +51,6 @@
             var model = new UserProfileViewModel() { DisplayName = id.ToString() };
             return this.View("Profile", model);
         }
+
     }
 }

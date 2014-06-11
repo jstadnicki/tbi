@@ -11,7 +11,7 @@
     [TestFixture]
     public class UserServiceTests : TbiBaseTest
     {
-        private IUserService sut;
+        private IRegisterService sut;
         private Mock<IUserRepository> mockUsersRepository;
 
         public override void Once()
@@ -22,7 +22,7 @@
         public override void OncePerTest()
         {
             this.mockUsersRepository = new Mock<IUserRepository>();
-            this.sut = new UserService(this.mockUsersRepository.Object);
+            this.sut = new RegisterService(this.mockUsersRepository.Object);
         }
 
 

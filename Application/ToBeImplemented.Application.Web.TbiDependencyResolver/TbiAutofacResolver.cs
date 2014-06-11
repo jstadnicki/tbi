@@ -33,13 +33,13 @@
             containerBuilder.RegisterType<UserRepository>().As<IUserRepository>();
             
             containerBuilder.RegisterType<ConceptService>().As<IConceptService>();
-            containerBuilder.RegisterType<UserService>().As<IUserService>();
+            containerBuilder.RegisterType<RegisterService>().As<IRegisterService>();
             containerBuilder.RegisterType<Md5UserPasswordHasher>().As<IUserPasswordHasher>();
             
             containerBuilder.RegisterType<SimpleSecurityChallengeProvider>().As<ISecurityChallengeProvider>();
             
             containerBuilder.RegisterType<ConceptLogic>().As<IConceptLogic>();
-            containerBuilder.RegisterType<UsersLogic>().As<IUsersLogic>();
+            containerBuilder.RegisterType<RegisterLogic>().As<IRegisterLogic>();
             
             
             containerBuilder.RegisterType<DateTimeAdapter>().As<IDateTimeAdapter>();

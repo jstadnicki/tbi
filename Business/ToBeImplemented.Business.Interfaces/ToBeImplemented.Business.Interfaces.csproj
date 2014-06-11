@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="Common\BussinesResult.cs" />
     <Compile Include="IConceptLogic.cs" />
-    <Compile Include="IUsersLogic.cs" />
+    <Compile Include="IRegisterLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

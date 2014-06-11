@@ -116,7 +116,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ConceptsController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -134,8 +134,8 @@
     <Content Include="Views\Concepts\Add.cshtml" />
     <Content Include="Views\Concepts\Delete.cshtml" />
     <Content Include="Views\Concepts\Edit.cshtml" />
-    <Content Include="Views\Users\Register.cshtml" />
-    <Content Include="Views\Users\Profile.cshtml" />
+    <Content Include="Views\Register\Index.cshtml" />
+    <Content Include="Views\Register\Profile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -146,11 +146,11 @@
             // arrange-mock
 
             // act
-            var result = sut.Resolve<IUsersLogic>();
+            var result = sut.Resolve<IRegisterLogic>();
 
             // assert
             Assert.NotNull(result);
-            Assert.AreEqual(typeof(UsersLogic), result.GetType());
+            Assert.AreEqual(typeof(RegisterLogic), result.GetType());
 
             // assert-mock
         }
@@ -181,11 +181,11 @@
             // arrange-mock
 
             // act
-            var result = sut.Resolve<IUserService>();
+            var result = sut.Resolve<IRegisterService>();
 
             // assert
             Assert.NotNull(result);
-            Assert.AreEqual(typeof(UserService), result.GetType());
+            Assert.AreEqual(typeof(RegisterService), result.GetType());
 
             // assert-mock
         }
