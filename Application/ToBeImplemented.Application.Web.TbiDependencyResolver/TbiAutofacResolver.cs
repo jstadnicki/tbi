@@ -40,6 +40,7 @@
             
             containerBuilder.RegisterType<ConceptLogic>().As<IConceptLogic>();
             containerBuilder.RegisterType<RegisterLogic>().As<IRegisterLogic>();
+            containerBuilder.RegisterType<LoginLogic>().As<ILoginLogic>();
             
             
             containerBuilder.RegisterType<DateTimeAdapter>().As<IDateTimeAdapter>();

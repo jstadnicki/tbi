@@ -1,0 +1,21 @@
+﻿@model ToBeImplemented.Domain.ViewModel.Users.LoginViewModel
+
+<div class="row">
+    <form role="form" method="POST">
+        @Html.ValidationSummary()
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            @Html.LabelFor(x => x.Login)
+            @Html.TextBoxFor(x => x.Login, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Password)
+            @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
+        </div>
+        <div class="checkbox">
+            @Html.LabelFor(x => x.RememberMe)
+            @Html.CheckBoxFor(x => x.RememberMe)
+        </div>
+        <button type="submit" class="btn btn-default pull-right">register</button>
+    </form>
+</div>

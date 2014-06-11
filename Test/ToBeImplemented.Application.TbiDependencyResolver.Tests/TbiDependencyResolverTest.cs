@@ -207,5 +207,23 @@
 
             // assert-mock
         }
+
+
+        [Test]
+        public void T009_Registers_LoginLogic()
+        {
+            // arrange
+
+            // arrange-mock
+
+            // act
+            var result = sut.Resolve<ILoginLogic>();
+
+            // assert
+            Assert.NotNull(result);
+            Assert.AreEqual(typeof(LoginLogic), result.GetType());
+
+            // assert-mock
+        }
     }
 }

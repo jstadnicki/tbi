@@ -46,6 +46,7 @@
     <Compile Include="AuthorViewModel.cs" />
     <Compile Include="Concepts\ConceptViewModel.cs" />
     <Compile Include="Concepts\DeleteConceptViewModel.cs" />
+    <Compile Include="Users\LoginViewModel.cs" />
     <Compile Include="Users\RegisterUserViewModel.cs" />
     <Compile Include="Concepts\UpdateConceptViewModel.cs" />
     <Compile Include="Concepts\ListConceptViewModel.cs" />

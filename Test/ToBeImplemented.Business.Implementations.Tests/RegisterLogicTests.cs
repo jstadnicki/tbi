@@ -19,7 +19,7 @@ namespace ToBeImplemented.Business.Implementations.Tests
     using ToBeImplemented.Tests.ObjectMothers.Users;
 
     [TestFixture]
-    public class UsersLogicTests : TbiBaseTest
+    public class RegisterLogicTests : TbiBaseTest
     {
         private IRegisterLogic sut;
         private Mock<ISecurityChallengeProvider> mockSecurityChallengeProvider;

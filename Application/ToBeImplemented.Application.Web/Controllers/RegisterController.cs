@@ -30,6 +30,7 @@
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Index(RegisterUserViewModel model)
         {
             if (this.ModelState.IsValid)

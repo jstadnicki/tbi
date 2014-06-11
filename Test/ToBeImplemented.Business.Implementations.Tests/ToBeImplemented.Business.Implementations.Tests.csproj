@@ -46,8 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConceptLogicTests.cs" />
+    <Compile Include="LoginLogicTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsersLogicTests.cs" />
+    <Compile Include="RegisterLogicTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Business\ToBeImplemented.Business.Implementations\ToBeImplemented.Business.Implementations.csproj">

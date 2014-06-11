@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConceptLogic.cs" />
+    <Compile Include="LoginLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterLogic.cs" />
   </ItemGroup>
