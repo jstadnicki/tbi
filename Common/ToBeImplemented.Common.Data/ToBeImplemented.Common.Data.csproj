@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{806DEA7A-BBD3-4597-9052-5C3913DE2A16}</ProjectGuid>
+    <ProjectGuid>{D22D7A38-3A4A-4E0A-A7C4-DD4F7EE4BEE7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ToBeImplemented.Service.Interfaces</RootNamespace>
-    <AssemblyName>ToBeImplemented.Service.Interfaces</AssemblyName>
+    <RootNamespace>ToBeImplemented.Common.Data</RootNamespace>
+    <AssemblyName>ToBeImplemented.Common.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,26 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IConceptService.cs" />
-    <Compile Include="ILoginService.cs" />
-    <Compile Include="ISecurityChallengeProvider.cs" />
-    <Compile Include="IUserPasswordHasher.cs" />
-    <Compile Include="IRegisterService.cs" />
+    <Compile Include="OperationResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Common\ToBeImplemented.Common.Data\ToBeImplemented.Common.Data.csproj">
-      <Project>{D22D7A38-3A4A-4E0A-A7C4-DD4F7EE4BEE7}</Project>
-      <Name>ToBeImplemented.Common.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Domain\ToBeImplemented.Domain.Model\ToBeImplemented.Domain.Model.csproj">
-      <Project>{360F03E7-7C3B-41E1-BA57-7223681833CB}</Project>
-      <Name>ToBeImplemented.Domain.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\domain\ToBeImplemented.Domain.ViewModel\ToBeImplemented.Domain.ViewModel.csproj">
-      <Project>{E240383F-0C66-41EA-A2BD-847C7A51D6F7}</Project>
-      <Name>ToBeImplemented.Domain.ViewModel</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

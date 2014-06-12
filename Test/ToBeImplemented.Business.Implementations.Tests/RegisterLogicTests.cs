@@ -8,8 +8,8 @@ namespace ToBeImplemented.Business.Implementations.Tests
     using NUnit.Framework;
 
     using ToBeImplemented.Business.Interfaces;
-    using ToBeImplemented.Business.Interfaces.Common;
     using ToBeImplemented.Business.Mapper;
+    using ToBeImplemented.Common.Data;
     using ToBeImplemented.Domain.Model.Users;
     using ToBeImplemented.Domain.ViewModel;
     using ToBeImplemented.Domain.ViewModel.Users;
@@ -25,7 +25,6 @@ namespace ToBeImplemented.Business.Implementations.Tests
         private Mock<ISecurityChallengeProvider> mockSecurityChallengeProvider;
         private Mock<IRegisterService> mockUserService;
         private Mock<IDateTimeAdapter> mockDateTimeAdapter;
-
         private Mock<IUserPasswordHasher> mockPasswordHasher;
 
         public override void Once()
@@ -60,7 +59,7 @@ namespace ToBeImplemented.Business.Implementations.Tests
             var result = this.sut.GetRegisterViewModel();
 
             // assert
-            Assert.AreEqual(typeof(BussinesResult<RegisterUserViewModel>), result.GetType());
+            Assert.AreEqual(typeof(OperationResult<RegisterUserViewModel>), result.GetType());
 
             // assert-mock
         }

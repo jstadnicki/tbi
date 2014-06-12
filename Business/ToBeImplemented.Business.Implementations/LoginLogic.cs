@@ -1,19 +1,27 @@
 ﻿namespace ToBeImplemented.Business.Implementations
 {
     using ToBeImplemented.Business.Interfaces;
-    using ToBeImplemented.Business.Interfaces.Common;
+    using ToBeImplemented.Common.Data;
     using ToBeImplemented.Domain.ViewModel.Users;
+    using ToBeImplemented.Service.Interfaces;
 
     public class LoginLogic : ILoginLogic
     {
-        public BussinesResult<LoginViewModel> GetLoginViewModel()
+        private readonly ILoginService loginService;
+
+        public LoginLogic(ILoginService loginService, IUserPasswordHasher userPasswordHasher)
+        {
+            this.loginService = loginService;
+        }
+
+        public OperationResult<LoginViewModel> GetLoginViewModel()
         {
             var data = new LoginViewModel();
-            var result = new BussinesResult<LoginViewModel>(data);
+            var result = new OperationResult<LoginViewModel>(data);
             return result;
         }
 
-        public BussinesResult<bool> Login(LoginViewModel loginViewModel)
+        public OperationResult<bool> Login(LoginViewModel loginViewModel)
         {
             throw new System.NotImplementedException();
         }

@@ -225,5 +225,23 @@
 
             // assert-mock
         }
+
+
+        [Test]
+        public void T010_Registers_LoginService()
+        {
+            // arrange
+
+            // arrange-mock
+
+            // act
+            var result = this.sut.Resolve<ILoginService>();
+
+            // assert
+            Assert.NotNull(result);
+            Assert.AreEqual(typeof(LoginService), result.GetType());
+
+            // assert-mock
+        }
     }
 }

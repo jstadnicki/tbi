@@ -40,6 +40,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConceptService.cs" />
+    <Compile Include="LoginService.cs">
+      <SubType>
+      </SubType>
+    </Compile>
     <Compile Include="Md5UserPasswordHasher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleSecurityChallengeProvider.cs" />

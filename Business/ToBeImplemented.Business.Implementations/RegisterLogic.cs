@@ -3,7 +3,7 @@ namespace ToBeImplemented.Business.Implementations
     using AutoMapper;
 
     using ToBeImplemented.Business.Interfaces;
-    using ToBeImplemented.Business.Interfaces.Common;
+    using ToBeImplemented.Common.Data;
     using ToBeImplemented.Domain.Model.Users;
     using ToBeImplemented.Domain.ViewModel.Users;
     using ToBeImplemented.Infrastructure.Interfaces.Adapters;
@@ -28,15 +28,15 @@ namespace ToBeImplemented.Business.Implementations
             this.userPasswordHasher = userPasswordHasher;
         }
 
-        public BussinesResult<RegisterUserViewModel> GetRegisterViewModel()
+        public OperationResult<RegisterUserViewModel> GetRegisterViewModel()
         {
             var result = new RegisterUserViewModel();
             result.ChallengeType = this.securityChallengeProvider.GetChallengeType();
             result.SecurityChallengeText = this.securityChallengeProvider.GetChallengeInput();
-            return new BussinesResult<RegisterUserViewModel>(result);
+            return new OperationResult<RegisterUserViewModel>(result);
         }
 
-        public BussinesResult<long> RegisterUser(RegisterUserViewModel model)
+        public OperationResult<long> RegisterUser(RegisterUserViewModel model)
         {
             var securityValidationResult = this.securityChallengeProvider.IsChallengeValid(
                 model.SecurityChallengeText,
@@ -44,7 +44,7 @@ namespace ToBeImplemented.Business.Implementations
                 model.ChallengeType);
 
 
-            BussinesResult<long> result = null;
+            OperationResult<long> result = null;
 
             if (securityValidationResult)
             {
@@ -56,11 +56,11 @@ namespace ToBeImplemented.Business.Implementations
                     now.ToFileTime().ToString());
                 registerUserModel.RegisterDateTime = now;
                 var registeredUserId = this.registerService.RegisterUser(registerUserModel);
-                result = new BussinesResult<long>(registeredUserId);
+                result = new OperationResult<long>(registeredUserId);
             }
             else
             {
-                result = new BussinesResult<long>(-1, false, "--- security challenge failed ---");
+                result = new OperationResult<long>(-1, false, "--- security challenge failed ---");
             }
 
             return result;

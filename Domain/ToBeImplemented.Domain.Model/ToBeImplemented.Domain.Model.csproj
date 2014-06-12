@@ -51,6 +51,7 @@
     <Compile Include="Tag.cs" />
     <Compile Include="Users\RegisterUser.cs" />
     <Compile Include="Users\User.cs" />
+    <Compile Include="Users\UserLoginModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

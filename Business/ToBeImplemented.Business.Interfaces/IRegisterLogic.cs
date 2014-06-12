@@ -1,11 +1,11 @@
 ﻿namespace ToBeImplemented.Business.Interfaces
 {
-    using ToBeImplemented.Business.Interfaces.Common;
+    using ToBeImplemented.Common.Data;
     using ToBeImplemented.Domain.ViewModel.Users;
 
     public interface IRegisterLogic
     {
-        BussinesResult<RegisterUserViewModel> GetRegisterViewModel();
-        BussinesResult<long> RegisterUser(RegisterUserViewModel model);
+        OperationResult<RegisterUserViewModel> GetRegisterViewModel();
+        OperationResult<long> RegisterUser(RegisterUserViewModel model);
     }
 }

@@ -1,22 +1,22 @@
-namespace ToBeImplemented.Business.Interfaces.Common
+namespace ToBeImplemented.Common.Data
 {
     using System.Collections.Generic;
     using System.Linq;
 
-    public class BussinesResult<T>
+    public class OperationResult<T>
     {
-        public BussinesResult(T data, bool success, List<string> errors)
+        public OperationResult(T data, bool success, List<string> errors)
         {
             this.Data = data;
             this.Success = success;
             this.Errors = errors;
         }
 
-        public BussinesResult(T data)
+        public OperationResult(T data)
             : this(data, true, Enumerable.Empty<string>().ToList())
         { }
 
-        public BussinesResult(T data, bool success, string error) :
+        public OperationResult(T data, bool success, string error) :
             this(data, success, new List<string> { error })
         {
 
