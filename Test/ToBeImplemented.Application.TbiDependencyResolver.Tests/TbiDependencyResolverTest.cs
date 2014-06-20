@@ -233,7 +233,7 @@
             // arrange-mock
 
             // act
-            var result = this.sut.Resolve<IUserService>();
+            var result = TbiAutofacResolver.Resolve<IUserService>();
 
             // assert
             Assert.NotNull(result);

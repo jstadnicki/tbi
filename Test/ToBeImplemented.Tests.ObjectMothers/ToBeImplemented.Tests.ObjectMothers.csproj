@@ -46,6 +46,7 @@
     <Compile Include="Concepts\AddConceptViewModelFactory.cs" />
     <Compile Include="CommentModelFactory.cs" />
     <Compile Include="Concepts\ConceptModelFactory.cs" />
+    <Compile Include="Users\LoginViewModelFactory.cs" />
     <Compile Include="OperationResultFactory.cs" />
     <Compile Include="Users\RegisterUserModelFactory.cs" />
     <Compile Include="Users\RegisterUserViewModelFactory.cs" />

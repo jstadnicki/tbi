@@ -48,7 +48,6 @@
     <Compile Include="IConceptService.cs" />
     <Compile Include="ILoginService.cs" />
     <Compile Include="ISecurityChallengeProvider.cs" />
-    <Compile Include="IUserPasswordHasher.cs" />
     <Compile Include="IRegisterService.cs" />
     <Compile Include="IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

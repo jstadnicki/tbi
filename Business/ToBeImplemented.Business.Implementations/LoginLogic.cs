@@ -27,12 +27,8 @@
         public OperationResult<bool> Login(LoginViewModel loginViewModel, IAuthenticationManager authentication)
         {
             var identity = this.loginService.GetUserIndentity(loginViewModel);
-
-            authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-
-            var r = identity.Result;
-            authentication.SignIn(new AuthenticationProperties() { IsPersistent = false }, r);
-
+            var userIdentity = identity.Result;
+            authentication.SignIn(new AuthenticationProperties { IsPersistent = loginViewModel.RememberMe }, userIdentity);
             return new OperationResult<bool>(true);
         }
     }

@@ -20,15 +20,15 @@
 
         public long RegisterUser(RegisterUser registerUser)
         {
-            var u = Mapper.Map<User>(registerUser);
-            var r = this.Create(u, registerUser.Password);
-            return u.Id;
+            var user = Mapper.Map<User>(registerUser);
+            var result = this.Create(user, registerUser.Password);
+            return user.Id;
         }
 
-        public User GetUser(string p1, string p2)
+        public User GetUser(string username, string password)
         {
-            var r = this.Find(p1, p2);
-            return r;
+            var result = this.Find(username, password);
+            return result;
         }
 
         public Task<ClaimsIdentity> GetUserIndentity(LoginViewModel loginViewModel)
