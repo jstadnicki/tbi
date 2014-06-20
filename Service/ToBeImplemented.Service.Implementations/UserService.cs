@@ -33,16 +33,16 @@
 
         public Task<ClaimsIdentity> GetUserIndentity(LoginViewModel loginViewModel)
         {
-            var r = this.FindAsync(loginViewModel.UserName, loginViewModel.Password)
-                 .ContinueWith(t => this.CreateIdentityAsync(t.Result, DefaultAuthenticationTypes.ApplicationCookie).Result);
-            return r;
+            var user = this.FindAsync(loginViewModel.UserName, loginViewModel.Password).Result;
+            var identity = this.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+            return identity;
 
         }
 
         public long GetUserIdFromUserName(string username)
         {
-            var t = this.Store.FindByNameAsync(username);
-            return t.Result.Id;
+            var task = this.Store.FindByNameAsync(username);
+            return task.Result.Id;
         }
     }
 

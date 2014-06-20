@@ -50,10 +50,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConceptServiceTests.cs" />
+    <Compile Include="LoginServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecurityChallengeProviderTests.cs" />
     <Compile Include="TbiBaseTest.cs" />
-    <Compile Include="UserPasswordHasherTests.cs" />
+    <Compile Include="UserServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
