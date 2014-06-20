@@ -53,7 +53,39 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.0.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Owin.2.0.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.identitymodel.services" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -119,9 +151,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AuthStartup.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ConceptsController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\LogoutController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -174,6 +208,22 @@
     <ProjectReference Include="..\..\domain\ToBeImplemented.Domain.ViewModel\ToBeImplemented.Domain.ViewModel.csproj">
       <Project>{E240383F-0C66-41EA-A2BD-847C7A51D6F7}</Project>
       <Name>ToBeImplemented.Domain.ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\ToBeImplemented.Infrastructure.EFContext\ToBeImplemented.Infrastructure.EFContext.csproj">
+      <Project>{184B37C5-7F6E-4DD0-98A0-81B75390A405}</Project>
+      <Name>ToBeImplemented.Infrastructure.EFContext</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\ToBeImplemented.Infrastructure.Interfaces\ToBeImplemented.Infrastructure.Interfaces.csproj">
+      <Project>{CA7A85AF-D23F-4C21-A9B2-287F4C2DD3D6}</Project>
+      <Name>ToBeImplemented.Infrastructure.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Service\ToBeImplemented.Service.Implementations\ToBeImplemented.Service.Implementations.csproj">
+      <Project>{93BF2DF2-7D34-4164-9A78-6F81487E1CF1}</Project>
+      <Name>ToBeImplemented.Service.Implementations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Service\ToBeImplemented.Service.Interfaces\ToBeImplemented.Service.Interfaces.csproj">
+      <Project>{806DEA7A-BBD3-4597-9052-5C3913DE2A16}</Project>
+      <Name>ToBeImplemented.Service.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\ToBeImplemented.Application.Web.TbiDependencyResolver\ToBeImplemented.Application.Web.TbiDependencyResolver.csproj">
       <Project>{D56133AF-3FC6-4EE8-A9AD-8D6F022179ED}</Project>

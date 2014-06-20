@@ -47,6 +47,10 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.0.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -112,6 +116,10 @@
     <ProjectReference Include="..\..\Business\ToBeImplemented.Business.Interfaces\ToBeImplemented.Business.Interfaces.csproj">
       <Project>{A5A75736-8C6A-4D09-B4C3-398C68C8FA99}</Project>
       <Name>ToBeImplemented.Business.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\ToBeImplemented.Domain.Model\ToBeImplemented.Domain.Model.csproj">
+      <Project>{360F03E7-7C3B-41E1-BA57-7223681833CB}</Project>
+      <Name>ToBeImplemented.Domain.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\ToBeImplemented.Infrastructure.Adapters\ToBeImplemented.Infrastructure.Adapters.csproj">
       <Project>{F3715E4F-DF3F-4FB8-94E3-7FF09CAA7924}</Project>

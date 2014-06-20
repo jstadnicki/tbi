@@ -14,7 +14,7 @@ namespace ToBeImplemented.Tests.ObjectMothers.Users
                                  ChallengeType = ChallengeType.CharactersOnly,
                                  DisplayName = "ruvm-test-display-name",
                                  Email = "ruvm-test-email",
-                                 Login = "ruvm-test-login-name",
+                                 Username = "ruvm-test-login-name",
                                  Password = "ruvm-test-password",
                                  PasswordConfirmation = "tvm-test-password",
                                  SecurityChallengeText = "12a",

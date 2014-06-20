@@ -1,0 +1,367 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pro",
+				"productList"
+			],
+			[
+				"mar",
+				"margin-right"
+			],
+			[
+				"cart",
+				"cartData"
+			],
+			[
+				"car",
+				"cartData"
+			],
+			[
+				"data",
+				"data"
+			],
+			[
+				"produc",
+				"products"
+			],
+			[
+				"sele",
+				"selectPage"
+			],
+			[
+				"is",
+				"isArray"
+			],
+			[
+				"produ",
+				"productListActiveClass"
+			],
+			[
+				"re",
+				"result"
+			],
+			[
+				"action",
+				"actionText"
+			],
+			[
+				"in",
+				"incompleCount"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "actions.txt",
+			"settings":
+			{
+				"buffer_size": 932,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "import sublime, sublime_plugin\n\nclass ExampleCommand(sublime_plugin.TextCommand):\n    def run(self, edit):\n        self.view.insert(edit, 0, \"Hello, World!\")\n",
+			"settings":
+			{
+				"buffer_size": 158,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "static void Main(string[] args)\n{\n    var task = Task.Run(() => TaskMethod());\n}\n\nprivate static void TaskMethod()\n{\n    Console.WriteLine(\"asd\");\n    foo();\n    var t = new Thread(ThreadMethod);\n    Task.Run(() => t.Start());\n}\n\nprivate static void ThreadMethod()\n{\n    Console.WriteLine(\"From thread from task\");\n}\n\nprivate static void foo()\n{    /* code goes here */    }",
+			"settings":
+			{
+				"buffer_size": 374,
+				"line_ending": "Windows",
+				"name": "static void Main(string[] args)"
+			}
+		}
+	],
+	"build_system": "Packages/User/Chrome.sublime-build",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 202.0,
+		"history":
+		[
+			"Install",
+			"“Package Control: Install Package” ",
+			"Package Control: Install Package ",
+			"Package Control: Install Package emmet",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/source/AngularJS/002/application/components/cart/cartSummary.html",
+		"/C/source/AngularJS/002/index.html",
+		"/C/source/AngularJS/002/application/views/checkoutSummary.html",
+		"/C/source/AngularJS/002/application/views/placeOrder.html",
+		"/C/source/AngularJS/002/application/components/cart.js",
+		"/C/source/AngularJS/002/application/controllers/cartSummaryController.js",
+		"/C/source/AngularJS/002/application/controllers/sportsStore.js",
+		"/C/source/AngularJS/002/application/controllers/productListControllers.js",
+		"/C/source/AngularJS/002/application/filters/customFilters.js",
+		"/C/source/AngularJS/002/application/views/productList.html",
+		"/C/source/AngularJS/002/application/views/productList",
+		"/C/source/AngularJS/001/application/controllers/sportsStore.js",
+		"/C/source/AngularJS/001/index.html",
+		"/C/source/AngularJS/001/application/filters/customFilters.js",
+		"/C/source/AngularJS/001/application/controllers/productListControllers.js",
+		"/C/Users/Jarosław/Dropbox/tools/Sublime/Data/Packages/User/Preferences.sublime-settings",
+		"/C/source/AngularJS/001/bootstrap.css",
+		"/C/Users/Jarosław/Dropbox/tools/Sublime/Data/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/Jarosław/Dropbox/tools/Sublime/Data/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/source/AngularJS/test.html",
+		"/C/source/AngularJS/data.json",
+		"/C/Users/Jarosław/Dropbox/tools/Sublime/Data/Packages/User/Chrome.sublime-build",
+		"/C/Program Files/nodejs/c.js",
+		"/C/source/c.js",
+		"/C/source/ToBeImplemented/actions.txt",
+		"/C/source/DreamJob/DreamJob.Services.Tests/AccountServiceTest.cs",
+		"/C/source/DreamJob/DreamJob.Models/Candidate.cs",
+		"/C/source/DreamJob/DreamJob.Models/CurrencyType.cs",
+		"/C/source/DreamJob/DreamJob.Models/Experience.cs",
+		"/C/Users/Jarosław/Dropbox/tools/Sublime/Data/Packages/User/C#.sublime-settings",
+		"/C/Users/Jarosław/Dropbox/tools/Sublime/Data/Packages/User/Distraction Free.sublime-settings",
+		"/C/Users/Jarosław/Dropbox/tools/Sublime/Data/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Jarosław/Dropbox/tools/Sublime/Data/Packages/User/JSON.sublime-settings"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"",
+			"            ",
+			"removeProduct",
+			"<!doctype html>\n<html ng-app='sportsStore'>\n<head>\n    <script>document.write('<script src=\"http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1\"></' + 'script>')</script>\n    <title>Sports store</title>\n    <script src=\"angular.js\"></script>\n    <link  href=\"bootstrap.css\" rel=\"stylesheet\"/>\n    <link  href=\"bootstrap-theme.css\" rel=\"stylesheet\"/>\n    <script>\n        angular.module('sportsStore',['customFilters']);\n    </script>\n    <script src=\"application/controllers/sportsStore.js\"></script>\n    <script src=\"application/controllers/productListControllers.js\"></script>\n    <script src=\"application/filters/customFilters.js\"></script>\n</head>\n\n<body ng-controller='sportStoreController'>\n    <div class=\"navbar navbar-inverse\">\n        <a class=\"navbar-brand\" href=\"#\">SPORTS STORE</a>\n    </div>\n    \n<div class=\"panel panel-default row\" ng-controller='productListController'>\n    <div class=\"col-xs-3\">\n        <a ng-click=\"selectCategory()\"\n        class=\"btn btn-block btn-default btn-lg\">\n        Home\n    </a>\n    <a ng-repeat=\"item in data.products|orderBy:'category' | unique:'category'\" \n    ng-click=\"selectCategory(item)\"\n    ng-class='getCategoryClass(item)'\n    class=\"btn btn-block btn-default btn-lg\">\n    {{item}}\n</a>\n</div>\n<div class=\"col-xs-8\">\n    <div class=\"well\" \n    ng-repeat=\"item in data.products | filter:categoryFilterFn | range:selectedPage:pageSize\">\n    <h3>\n        <strong>{{item.name}}</strong>\n        <span class='pull-right label label-primary'>{{item.price | currency}}</span>\n    </h3>\n    <span class='lead'>{{item.description}}</span>\n</div>\n<div class=\"pull-right btn-group\">\n    <a \n    ng-repeat=\"page in data.products | filter:categoryFilterFn | pageCount:pageSize\"\n    ng-click=\"selectPage($index+1)\"\n    class=\"btn btn-defult\"\n    ng-class=\"getPageClass($index+1)\">\n    {{$index+1}}\n</a>\n</div>\n</div>\n</div>\n</body>\n</html>",
+			"\"/>\n",
+			">",
+			"}}</",
+			">\n",
+			");",
+			"();\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"\n",
+			"\\r\\n",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "actions.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 932,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								422,
+								422
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 158,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								115,
+								115
+							]
+						],
+						"settings":
+						{
+							"default_dir": "C:\\Users\\Jarosław\\Dropbox\\tools\\Sublime\\Data\\Packages\\User",
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 374,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								374
+							]
+						],
+						"settings":
+						{
+							"auto_name": "static void Main(string[] args)",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 383.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "tbi_sublime.sublime-project",
+	"replace":
+	{
+		"height": 102.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 255.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -1,7 +1,6 @@
 ﻿namespace ToBeImplemented.Application.Web.Controllers
 {
-    using System;
-    using System.Linq;
+    using System.Web;
     using System.Web.Mvc;
 
     using ToBeImplemented.Business.Interfaces;
@@ -19,25 +18,22 @@
         [HttpGet]
         public ActionResult Index()
         {
-            var result = this.loginLogic.GetLoginViewModel();
-            if (result.Success)
-            {
-                return this.View("Index", result.Data);
-            }
-
-            throw new Exception(result.Errors.First());
+            var r = this.loginLogic.GetLoginViewModel();
+            return this.View("Index", r.Data);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Index(LoginViewModel loginViewModel)
         {
-            var result = this.loginLogic.Login(loginViewModel);
+            var authentication = this.HttpContext.GetOwinContext().Authentication;
+            var result = this.loginLogic.Login(loginViewModel, authentication);
             if (result.Success)
             {
-                this.RedirectToAction("Index", "Home");
+                return this.RedirectToAction("List", "Concepts");
             }
             return null;
         }
     }
+    
 }

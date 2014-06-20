@@ -6,7 +6,7 @@ namespace ToBeImplemented.Domain.ViewModel.Users
     public class RegisterUserViewModel
     {
         [Required]
-        public string Login { get; set; }
+        public string Username { get; set; }
 
         [Required]
         public string Password { get; set; }

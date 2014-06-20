@@ -4,7 +4,6 @@ namespace ToBeImplemented.Business.Mapper.Tests
 {
     using System.Collections.Generic;
     using System.Linq;
-    using System.Runtime.Remoting;
 
     using AutoMapper;
 
@@ -313,10 +312,10 @@ namespace ToBeImplemented.Business.Mapper.Tests
             Assert.AreEqual(typeof(RegisterUserViewModel), source.GetType());
             Assert.AreEqual(typeof(RegisterUser), result.GetType());
             Assert.NotNull(result);
-            Assert.AreEqual("ruvm-test-display-name", result.DisplayName);
+            Assert.AreEqual("ruvm-test-login-name", result.UserName);
+            Assert.AreEqual("ruvm-test-display-name", result.Displayname);
             Assert.AreEqual("ruvm-test-email", result.Email);
-            Assert.AreEqual("ruvm-test-login-name", result.Login);
-            Assert.AreEqual(string.Empty, result.PasswordHash);
+            Assert.AreEqual("ruvm-test-password", result.Password);
 
             // assert-mock
         }

@@ -2,6 +2,8 @@ namespace ToBeImplemented.Business.Implementations
 {
     using AutoMapper;
 
+    using Microsoft.AspNet.Identity;
+
     using ToBeImplemented.Business.Interfaces;
     using ToBeImplemented.Common.Data;
     using ToBeImplemented.Domain.Model.Users;
@@ -14,18 +16,18 @@ namespace ToBeImplemented.Business.Implementations
         private readonly ISecurityChallengeProvider securityChallengeProvider;
         private readonly IRegisterService registerService;
         private readonly IDateTimeAdapter dateTimeAdapter;
-        private readonly IUserPasswordHasher userPasswordHasher;
+
+        private readonly IUserPasswordStore<User, long> userStore;
 
         public RegisterLogic(
             ISecurityChallengeProvider securityChallengeProvider,
             IRegisterService registerService,
-            IDateTimeAdapter dateTimeAdapter,
-            IUserPasswordHasher userPasswordHasher)
+            IDateTimeAdapter dateTimeAdapter)
         {
             this.securityChallengeProvider = securityChallengeProvider;
             this.registerService = registerService;
             this.dateTimeAdapter = dateTimeAdapter;
-            this.userPasswordHasher = userPasswordHasher;
+            this.userStore = userStore;
         }
 
         public OperationResult<RegisterUserViewModel> GetRegisterViewModel()
@@ -36,35 +38,24 @@ namespace ToBeImplemented.Business.Implementations
             return new OperationResult<RegisterUserViewModel>(result);
         }
 
-        public OperationResult<long> RegisterUser(RegisterUserViewModel model)
+        public OperationResult<long> RegisterUser(RegisterUserViewModel viewModel)
         {
-            var securityValidationResult = this.securityChallengeProvider.IsChallengeValid(
-                model.SecurityChallengeText,
-                model.SecurityResult,
-                model.ChallengeType);
+            var securityResult = this.securityChallengeProvider.IsChallengeValid(
+                viewModel.SecurityChallengeText,
+                viewModel.SecurityResult,
+                viewModel.ChallengeType);
 
-
-            OperationResult<long> result = null;
-
-            if (securityValidationResult)
+            if (securityResult == true)
             {
-                var now = this.dateTimeAdapter.Now;
-                var registerUserModel = Mapper.Map<RegisterUser>(model);
-
-                registerUserModel.PasswordHash = this.userPasswordHasher.GetHash(
-                    model.Password,
-                    now.ToFileTime().ToString());
-                registerUserModel.RegisterDateTime = now;
-                var registeredUserId = this.registerService.RegisterUser(registerUserModel);
-                result = new OperationResult<long>(registeredUserId);
+                var rm = Mapper.Map<RegisterUser>(viewModel);
+                rm.RegisterDateTime = this.dateTimeAdapter.Now;
+                var result = this.registerService.RegisterUser(rm);
+                return new OperationResult<long>(result);
             }
             else
             {
-                result = new OperationResult<long>(-1, false, "--- security challenge failed ---");
+                return new OperationResult<long>(-1, false, "--- security challenge failed ---");
             }
-
-            return result;
-
         }
     }
 }

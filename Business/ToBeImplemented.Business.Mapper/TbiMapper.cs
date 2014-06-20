@@ -42,8 +42,7 @@
 
         private static void RegisterUserViewModel2RegisterUser()
         {
-            AutoMapper.Mapper.CreateMap<RegisterUserViewModel, RegisterUser>()
-                .ForMember(x => x.PasswordHash, o => o.UseValue(string.Empty));
+            AutoMapper.Mapper.CreateMap<RegisterUserViewModel, RegisterUser>();
         }
 
         private static void AddConceptViewModel2AddConcept()

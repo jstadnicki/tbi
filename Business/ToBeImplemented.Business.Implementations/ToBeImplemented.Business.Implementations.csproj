@@ -36,6 +36,13 @@
     <Reference Include="AutoMapper.Net4">
       <HintPath>..\..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.0.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -66,6 +73,10 @@
     <ProjectReference Include="..\..\Infrastructure\ToBeImplemented.Infrastructure.Interfaces\ToBeImplemented.Infrastructure.Interfaces.csproj">
       <Project>{CA7A85AF-D23F-4C21-A9B2-287F4C2DD3D6}</Project>
       <Name>ToBeImplemented.Infrastructure.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Service\ToBeImplemented.Service.Implementations\ToBeImplemented.Service.Implementations.csproj">
+      <Project>{93BF2DF2-7D34-4164-9A78-6F81487E1CF1}</Project>
+      <Name>ToBeImplemented.Service.Implementations</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Service\ToBeImplemented.Service.Interfaces\ToBeImplemented.Service.Interfaces.csproj">
       <Project>{806DEA7A-BBD3-4597-9052-5C3913DE2A16}</Project>

@@ -3,7 +3,6 @@
 namespace ToBeImplemented.Application.Web.Controllers
 {
     using ToBeImplemented.Business.Interfaces;
-    using ToBeImplemented.Domain.ViewModel;
     using ToBeImplemented.Domain.ViewModel.Concepts;
 
     public class ConceptsController : Controller

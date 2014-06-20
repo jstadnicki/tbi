@@ -39,7 +39,7 @@ namespace ToBeImplemented.Infrastructure.EFContext.Migrations
                                    Concepts = new List<Concept>(),
                                    DisplayName = "FancyLogin4A",
                                    Email = "user@email.com",
-                                   Login = "test-login",
+                                   UserName = "test-login",
                                    PasswordHash = "test-password-hash",
                                    UserConceptVotes = new List<UserConceptVote>(),
                                    RegisterDateTime = DateTime.Now,

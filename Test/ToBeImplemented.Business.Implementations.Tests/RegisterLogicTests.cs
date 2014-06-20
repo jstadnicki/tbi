@@ -25,7 +25,6 @@ namespace ToBeImplemented.Business.Implementations.Tests
         private Mock<ISecurityChallengeProvider> mockSecurityChallengeProvider;
         private Mock<IRegisterService> mockUserService;
         private Mock<IDateTimeAdapter> mockDateTimeAdapter;
-        private Mock<IUserPasswordHasher> mockPasswordHasher;
 
         public override void Once()
         {
@@ -37,13 +36,11 @@ namespace ToBeImplemented.Business.Implementations.Tests
             this.mockSecurityChallengeProvider = new Mock<ISecurityChallengeProvider>();
             this.mockUserService = new Mock<IRegisterService>();
             this.mockDateTimeAdapter = new Mock<IDateTimeAdapter>();
-            this.mockPasswordHasher = new Mock<IUserPasswordHasher>();
 
             this.sut = new RegisterLogic(
                 this.mockSecurityChallengeProvider.Object,
                 this.mockUserService.Object,
-                this.mockDateTimeAdapter.Object,
-                this.mockPasswordHasher.Object);
+                this.mockDateTimeAdapter.Object);
         }
 
 
@@ -99,7 +96,6 @@ namespace ToBeImplemented.Business.Implementations.Tests
             this.mockSecurityChallengeProvider.Setup(
                 s => s.IsChallengeValid(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<ChallengeType>()))
                 .Returns(true);
-            this.mockPasswordHasher.Setup(s => s.GetHash(It.IsAny<string>(), It.IsAny<string>())).Returns("hash");
             this.mockDateTimeAdapter.Setup(s => s.Now).Returns(new DateTime(2000, 1, 1));
 
             // act
@@ -137,7 +133,6 @@ namespace ToBeImplemented.Business.Implementations.Tests
             this.mockSecurityChallengeProvider.Verify(
                 v => v.IsChallengeValid(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<ChallengeType>()),
                 Times.Once);
-            this.mockPasswordHasher.Verify(v => v.GetHash(It.IsAny<string>(), It.IsAny<string>()), Times.Never);
         }
 
         [Test]
@@ -166,30 +161,5 @@ namespace ToBeImplemented.Business.Implementations.Tests
                 v => v.IsChallengeValid(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<ChallengeType>()),
                 Times.Once);
         }
-
-
-        [Test]
-        public void T006_When_Security_Challenge_Is_Valid_Must_Hash_Password_And_Assing_It_To_Registration_Model()
-        {
-            // arrange
-            var model = RegisterUserViewModelFactory.CreateValid();
-
-            // arrange-mock
-            this.mockSecurityChallengeProvider.Setup(
-               s => s.IsChallengeValid(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<ChallengeType>()))
-               .Returns(true);
-            this.mockPasswordHasher.Setup(s => s.GetHash(It.IsAny<string>(), It.IsAny<string>())).Returns("hash");
-            this.mockDateTimeAdapter.Setup(s => s.Now).Returns(new DateTime(2000, 1, 1));
-
-            // act
-            this.sut.RegisterUser(model);
-
-            // assert
-
-            // assert-mock
-            this.mockPasswordHasher.Verify(v => v.GetHash(It.IsAny<string>(), It.IsAny<string>()), Times.Once);
-            this.mockUserService.Verify(v => v.RegisterUser(It.Is<RegisterUser>(r => r.PasswordHash == "hash")), Times.Once);
-        }
-
     }
 }

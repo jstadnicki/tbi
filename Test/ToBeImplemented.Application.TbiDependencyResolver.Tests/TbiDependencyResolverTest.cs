@@ -4,7 +4,6 @@
 
     using NUnit.Framework;
 
-    using ToBeImplemented.Application.Web.Controllers;
     using ToBeImplemented.Application.Web.TbiDependencyResolver;
     using ToBeImplemented.Business.Implementations;
     using ToBeImplemented.Business.Interfaces;
@@ -185,25 +184,7 @@
 
             // assert
             Assert.NotNull(result);
-            Assert.AreEqual(typeof(RegisterService), result.GetType());
-
-            // assert-mock
-        }
-
-
-        [Test]
-        public void T008_Registers_UserRepository()
-        {
-            // arrange
-
-            // arrange-mock
-
-            // act
-            var result = sut.Resolve<IUserRepository>();
-
-            // assert
-            Assert.NotNull(result);
-            Assert.AreEqual(typeof(UserRepository), result.GetType());
+            Assert.AreEqual(typeof(UserService), result.GetType());
 
             // assert-mock
         }
@@ -239,7 +220,24 @@
 
             // assert
             Assert.NotNull(result);
-            Assert.AreEqual(typeof(LoginService), result.GetType());
+            Assert.AreEqual(typeof(UserService), result.GetType());
+
+            // assert-mock
+        }
+
+        [Test]
+        public void T011_Registers_UserService()
+        {
+            // arrange
+
+            // arrange-mock
+
+            // act
+            var result = this.sut.Resolve<IUserService>();
+
+            // assert
+            Assert.NotNull(result);
+            Assert.AreEqual(typeof(UserService), result.GetType());
 
             // assert-mock
         }

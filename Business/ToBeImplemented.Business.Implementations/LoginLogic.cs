@@ -1,5 +1,8 @@
 ﻿namespace ToBeImplemented.Business.Implementations
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.Owin.Security;
+
     using ToBeImplemented.Business.Interfaces;
     using ToBeImplemented.Common.Data;
     using ToBeImplemented.Domain.ViewModel.Users;
@@ -9,7 +12,7 @@
     {
         private readonly ILoginService loginService;
 
-        public LoginLogic(ILoginService loginService, IUserPasswordHasher userPasswordHasher)
+        public LoginLogic(ILoginService loginService)
         {
             this.loginService = loginService;
         }
@@ -21,9 +24,16 @@
             return result;
         }
 
-        public OperationResult<bool> Login(LoginViewModel loginViewModel)
+        public OperationResult<bool> Login(LoginViewModel loginViewModel, IAuthenticationManager authentication)
         {
-            throw new System.NotImplementedException();
+            var identity = this.loginService.GetUserIndentity(loginViewModel);
+
+            authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
+
+            var r = identity.Result;
+            authentication.SignIn(new AuthenticationProperties() { IsPersistent = false }, r);
+
+            return new OperationResult<bool>(true);
         }
     }
 }

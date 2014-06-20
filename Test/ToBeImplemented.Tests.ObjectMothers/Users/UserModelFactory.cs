@@ -16,7 +16,7 @@
                                  DisplayName = "test-user-display-name",
                                  Email = "test@user.email",
                                  Id = 99,
-                                 Login = "test-user-login",
+                                 UserName = "test-user-login",
                                  PasswordHash = "test-user-password-hash"
                              };
 

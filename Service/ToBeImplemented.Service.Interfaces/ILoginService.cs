@@ -1,12 +1,13 @@
 namespace ToBeImplemented.Service.Interfaces
 {
-    using ToBeImplemented.Common.Data;
+    using System.Security.Claims;
+    using System.Threading.Tasks;
+
+    using ToBeImplemented.Domain.Model.Users;
 
     public interface ILoginService
     {
-
-        object GetSaltForUserLogin(string p);
-
-        object GetUser(string p1, string p2);
+        User GetUser(string username, string password);
+        Task<ClaimsIdentity> GetUserIndentity(Domain.ViewModel.Users.LoginViewModel loginViewModel);
     }
 }

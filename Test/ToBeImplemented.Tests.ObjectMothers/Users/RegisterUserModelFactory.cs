@@ -1,5 +1,7 @@
-﻿namespace ToBeImplemented.Service.Implementations.Tests
+﻿namespace ToBeImplemented.Tests.ObjectMothers.Users
 {
+    using System;
+
     using ToBeImplemented.Domain.Model.Users;
 
     public static class RegisterUserModelFactory
@@ -8,10 +10,11 @@
         {
             var result = new RegisterUser
                              {
-                                 DisplayName = "ru-test-display-name",
+                                 Displayname = "ru-test-display-name",
                                  Email = "ru-test-email",
-                                 Login = "ru-test-login",
-                                 PasswordHash = "ru-test-password-hash"
+                                 UserName = "ru-test-login",
+                                 Password = "ru-test-password",
+                                 RegisterDateTime = new DateTime(2000, 1, 1)
                              };
 
             return result;
