@@ -2,8 +2,6 @@ namespace ToBeImplemented.Business.Implementations
 {
     using AutoMapper;
 
-    using Microsoft.AspNet.Identity;
-
     using ToBeImplemented.Business.Interfaces;
     using ToBeImplemented.Common.Data;
     using ToBeImplemented.Domain.Model.Users;
@@ -17,8 +15,6 @@ namespace ToBeImplemented.Business.Implementations
         private readonly IRegisterService registerService;
         private readonly IDateTimeAdapter dateTimeAdapter;
 
-        private readonly IUserPasswordStore<User, long> userStore;
-
         public RegisterLogic(
             ISecurityChallengeProvider securityChallengeProvider,
             IRegisterService registerService,
@@ -27,7 +23,6 @@ namespace ToBeImplemented.Business.Implementations
             this.securityChallengeProvider = securityChallengeProvider;
             this.registerService = registerService;
             this.dateTimeAdapter = dateTimeAdapter;
-            this.userStore = userStore;
         }
 
         public OperationResult<RegisterUserViewModel> GetRegisterViewModel()
@@ -45,17 +40,15 @@ namespace ToBeImplemented.Business.Implementations
                 viewModel.SecurityResult,
                 viewModel.ChallengeType);
 
-            if (securityResult == true)
-            {
-                var rm = Mapper.Map<RegisterUser>(viewModel);
-                rm.RegisterDateTime = this.dateTimeAdapter.Now;
-                var result = this.registerService.RegisterUser(rm);
-                return new OperationResult<long>(result);
-            }
-            else
+            if (!securityResult)
             {
                 return new OperationResult<long>(-1, false, "--- security challenge failed ---");
             }
+
+            var rm = Mapper.Map<RegisterUser>(viewModel);
+            rm.RegisterDateTime = this.dateTimeAdapter.Now;
+            var result = this.registerService.RegisterUser(rm);
+            return new OperationResult<long>(result);
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿namespace ToBeImplemented.Business.Implementations
 {
-    using Microsoft.AspNet.Identity;
     using Microsoft.Owin.Security;
 
     using ToBeImplemented.Business.Interfaces;

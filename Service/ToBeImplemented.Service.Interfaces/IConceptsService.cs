@@ -4,7 +4,7 @@
 
     using ToBeImplemented.Domain.Model;
 
-    public interface IConceptService
+    public interface IConceptsService
     {
         List<Concept> GetAllConceptsWithAllCollections();
         List<Concept> ConceptsOnly();

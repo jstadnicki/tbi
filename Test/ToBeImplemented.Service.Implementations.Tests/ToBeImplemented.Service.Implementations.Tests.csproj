@@ -52,6 +52,7 @@
     <Compile Include="ConceptServiceTests.cs" />
     <Compile Include="LoginServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterServiceTests.cs" />
     <Compile Include="SecurityChallengeProviderTests.cs" />
     <Compile Include="TbiBaseTest.cs" />
     <Compile Include="UserServiceTests.cs" />
@@ -60,6 +61,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\business\ToBeImplemented.Business.Mapper\ToBeImplemented.Business.Mapper.csproj">
+      <Project>{74E4090B-A7A8-4ECD-8B2E-A32382718F96}</Project>
+      <Name>ToBeImplemented.Business.Mapper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Domain\ToBeImplemented.Domain.Model\ToBeImplemented.Domain.Model.csproj">
       <Project>{360F03E7-7C3B-41E1-BA57-7223681833CB}</Project>
       <Name>ToBeImplemented.Domain.Model</Name>

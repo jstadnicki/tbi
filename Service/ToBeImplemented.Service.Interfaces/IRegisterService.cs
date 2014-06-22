@@ -4,6 +4,6 @@
 
     public interface IRegisterService
     {
-        long RegisterUser(RegisterUser isAny);
+        long RegisterUser(RegisterUser user);
     }
 }

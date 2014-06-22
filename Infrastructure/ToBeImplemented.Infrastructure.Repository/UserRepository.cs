@@ -24,7 +24,7 @@ namespace ToBeImplemented.Infrastructure.Repository
 
         public Task CreateAsync(User user)
         {
-            var t = Task<User>.Factory.StartNew(
+            var task = Task<User>.Factory.StartNew(
                 () =>
                 {
                     this.tbiContext.Users.Add(user);
@@ -32,7 +32,7 @@ namespace ToBeImplemented.Infrastructure.Repository
                     return user;
                 });
 
-            return t;
+            return task;
         }
 
         public Task UpdateAsync(User user)

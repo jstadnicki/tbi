@@ -40,7 +40,7 @@
             containerBuilder.RegisterType<UserService>().As<ILoginService>();
             containerBuilder.RegisterType<UserService>().As<IUserService>();
             
-            containerBuilder.RegisterType<ConceptService>().As<IConceptService>();
+            containerBuilder.RegisterType<ConceptsService>().As<IConceptsService>();
             
             containerBuilder.RegisterType<SimpleSecurityChallengeProvider>().As<ISecurityChallengeProvider>();
             

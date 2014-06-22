@@ -34,29 +34,33 @@ namespace ToBeImplemented.Service.Implementations.Tests
         {
             // arrange
             var model = UserModelFactory.Create();
+            var mockPasswordHasher = new Mock<IPasswordHasher>();
 
             // arrange-mock
-            this.mockUserStore.Setup(s => s.FindByNameAsync(It.IsAny<string>()))
-                .Returns(Task<User>.FromResult(model));
+            (this.sut as UserService).PasswordHasher = mockPasswordHasher.Object;
+
+            this.mockUserStore.Setup(s => s.FindByNameAsync(It.IsAny<string>())).Returns(Task.Run(() => model));
+
+            mockPasswordHasher.Setup(s => s.VerifyHashedPassword(It.IsAny<string>(), It.IsAny<string>()))
+               .Returns(() =>PasswordVerificationResult.Success);
 
             // act
-            var result = this.sut.GetUser("test-username", "test-user-password");
+            var result = this.sut.GetUser("test-user-login", "test-user-password");
 
             // assert
-            Assert.AreEqual(99, model.Id);
-            Assert.AreEqual("test-user-display-name", model.DisplayName);
-            Assert.AreEqual("test@user.email", model.Email);
-            Assert.AreEqual("test-user-login", model.UserName);
-            Assert.AreEqual("test-user-password-hash", model.PasswordHash);
+            Assert.NotNull(result);
+            Assert.AreEqual(99, result.Id);
+            Assert.AreEqual("test-user-display-name", result.DisplayName);
+            Assert.AreEqual("test@user.email", result.Email);
+            Assert.AreEqual("test-user-login", result.UserName);
+            Assert.AreEqual("test-user-password-hash", result.PasswordHash);
 
             // assert-mock
             this.mockUserStore.Verify(v => v.FindByNameAsync(It.IsAny<string>()));
         }
 
-
-
         [Test]
-        public void T002_()
+        public void T002_GetUserIdentity_Must_Fetch_User_From_Db_Check_Password_And_Return_Identity_Based_On_User_Found_In_Db()
         {
             // arrange
             var loginModel = LoginViewModelFactory.CreateValid();
@@ -68,11 +72,11 @@ namespace ToBeImplemented.Service.Implementations.Tests
 
             (this.sut as UserService).ClaimsIdentityFactory = mockClaimsFactory.Object;
             (this.sut as UserService).PasswordHasher = mockPasswordHasher.Object;
-            
+
             // arrange-mock
             this.mockUserStore.Setup(s => s.FindByNameAsync(It.IsAny<string>()))
                 .Returns(Task<User>.FromResult(userModel));
-            
+
             this.mockUserStore.Setup(s => s.GetPasswordHashAsync(It.IsAny<User>()))
                 .Returns(Task<string>.FromResult(userModel.PasswordHash));
 
@@ -86,7 +90,7 @@ namespace ToBeImplemented.Service.Implementations.Tests
             // act
             var result = this.sut.GetUserIndentity(loginModel);
             var r = result.Result;
-            
+
             // assert
             Assert.NotNull(r);
 
@@ -96,7 +100,7 @@ namespace ToBeImplemented.Service.Implementations.Tests
                 v => v.CreateAsync(It.IsAny<UserManager<User, long>>(), It.IsAny<User>(), It.IsAny<string>()),
                 Times.Once());
             mockPasswordHasher
-                .Verify(v => v.VerifyHashedPassword(It.IsAny<string>(), It.IsAny<string>()), 
+                .Verify(v => v.VerifyHashedPassword(It.IsAny<string>(), It.IsAny<string>()),
                 Times.Once);
         }
     }

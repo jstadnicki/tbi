@@ -8,12 +8,12 @@
     using ToBeImplemented.Infrastructure.Repository;
     using ToBeImplemented.Service.Interfaces;
 
-    public class ConceptService : IConceptService
+    public class ConceptsService : IConceptsService
     {
         private readonly IConceptRepository conceptRepository;
         private readonly ITagRepository tagRepository;
 
-        public ConceptService(IConceptRepository conceptRepository, ITagRepository tagRepository)
+        public ConceptsService(IConceptRepository conceptRepository, ITagRepository tagRepository)
         {
             this.conceptRepository = conceptRepository;
             this.tagRepository = tagRepository;

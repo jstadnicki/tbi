@@ -45,7 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAuthentication.cs" />
-    <Compile Include="IConceptService.cs" />
+    <Compile Include="IConceptsService.cs" />
     <Compile Include="ILoginService.cs" />
     <Compile Include="ISecurityChallengeProvider.cs" />
     <Compile Include="IRegisterService.cs" />

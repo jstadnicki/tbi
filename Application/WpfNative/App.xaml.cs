@@ -21,7 +21,7 @@ namespace WpfNative
             container.RegisterType<ITbiContext, TbiContext>();
             container.RegisterType<IConceptRepository, ConceptRepository>();
             container.RegisterType<ITagRepository, TagRepository>();
-            container.RegisterType<IConceptService, ConceptService>();
+            container.RegisterType<IConceptsService, ConceptsService>();
             container.RegisterType<IConceptLogic, ConceptLogic>();
             container.RegisterType<MainWindow>();
 

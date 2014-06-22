@@ -18,7 +18,7 @@
     [TestFixture]
     public class ConceptServiceTests : TbiBaseTest
     {
-        private IConceptService sut;
+        private IConceptsService sut;
 
         private Mock<IConceptRepository> mockConceptRepository;
         private Mock<ITagRepository> mockTagRepository;
@@ -33,7 +33,7 @@
             this.mockConceptRepository = new Mock<IConceptRepository>();
             this.mockTagRepository = new Mock<ITagRepository>();
 
-            this.sut = new ConceptService(
+            this.sut = new ConceptsService(
                 this.mockConceptRepository.Object,
                 this.mockTagRepository.Object);
         }

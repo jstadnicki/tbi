@@ -39,11 +39,11 @@
             // arrange-mock
 
             // act
-            var result = sut.Resolve<IConceptService>();
+            var result = sut.Resolve<IConceptsService>();
 
             // assert
             Assert.NotNull(result);
-            Assert.AreEqual(typeof(ConceptService), result.GetType());
+            Assert.AreEqual(typeof(ConceptsService), result.GetType());
 
             // assert-mock
         }

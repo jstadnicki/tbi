@@ -24,7 +24,7 @@
     {
         private IConceptLogic sut;
 
-        private Mock<IConceptService> mockConceptService;
+        private Mock<IConceptsService> mockConceptService;
 
         public override void Once()
         {
@@ -33,7 +33,7 @@
 
         public override void OncePerTest()
         {
-            this.mockConceptService = new Mock<IConceptService>();
+            this.mockConceptService = new Mock<IConceptsService>();
             this.sut = new ConceptLogic(this.mockConceptService.Object);
         }
 
@@ -148,7 +148,7 @@
 
             // assert
             Assert.AreEqual("test-concept-title", result.Title);
-            Assert.AreEqual("test-concept-delete-confirmation", result.Confirmation);
+            Assert.AreEqual("--- delete concept? ---", result.Confirmation);
             Assert.AreEqual(333, result.Id);
 
             // assert-mock

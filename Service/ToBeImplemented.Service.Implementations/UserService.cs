@@ -21,7 +21,7 @@
         public long RegisterUser(RegisterUser registerUser)
         {
             var user = Mapper.Map<User>(registerUser);
-            var result = this.Create(user, registerUser.Password);
+            this.Create(user, registerUser.Password);
             return user.Id;
         }
 

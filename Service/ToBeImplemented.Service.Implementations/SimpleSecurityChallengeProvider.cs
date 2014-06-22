@@ -2,6 +2,7 @@ namespace ToBeImplemented.Service.Implementations
 {
     using System;
     using System.Linq;
+    using System.Security.Cryptography.X509Certificates;
     using System.Text;
 
     using ToBeImplemented.Domain.Model;
@@ -42,13 +43,13 @@ namespace ToBeImplemented.Service.Implementations
             switch (challengeType)
             {
                 case ChallengeType.CharactersOnly:
-                    expected = this.GetCharactesOnly(challenge);
+                    expected = this.GetSecurityString(challenge, char.IsLetter, x => true);
                     break;
                 case ChallengeType.EvenNumbers:
-                    expected = this.GetEvenNumber(challenge);
+                    expected = this.GetSecurityString(challenge, char.IsDigit, CharToIntIsEven);
                     break;
                 case ChallengeType.OddNumbers:
-                    expected = this.GetOddNumbers(challenge);
+                    expected = this.GetSecurityString(challenge, char.IsDigit, CharToIntIsOdd);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("challengeType");
@@ -56,47 +57,26 @@ namespace ToBeImplemented.Service.Implementations
             return expected.ToLower() == userInput.ToLower();
         }
 
-        private string GetOddNumbers(string challenge)
+        private static bool CharToIntIsOdd(char x)
         {
-            StringBuilder sb = new StringBuilder();
-            challenge.ToList().ForEach(
-                x =>
-                {
-                    if (char.IsDigit(x))
-                    {
-                        if (int.Parse(x.ToString()) % 2 != 0)
-                        {
-                            sb.Append(x);
-                        }
-                    }
-                });
-            return sb.ToString();
+            return int.Parse(x.ToString()) % 2 != 0;
         }
 
-        private string GetEvenNumber(string challenge)
+        private static bool CharToIntIsEven(char x)
         {
-            StringBuilder sb = new StringBuilder();
-            challenge.ToList().ForEach(
-                x =>
-                {
-                    if (char.IsDigit(x))
-                    {
-                        if (int.Parse(x.ToString()) % 2 == 0)
-                        {
-                            sb.Append(x);
-                        }
-                    }
-                });
-            return sb.ToString();
+            return int.Parse(x.ToString()) % 2 == 0;
         }
 
-        private string GetCharactesOnly(string challenge)
+        private string GetSecurityString(
+            string challenge,
+            Func<char, bool> isValidCharacter,
+            Func<char, bool> isValidNumber)
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             challenge.ToList().ForEach(
                 x =>
                 {
-                    if (char.IsLetter(x))
+                    if (isValidCharacter(x) && isValidNumber(x))
                     {
                         sb.Append(x);
                     }
