@@ -96,7 +96,27 @@ namespace ToBeImplemented.Business.Implementations.Tests
             Assert.True(result.Success);
 
             // assert-mock
-            mockAuthenticationManager.Verify(v=>v.SignIn(It.IsAny<AuthenticationProperties>(), It.IsAny<ClaimsIdentity>()), Times.Once);
+            mockAuthenticationManager.Verify(v => v.SignIn(It.IsAny<AuthenticationProperties>(), It.IsAny<ClaimsIdentity>()), Times.Once);
+        }
+
+
+        [Test]
+        public void T004_Logout_Must_Call_Authentication_Signout_And_Return_Success()
+        {
+            // arrange
+            var mockAuthenticationManager = new Mock<IAuthenticationManager>();
+
+            // arrange-mock
+            mockAuthenticationManager.Setup(s => s.SignOut(It.IsAny<string[]>())).Verifiable();
+
+            // act
+            var result = this.sut.LogOut(mockAuthenticationManager.Object);
+
+            // assert
+            Assert.True(result.Success);
+
+            // assert-mock
+            mockAuthenticationManager.Verify(v => v.SignOut(It.IsAny<string[]>()), Times.Once);
         }
     }
 }

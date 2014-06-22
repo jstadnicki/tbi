@@ -9,5 +9,6 @@
     {
         OperationResult<LoginViewModel> GetLoginViewModel();
         OperationResult<bool> Login(LoginViewModel loginViewModel, IAuthenticationManager authentication);
+        OperationResult<bool> LogOut(IAuthenticationManager authentication);
     }
 }

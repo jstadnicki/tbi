@@ -7,6 +7,7 @@
     using ToBeImplemented.Business.Interfaces;
     using ToBeImplemented.Domain.ViewModel.Users;
 
+    [AllowAnonymous]
     public class RegisterController : Controller
     {
         private readonly IRegisterLogic registerLogic;

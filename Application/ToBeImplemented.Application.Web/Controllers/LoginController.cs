@@ -30,7 +30,7 @@
             var result = this.loginLogic.Login(loginViewModel, authentication);
             if (result.Success)
             {
-                return this.RedirectToAction("List", "Concepts");
+                return this.RedirectToAction("Index", "Concepts");
             }
             return null;
         }

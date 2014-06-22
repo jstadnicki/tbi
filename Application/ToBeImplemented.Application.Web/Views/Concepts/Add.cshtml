@@ -2,6 +2,7 @@
 <div class="row">
     <form role="form" method="PUT">
         @Html.HiddenFor(m=>m.AuthorId)
+        @Html.AntiForgeryToken()
         <div class="form-group">
             @Html.LabelFor(m=>m.Title)
             @Html.TextBoxFor(m=>m.Title,new {@class="form-control"})

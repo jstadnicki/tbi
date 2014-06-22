@@ -15,10 +15,10 @@ namespace ToBeImplemented.Application.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult List()
+        public ActionResult Index()
         {
             var viewModel = this.conceptLogic.List();
-            return View("List", viewModel);
+            return View("Index", viewModel);
         }
 
         [HttpGet]
@@ -29,6 +29,7 @@ namespace ToBeImplemented.Application.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult Add()
         {
             var viewModel = this.conceptLogic.GetAddConceptViewModel();
@@ -36,6 +37,8 @@ namespace ToBeImplemented.Application.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
         public ActionResult Add(AddConceptViewModel model)
         {
             if (ModelState.IsValid)
@@ -50,6 +53,7 @@ namespace ToBeImplemented.Application.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult Delete(long id)
         {
             var viewModel = this.conceptLogic.GetDeleteViewModel(id);
@@ -57,13 +61,16 @@ namespace ToBeImplemented.Application.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(DeleteConceptViewModel model)
         {
             this.conceptLogic.Delete(model.Id);
-            return this.RedirectToAction("List", "Concepts");
+            return this.RedirectToAction("Index", "Concepts");
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult Edit(long id)
         {
             var viewModel = this.conceptLogic.GetEditConceptViewModel(id);
@@ -71,6 +78,8 @@ namespace ToBeImplemented.Application.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(UpdateConceptViewModel model)
         {
             if (ModelState.IsValid)

@@ -30,5 +30,12 @@
             authentication.SignIn(new AuthenticationProperties { IsPersistent = loginViewModel.RememberMe }, userIdentity);
             return new OperationResult<bool>(true);
         }
+
+        public OperationResult<bool> LogOut(IAuthenticationManager authentication)
+        {
+            authentication.SignOut();
+            var result = new OperationResult<bool>(true);
+            return result;
+        }
     }
 }
