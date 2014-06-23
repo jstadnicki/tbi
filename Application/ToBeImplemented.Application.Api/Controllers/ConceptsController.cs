@@ -42,6 +42,7 @@ namespace ToBeImplemented.Application.Api.Controllers
         }
 
         [System.Web.Http.HttpPost]
+        [System.Web.Http.Authorize]
         public JsonResult Post(AddConceptViewModel model)
         {
             string json = null;
@@ -61,6 +62,7 @@ namespace ToBeImplemented.Application.Api.Controllers
             return result;
         }
 
+        [System.Web.Http.Authorize]
         public JsonResult Put(UpdateConceptViewModel model)
         {
             string json = null;
@@ -79,6 +81,7 @@ namespace ToBeImplemented.Application.Api.Controllers
             return result;
         }
 
+        [System.Web.Http.Authorize]
         public JsonResult Delete(long id)
         {
             this.conceptLogic.Delete(id);

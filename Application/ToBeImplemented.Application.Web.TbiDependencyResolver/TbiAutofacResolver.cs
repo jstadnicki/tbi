@@ -6,6 +6,8 @@
     using Autofac.Integration.Mvc;
     using Autofac.Integration.WebApi;
 
+    using DotNetDoodle.Owin.Dependencies.Autofac;
+
     using Microsoft.AspNet.Identity;
 
     using ToBeImplemented.Business.Implementations;
@@ -29,6 +31,7 @@
 
             containerBuilder.RegisterControllers(Assembly.GetCallingAssembly());
             containerBuilder.RegisterApiControllers(Assembly.GetCallingAssembly());
+            containerBuilder.RegisterOwinApplicationContainer();
 
             containerBuilder.RegisterType<TbiContext>().As<ITbiContext>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<ConceptRepository>().As<IConceptRepository>();
@@ -51,6 +54,12 @@
             
             containerBuilder.RegisterType<DateTimeAdapter>().As<IDateTimeAdapter>();
             containerBuilder.RegisterType<GuidAdapter>().As<IGuidAdapter>();
+
+
+
+
+
+            containerBuilder.RegisterType<UserService>().As<UserManager<User, long>>();
 
 
 
