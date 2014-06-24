@@ -1,0 +1,21 @@
+﻿<div class="row col-md-6 col-md-offset-3" ng-controller="LoginController" ng-init="init()">
+    <form role="form" method="POST" name="tbiLoginForm" novalidate>
+        <div class="form-group" ng-class="{'has-error': tbiLoginForm.loginName.$error.required}">
+            <label>Login name</label>
+            <input name="loginName" type="text" ng-model="loginViewModel.loginName" class="form-control" required />
+            <span class="warning" ng-show="tbiLoginForm.loginName.$error.required">
+                Login name is required
+            </span>
+        </div>
+        <div class="form-group" ng-class="{'has-error': tbiLoginForm.password.$error.required}">
+            <label>Password</label>
+            <input name="password" type="password" ng-model="loginViewModel.password" class="form-control" required />
+            <span class="warning" ng-show="tbiLoginForm.password.$error.required">
+                Password is required
+            </span>
+        </div>
+        <div class="form-group">
+            <div class="btn btn-primary pull-right" ng-click="login()" ng-disabled="tbiLoginForm.$invalid">login</div>
+        </div>
+    </form>
+</div>

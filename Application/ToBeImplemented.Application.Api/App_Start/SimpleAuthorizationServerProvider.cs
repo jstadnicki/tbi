@@ -25,7 +25,7 @@ namespace ToBeImplemented.Application.Api
 
         public override Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
-//            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
+            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
 
             var u = this.userRepository.FindAsync(context.UserName, context.Password).Result;
             ClaimsIdentity i = null;
