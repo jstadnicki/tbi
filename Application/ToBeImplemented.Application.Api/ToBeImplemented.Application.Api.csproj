@@ -90,7 +90,8 @@
       <Private>True</Private>
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
@@ -179,6 +180,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\webapi_local_file_system.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -222,6 +224,10 @@
     <ProjectReference Include="..\..\Service\ToBeImplemented.Service.Interfaces\ToBeImplemented.Service.Interfaces.csproj">
       <Project>{806DEA7A-BBD3-4597-9052-5C3913DE2A16}</Project>
       <Name>ToBeImplemented.Service.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ToBeImplemented.Application.WebApi.TbiDependencyResolver\ToBeImplemented.Application.WebApi.TbiDependencyResolver.csproj">
+      <Project>{09355095-65A3-4CB5-9488-9182BFEF83FD}</Project>
+      <Name>ToBeImplemented.Application.WebApi.TbiDependencyResolver</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

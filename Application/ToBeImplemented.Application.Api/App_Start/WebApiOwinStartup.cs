@@ -18,7 +18,7 @@ namespace ToBeImplemented.Application.Api
 
     using Owin;
 
-    using ToBeImplemented.Application.Web.TbiDependencyResolver;
+    using ToBeImplemented.Application.WebApi.TbiDependencyResolver;
     using ToBeImplemented.Business.Mapper;
     using ToBeImplemented.Domain.Model.Users;
 
