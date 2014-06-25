@@ -4,7 +4,6 @@
 
     using Autofac;
     using Autofac.Integration.Mvc;
-    using Autofac.Integration.WebApi;
 
     using DotNetDoodle.Owin.Dependencies.Autofac;
 
@@ -30,7 +29,7 @@
             var containerBuilder = new ContainerBuilder();
 
             containerBuilder.RegisterControllers(Assembly.GetCallingAssembly());
-            containerBuilder.RegisterApiControllers(Assembly.GetCallingAssembly());
+//            containerBuilder.RegisterApiControllers(Assembly.GetCallingAssembly());
             containerBuilder.RegisterOwinApplicationContainer();
 
             containerBuilder.RegisterType<TbiContext>().As<ITbiContext>().InstancePerLifetimeScope();

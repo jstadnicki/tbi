@@ -39,7 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autofac">
-      <HintPath>..\..\packages\Autofac.3.4.0\lib\net40\Autofac.dll</HintPath>
+      <HintPath>..\..\packages\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="Autofac.Integration.WebApi, Version=3.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -55,10 +55,10 @@
       <HintPath>..\..\packages\DotNetDoodle.Owin.Dependencies.Autofac.0.3.0-pre01\lib\net45\DotNetDoodle.Owin.Dependencies.Autofac.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
-      <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -89,6 +89,9 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -159,9 +162,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web.Http.WebHost">
       <HintPath>..\..\packages\Microsoft.AspNet.WebApi.WebHost.5.1.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
@@ -187,10 +187,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Business\ToBeImplemented.Business.Implementations\ToBeImplemented.Business.Implementations.csproj">
-      <Project>{20E46D57-C6B9-4658-9765-86290F62804D}</Project>
-      <Name>ToBeImplemented.Business.Implementations</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Business\ToBeImplemented.Business.Interfaces\ToBeImplemented.Business.Interfaces.csproj">
       <Project>{A5A75736-8C6A-4D09-B4C3-398C68C8FA99}</Project>
       <Name>ToBeImplemented.Business.Interfaces</Name>
@@ -226,10 +222,6 @@
     <ProjectReference Include="..\..\Service\ToBeImplemented.Service.Interfaces\ToBeImplemented.Service.Interfaces.csproj">
       <Project>{806DEA7A-BBD3-4597-9052-5C3913DE2A16}</Project>
       <Name>ToBeImplemented.Service.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ToBeImplemented.Application.Web.TbiDependencyResolver\ToBeImplemented.Application.Web.TbiDependencyResolver.csproj">
-      <Project>{D56133AF-3FC6-4EE8-A9AD-8D6F022179ED}</Project>
-      <Name>ToBeImplemented.Application.Web.TbiDependencyResolver</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
