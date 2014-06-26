@@ -9,7 +9,7 @@ angular.module('ToBeImplemented')
         $scope.error = {};
 
         $scope.init = function () {
-            $http.get('http://localhost:7397/concepts/' + $scope.data.id)
+            $http.get('http://localhost:50000/concepts/' + $scope.data.id)
                .success(function (data, status, headers, config) {
                    $scope.concept = angular.fromJson(data.Data);
                })
@@ -19,7 +19,7 @@ angular.module('ToBeImplemented')
         };
 
         $scope.delete = function () {
-            $http.delete('http://localhost:7397/concepts/' + $scope.data.id)
+            $http.delete('http://localhost:50000/concepts/' + $scope.data.id)
                 .success(function () {
                     alert('deleted!');
                     $location.path('/');

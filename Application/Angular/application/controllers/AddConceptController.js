@@ -21,7 +21,7 @@ angular.module('ToBeImplemented')
                 Tags: tags
             };
 
-            $http.post('http://localhost:7397/concepts', concept)
+            $http.post('http://localhost:50000/concepts', concept)
                 .success(function (data) {
                     var id = angular.fromJson(data.Data);
                     $location.path('/concepts/details/' + id);

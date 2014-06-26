@@ -55,31 +55,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "actions.txt",
-			"settings":
-			{
-				"buffer_size": 932,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "import sublime, sublime_plugin\n\nclass ExampleCommand(sublime_plugin.TextCommand):\n    def run(self, edit):\n        self.view.insert(edit, 0, \"Hello, World!\")\n",
-			"settings":
-			{
-				"buffer_size": 158,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "static void Main(string[] args)\n{\n    var task = Task.Run(() => TaskMethod());\n}\n\nprivate static void TaskMethod()\n{\n    Console.WriteLine(\"asd\");\n    foo();\n    var t = new Thread(ThreadMethod);\n    Task.Run(() => t.Start());\n}\n\nprivate static void ThreadMethod()\n{\n    Console.WriteLine(\"From thread from task\");\n}\n\nprivate static void foo()\n{    /* code goes here */    }",
-			"settings":
-			{
-				"buffer_size": 374,
-				"line_ending": "Windows",
-				"name": "static void Main(string[] args)"
-			}
-		}
 	],
 	"build_system": "Packages/User/Chrome.sublime-build",
 	"command_palette":
@@ -113,6 +88,7 @@
 	},
 	"file_history":
 	[
+		"/C/source/ToBeImplemented/actions.txt",
 		"/C/source/AngularJS/002/application/components/cart/cartSummary.html",
 		"/C/source/AngularJS/002/index.html",
 		"/C/source/AngularJS/002/application/views/checkoutSummary.html",
@@ -137,7 +113,6 @@
 		"/C/Users/Jarosław/Dropbox/tools/Sublime/Data/Packages/User/Chrome.sublime-build",
 		"/C/Program Files/nodejs/c.js",
 		"/C/source/c.js",
-		"/C/source/ToBeImplemented/actions.txt",
 		"/C/source/DreamJob/DreamJob.Services.Tests/AccountServiceTest.cs",
 		"/C/source/DreamJob/DreamJob.Models/Candidate.cs",
 		"/C/source/DreamJob/DreamJob.Models/CurrencyType.cs",
@@ -193,93 +168,8 @@
 	"groups":
 	[
 		{
-			"selected": 2,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "actions.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 932,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								422,
-								422
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 158,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								115,
-								115
-							]
-						],
-						"settings":
-						{
-							"default_dir": "C:\\Users\\Jarosław\\Dropbox\\tools\\Sublime\\Data\\Packages\\User",
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 374,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								374
-							]
-						],
-						"settings":
-						{
-							"auto_name": "static void Main(string[] args)",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],

@@ -6,7 +6,7 @@ angular.module('ToBeImplemented')
         $scope.error = '';
 
         $scope.init = function () {
-            $http.get('http://localhost:7397/concepts?include=author')
+            $http.get('http://localhost:50000/concepts?include=author')
                 .success(function (data, status, headers, config) {
                     $scope.list = angular.fromJson(data.Data).Concepts;
                 })

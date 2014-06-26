@@ -5,7 +5,7 @@
 angular.module('ToBeImplemented')
     .factory('authorizationService', function ($http, $q, localStorageService) {
 
-        var serviceBase = 'http://localhost:7397/';
+        var serviceBase = 'http://localhost:50000/';
         var authorizationServiceFactory = {};
 
         var _authentication = {

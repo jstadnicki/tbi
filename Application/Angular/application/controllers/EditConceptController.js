@@ -6,7 +6,7 @@ angular.module('ToBeImplemented')
         $scope.concept = {};
         $scope.data.id = $routeParams.id;
         $scope.init = function () {
-            $http.get('http://localhost:7397/concepts/' + $scope.data.id)
+            $http.get('http://localhost:50000/concepts/' + $scope.data.id)
                 .success(function (data, status) {
                     $scope.concept = angular.fromJson(data.Data);
                     $scope.concept.Tags = $scope.concept.Tags.join(';');
@@ -31,7 +31,7 @@ angular.module('ToBeImplemented')
                 Tags: tags
             };
 
-            $http.put('http://localhost:7397/concepts', concept)
+            $http.put('http://localhost:50000/concepts', concept)
                 .success(function () {
                     $location.path('/concepts/' + id);
                 })

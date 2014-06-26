@@ -11,7 +11,10 @@
     <script src="scripts/angular-route.js"></script>
     <script>
         angular.module('ToBeImplemented', ['ngRoute', 'LocalStorageModule'])
-            .config(function ($routeProvider) {
+            .config(function ($routeProvider, $httpProvider) {
+
+                $httpProvider.interceptors.push('authorizationInterceptorService');
+
                 $routeProvider
                     .when('/about', {
                         templateUrl: '/Application/Views/About/about.html',
@@ -55,6 +58,7 @@
     <script src="application/controllers/LogoutController.js"></script>
     <script src="application/controllers/RegisterController.js"></script>
     <script src="application/services/authorizationService.js"></script>
+    <script src="application/services/authorizationInterceptorService.js"></script>
 </head>
 <body>
     <div class="container">

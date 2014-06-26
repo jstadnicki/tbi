@@ -64,12 +64,12 @@
     <Content Include="application\controllers\LogoutController.js" />
     <Content Include="application\controllers\LoginController.js" />
     <Content Include="application\services\authorizationService.js" />
-    <Content Include="application\Views\Concepts\add.html" />
-    <Content Include="application\Views\Concepts\details.html" />
-    <Content Include="application\Views\Concepts\edit.html" />
-    <Content Include="application\Views\Login\index.html" />
-    <Content Include="application\Views\Logout\index.html" />
-    <Content Include="application\Views\Register\index.html" />
+    <Content Include="application\views\Concepts\add.html" />
+    <Content Include="application\views\Concepts\details.html" />
+    <Content Include="application\views\Concepts\edit.html" />
+    <Content Include="application\views\Login\index.html" />
+    <Content Include="application\views\Logout\index.html" />
+    <Content Include="application\views\Register\index.html" />
     <Content Include="scripts\angular-local-storage.min.js" />
     <Content Include="scripts\angular.min.js.map" />
     <Content Include="packages.config" />
@@ -83,7 +83,7 @@
   <ItemGroup>
     <Content Include="application\controllers\AboutController.js" />
     <Content Include="application\controllers\ListController.js" />
-    <Content Include="application\Views\Concepts\list.html" />
+    <Content Include="application\views\Concepts\list.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -373,7 +373,7 @@
     <Content Include="scripts\i18n\angular-locale_zu.js" />
     <Content Include="scripts\jquery-2.1.1.js" />
     <Content Include="scripts\jquery-2.1.1.min.js" />
-    <Content Include="application\Views\Navigation.html" />
+    <Content Include="application\views\Navigation.html" />
     <Content Include="Web.config" />
     <Content Include="scripts\jquery-2.1.1.min.map" />
     <Content Include="scripts\version.json" />
