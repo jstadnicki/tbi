@@ -1,4 +1,4 @@
-﻿angular.module('ToBeImplemented')
+angular.module('ToBeImplemented')
     .controller('LoginController', function ($scope, $http, $location, authorizationService) {
 
         $scope.loginViewModel = {
@@ -6,8 +6,7 @@
             password: ''
         };
 
-        $scope.init = function () { };
-
+        $scope.init = function () {};
 
         $scope.login = function () {
             authorizationService.login($scope.loginViewModel).then(function (response) {

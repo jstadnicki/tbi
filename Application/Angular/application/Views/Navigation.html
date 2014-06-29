@@ -1,4 +1,4 @@
-﻿<div role="navigation" class="navbar navbar-default navbar-fixed-top">
+<div ng-controller='NavigationController' ng-init='init()' role="navigation" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
@@ -11,23 +11,43 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#/concepts/add">New concept</a></li>
+                <li><a href="#">Home</a>
+                </li>
+                <li><a href="#about">About</a>
+                </li>
+                <li><a href="#contact">Contact</a>
+                </li>
+                <li><a href="#/concepts/add">New concept</a>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">Language<b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">English</a></li>
-                        <li><a href="#">Polish</a></li>
+                        <li>
+                            <a href="#">English</a>
+                        </li>
+                        <li>
+                            <a href="#">Polish</a>
+                        </li>
                     </ul>
                 </li>
-                <li><a href="#login">Login</a></li>
-                <li><a href="#register">Register</a></li>
-                <li><a href="#logout">Logout</a></li>
-                <li><a href="#">Search</a></li>
+                <li ng-hide='isLogged()'>
+                    <a href="#login">Login</a>
+                </li>
+
+                <li ng-hide='isLogged()'>
+                    <a href="#register">Register</a>
+                </li>
+                <li ng-show='isLogged()'>
+                    <a href="#logout" ng-click='logout()'>Logout</a>
+                </li>
+                <li ng-show='isLogged()'>
+                    <a href="#profile">{{username()}}</a>
+                </li>
+                <li>
+                    <a href="#">Search</a>
+                </li>
             </ul>
         </div>
     </div>
