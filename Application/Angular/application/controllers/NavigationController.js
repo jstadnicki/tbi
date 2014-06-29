@@ -1,5 +1,5 @@
 angular.module('ToBeImplemented')
-    .controller('NavigationController', function ($scope, authorizationService) {
+    .controller('NavigationController', function ($scope, $location, authorizationService) {
 
         $scope.init = function () {};
 
@@ -16,4 +16,9 @@ angular.module('ToBeImplemented')
             var r = authorizationService.loginName;
             return r;
         };
+
+        $scope.logout = function () {
+            authorizationService.logout();
+            $location.path('/');
+        }
     });

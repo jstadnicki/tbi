@@ -1,5 +1,6 @@
 namespace ToBeImplemented.Application.Api.Controllers
 {
+    using System;
     using System.Linq;
     using System.Text;
     using System.Web.Http;
@@ -8,6 +9,7 @@ namespace ToBeImplemented.Application.Api.Controllers
     using Newtonsoft.Json;
 
     using ToBeImplemented.Business.Interfaces;
+    using ToBeImplemented.Common.Data;
     using ToBeImplemented.Domain.ViewModel.Users;
 
     public class RegisterController : ApiController
@@ -19,28 +21,34 @@ namespace ToBeImplemented.Application.Api.Controllers
             this.registerLogic = registerLogic;
         }
 
-        public JsonResult<string> Post(RegisterUserViewModel model)
+        public JsonResult<OperationResult<long>> Post(RegisterUserViewModel model)
         {
-            JsonResult<string> result;
+            JsonResult<OperationResult<long>> result;
             var js = new JsonSerializerSettings();
             if (ModelState.IsValid)
             {
                 var registerResult = this.registerLogic.RegisterUser(model);
-                if (registerResult.Success)
-                {
-                    result = new JsonResult<string>(registerResult.Data.ToString(), js, Encoding.Default, this);
-                }
-                else
-                {
-                    var flattenErrors = string.Join(";", registerResult.Errors);
-                    result = new JsonResult<string>(flattenErrors, js, Encoding.Default, this);
-                }
+                result = new JsonResult<OperationResult<long>>(registerResult, js, Encoding.Default, this);
             }
             else
             {
-                var flattenErrors = string.Join(";", ModelState.Values.SelectMany(x => x.Errors).Select(x=>x.ErrorMessage));
-                result = new JsonResult<string>(flattenErrors, js, Encoding.Default, this);
+                var errors = ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage);
+                var faultyResult = new OperationResult<long>(-1, false, errors.ToList());
+                result = new JsonResult<OperationResult<long>>(faultyResult, js, Encoding.Default, this);
             }
+            return result;
+        }
+
+        public JsonResult<OperationResult<RegisterUserViewModel>> Get()
+        {
+            var operationResult = this.registerLogic.GetRegisterViewModel();
+            var js = new JsonSerializerSettings();
+            var result = new JsonResult<OperationResult<RegisterUserViewModel>>(
+                operationResult,
+                js,
+                Encoding.Default,
+                this);
+
             return result;
         }
 

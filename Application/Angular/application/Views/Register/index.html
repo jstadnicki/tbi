@@ -1,40 +1,56 @@
-﻿<form role="form" method="POST">
-    <div class="form-group">
-        <label>DisplayName</label>
-        <input class="form-control" id="DisplayName" name="DisplayName">
+<div ng-controller='RegisterController' ng-init=init()>
+    <div ng-visible='registrationErrors.length>0'>
+        <ul>
+            <li ng-repeat='e in registrationErrors'>{{e}}</li>
+        </ul>
     </div>
-    <div class="form-group">
-        <label>Email</label>
-        <input class="form-control" id="Email" name="Email">
-    </div>
-    <div class="form-group">
-        <label>Login</label>
-        <input class="form-control" id="Login" name="Login">
-    </div>
-    <div class="form-group">
-        <label>Password</label>
-        <input class="form-control" id="Password" name="Password">
-    </div>
-    <div class="form-group">
-        <label>Confirm password</label>
-        <input class="form-control" id="ConfirmPassword" name="ConfirmPassword">
-    </div>
-    <div class="form-group">
-        <label>Confirm password</label>
-        <input class="form-control" id="ConfirmPassword" name="ConfirmPassword">
-    </div>
+    <form role="form" name='tbiRegisterForm' novalidate>
+        <div class="form-group" ng-class="{'has-error':tbiRegisterForm.DisplayName.$error.required}">
+            <label>DisplayName</label>
+            <input class="form-control" id="DisplayName" name="DisplayName" ng-model='registrationViewModel.DisplayName' required>
+            <span class='warning' ng-show='tbiRegisterForm.DisplayName.$error.required'>
+                DisplayName is required
+            </span>
+        </div>
+        <div class="form-group" ng-class="{'has-error':tbiRegisterForm.Email.$error.required}">
+            <label>Email</label>
+            <input class="form-control" id="Email" name="Email" ng-model='registrationViewModel.Email' required>
+            <span ng-show='tbiRegisterForm.Email.$error.required'>
+                Email is required
+            </span>
+        </div>
+        <div class="form-group" ng-class="{'has-error':tbiRegisterForm.Login.$error.required}">
+            <label>Login</label>
+            <input class="form-control" id="Login" name="Login" ng-model='registrationViewModel.Username' required>
+            <span ng-show='tbiRegisterForm.Login.$error.required'>
+                Login is required
+            </span>
+        </div>
+        <div class="form-group" ng-class="{'has-error':tbiRegisterForm.Password.$error.required}">
+            <label>Password</label>
+            <input type='password' class="form-control" id="Password" name="Password" ng-model='registrationViewModel.Password' required>
+            <span ng-show='tbiRegisterForm.Password.$error.required'>
+                Password is required
+            </span>
+        </div>
+        <div class="form-group" ng-class="{'has-error':tbiRegisterForm.ConfirmPassword.$error.required}">
+            <label>Confirm password</label>
+            <input type='password' class="form-control" id="ConfirmPassword" name="ConfirmPassword" ng-model='registrationViewModel.PasswordConfirmation' required>
+            <span ng-show='tbiRegisterForm.ConfirmPassword.$error.required'>
+                ConfirmPassword is required
+            </span>
+        </div>
+        <div class="form-group">
+            <label>Challenge type: {{registrationViewModel.ChallengeType}}</label>
+        </div>
+        <div class="form-group">
+            <label>Security text: {{registrationViewModel.SecurityChallengeText}}</label>
+        </div>
 
-    <div class="form-group">
-        <label>Challenga type:</label>
-    </div>
-
-    <div class="form-group">
-        <label>Security text:</label>
-    </div>
-
-    <div class="form-group">
-        <label>Security result:</label>
-        <input type="text" class="form-control" id="SecurityResult" name="SecurityResult"/>
-    </div>
-    <button type="submit" class="btn btn-default pull-right">register</button>
-</form>
+        <div class="form-group">
+            <label>Security result:</label>
+            <input type="text" class="form-control" id="SecurityResult" name="SecurityResult" ng-model='registrationViewModel.SecurityResult' />
+        </div>
+        <button class="btn btn-default pull-right" ng-click='register()'>register</button>
+    </form>
+</div>

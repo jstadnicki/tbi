@@ -3,7 +3,7 @@
 'use strinct';
 
 angular.module('ToBeImplemented')
-    .factory('authorizationService', function ($http, $q, localStorageService) {
+    .factory('authorizationService', function ($http, $q, localStorageService, serviceAddress) {
 
         var _authentication = {};
 
@@ -20,17 +20,14 @@ angular.module('ToBeImplemented')
         })();
 
 
-        var serviceBase = 'http://localhost:50000/';
         var authorizationServiceFactory = {};
-
-
 
         var _login = function (loginViewModel) {
             var data = 'grant_type=password&username=' + loginViewModel.loginName + '&password=' + loginViewModel.password;
             var deferred = $q.defer();
 
             $http.post(
-                serviceBase + 'token',
+                serviceAddress + 'token',
                 data, {
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded'
@@ -52,6 +49,18 @@ angular.module('ToBeImplemented')
             return deferred.promise;
         };
 
+
+        var _register = function (registerViewModel) {
+            var p = $http.post(serviceAddress + '/register', registerViewModel)
+                .success(function (response) {
+                    var operationResult = angular.fromJson(response);
+                })
+                .error(function (response) {
+                    var operationResult = angular.fromJson(response);
+                });
+            return p;
+        };
+
         var _logout = function () {
             localStorageService.remove('authorizationData');
             _authentication.isAuthorized = false;
@@ -61,6 +70,7 @@ angular.module('ToBeImplemented')
 
 
 
+        authorizationServiceFactory.register = _register;
         authorizationServiceFactory.login = _login;
         authorizationServiceFactory.logout = _logout;
         authorizationServiceFactory.loginName = _authentication.loginName;

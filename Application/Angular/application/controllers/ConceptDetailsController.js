@@ -1,7 +1,7 @@
-﻿/// <reference path="c:\source\ToBeImplemented\Application\Angular\scripts/angular.js" />
+/// <reference path="c:\source\ToBeImplemented\Application\Angular\scripts/angular.js" />
 
 angular.module('ToBeImplemented')
-    .controller('ConceptDetailsController', function ($scope, $http, $routeParams, $location) {
+    .controller('ConceptDetailsController', function ($scope, $http, $routeParams, $location, serviceAddress) {
 
         $scope.data = {};
         $scope.data.id = $routeParams.id;
@@ -9,17 +9,17 @@ angular.module('ToBeImplemented')
         $scope.error = {};
 
         $scope.init = function () {
-            $http.get('http://localhost:50000/concepts/' + $scope.data.id)
-               .success(function (data, status, headers, config) {
-                   $scope.concept = angular.fromJson(data.Data);
-               })
-               .error(function (data, status, headers, config) {
-                   $scope.error = data;
-               });
+            $http.get(serviceAddress + '/concepts/' + $scope.data.id)
+                .success(function (data, status, headers, config) {
+                    $scope.concept = angular.fromJson(data.Data);
+                })
+                .error(function (data, status, headers, config) {
+                    $scope.error = data;
+                });
         };
 
         $scope.delete = function () {
-            $http.delete('http://localhost:50000/concepts/' + $scope.data.id)
+            $http.delete(serviceAddress + '/concepts/' + $scope.data.id)
                 .success(function () {
                     alert('deleted!');
                     $location.path('/');

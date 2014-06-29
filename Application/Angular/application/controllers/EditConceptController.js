@@ -1,12 +1,12 @@
-﻿/// <reference path="c:\source\ToBeImplemented\Application\Angular\scripts\angular.js" />
+/// <reference path="c:\source\ToBeImplemented\Application\Angular\scripts\angular.js" />
 
 angular.module('ToBeImplemented')
-    .controller('EditConceptController', function ($scope, $http, $routeParams, $location) {
+    .controller('EditConceptController', function ($scope, $http, $routeParams, $location, serviceAddress) {
         $scope.data = {};
         $scope.concept = {};
         $scope.data.id = $routeParams.id;
         $scope.init = function () {
-            $http.get('http://localhost:50000/concepts/' + $scope.data.id)
+            $http.get(serviceAddress + '/concepts/' + $scope.data.id)
                 .success(function (data, status) {
                     $scope.concept = angular.fromJson(data.Data);
                     $scope.concept.Tags = $scope.concept.Tags.join(';');
@@ -31,7 +31,7 @@ angular.module('ToBeImplemented')
                 Tags: tags
             };
 
-            $http.put('http://localhost:50000/concepts', concept)
+            $http.put(serviceAddress + '/concepts', concept)
                 .success(function () {
                     $location.path('/concepts/' + id);
                 })

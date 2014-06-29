@@ -1,6 +1,6 @@
-﻿/// <reference path="c:\source\ToBeImplemented\Application\Angular\scripts\angular.js" />
+/// <reference path="c:\source\ToBeImplemented\Application\Angular\scripts\angular.js" />
 angular.module('ToBeImplemented')
-    .controller('AddConceptController', function ($scope, $http, $location) {
+    .controller('AddConceptController', function ($scope, $http, $location, serviceAddress) {
         $scope.concept = {};
         $scope.init = function () {
             $scope.concept.AuthorId = 1;
@@ -21,7 +21,7 @@ angular.module('ToBeImplemented')
                 Tags: tags
             };
 
-            $http.post('http://localhost:50000/concepts', concept)
+            $http.post(serviceAddress + '/concepts', concept)
                 .success(function (data) {
                     var id = angular.fromJson(data.Data);
                     $location.path('/concepts/details/' + id);
