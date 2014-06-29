@@ -60,9 +60,11 @@
     <Content Include="application\controllers\AddConceptController.js" />
     <Content Include="application\controllers\EditConceptController.js" />
     <Content Include="application\controllers\ConceptDetailsController.js" />
+    <Content Include="application\controllers\NavigationController.js" />
     <Content Include="application\controllers\RegisterController.js" />
     <Content Include="application\controllers\LogoutController.js" />
     <Content Include="application\controllers\LoginController.js" />
+    <Content Include="application\services\authorizationInterceptorService.js" />
     <Content Include="application\services\authorizationService.js" />
     <Content Include="application\views\Concepts\add.html" />
     <Content Include="application\views\Concepts\details.html" />
