@@ -27,7 +27,7 @@ angular.module('ToBeImplemented')
             var deferred = $q.defer();
 
             $http.post(
-                serviceAddress + 'token',
+                serviceAddress + '/token',
                 data, {
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded'

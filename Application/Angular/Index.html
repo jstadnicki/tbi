@@ -13,45 +13,44 @@
     <script src="scripts/angular-route.js"></script>
     <script>
         angular.module('ToBeImplemented', ['ngRoute', 'LocalStorageModule'])
-            .constant('serviceAddress', 'http://localhost:50000')
-         //        .constant('serviceAddress', 'http://localhost:7397')
-        .config(function ($routeProvider, $httpProvider) {
+            .constant('serviceAddress', 'http://localhost:7397')
+            .config(function ($routeProvider, $httpProvider) {
 
-            $httpProvider.interceptors.push('authorizationInterceptorService');
+                $httpProvider.interceptors.push('authorizationInterceptorService');
 
-            $routeProvider
-                .when('/about', {
-                    templateUrl: '/Application/Views/About/about.html',
-                    controller: 'AboutController'
-                })
-                .when('/concepts/details/:id', {
-                    templateUrl: '/Application/Views/Concepts/details.html',
-                    controller: 'ConceptDetailsController'
-                })
-                .when('/concepts/edit/:id', {
-                    templateUrl: '/Application/Views/Concepts/edit.html',
-                    controller: 'EditConceptController'
-                })
-                .when('/concepts/add', {
-                    templateUrl: '/Application/Views/Concepts/add.html',
-                    controller: 'AddConceptController'
-                })
-                .when('/login', {
-                    templateUrl: '/Application/Views/Login/index.html',
-                    controller: 'LoginController'
-                })
-                .when('/register', {
-                    templateUrl: '/Application/Views/Register/index.html',
-                    controller: 'RegisterController'
-                })
-                .when('logout', {
-                    templateUrl: '/Application/Views/Logout/index.html',
-                    controller: 'LogoutController'
-                })
-                .otherwise({
-                    templateUrl: '/Application/Views/Concepts/list.html'
-                });
-        });
+                $routeProvider
+                    .when('/about', {
+                        templateUrl: '/Application/Views/About/about.html',
+                        controller: 'AboutController'
+                    })
+                    .when('/concepts/details/:id', {
+                        templateUrl: '/Application/Views/Concepts/details.html',
+                        controller: 'ConceptDetailsController'
+                    })
+                    .when('/concepts/edit/:id', {
+                        templateUrl: '/Application/Views/Concepts/edit.html',
+                        controller: 'EditConceptController'
+                    })
+                    .when('/concepts/add', {
+                        templateUrl: '/Application/Views/Concepts/add.html',
+                        controller: 'AddConceptController'
+                    })
+                    .when('/login', {
+                        templateUrl: '/Application/Views/Login/index.html',
+                        controller: 'LoginController'
+                    })
+                    .when('/register', {
+                        templateUrl: '/Application/Views/Register/index.html',
+                        controller: 'RegisterController'
+                    })
+                    .when('logout', {
+                        templateUrl: '/Application/Views/Logout/index.html',
+                        controller: 'LogoutController'
+                    })
+                    .otherwise({
+                        templateUrl: '/Application/Views/Concepts/list.html'
+                    });
+            });
     </script>
     <script src="application/controllers/AboutController.js"></script>
     <script src="application/controllers/ListController.js"></script>
@@ -66,6 +65,7 @@
     <script src="application/services/authorizationService.js"></script>
     <script src="application/services/authorizationInterceptorService.js"></script>
     <script src="application/models/ServiceResult.js"></script>
+    <script src="application/directives/compareValueAttribute.js"></script>
 </head>
 
 <body>

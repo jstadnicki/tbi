@@ -1,6 +1,7 @@
-﻿@model ToBeImplemented.Domain.ViewModel.Concepts.AddConceptViewModel
+@model ToBeImplemented.Domain.ViewModel.Concepts.AddConceptViewModel
 <div class="row">
     <form role="form" method="PUT">
+        @Html.ValidationSummary()
         @Html.HiddenFor(m=>m.AuthorId)
         @Html.AntiForgeryToken()
         <div class="form-group">

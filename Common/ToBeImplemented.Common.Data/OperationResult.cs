@@ -18,9 +18,7 @@ namespace ToBeImplemented.Common.Data
 
         public OperationResult(T data, bool success, string error) :
             this(data, success, new List<string> { error })
-        {
-
-        }
+        { }
 
         public T Data { get; set; }
         public bool Success { get; set; }

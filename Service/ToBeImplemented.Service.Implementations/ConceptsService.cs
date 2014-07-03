@@ -1,4 +1,4 @@
-﻿namespace ToBeImplemented.Service.Implementations
+namespace ToBeImplemented.Service.Implementations
 {
     using System;
     using System.Collections.Generic;
@@ -13,7 +13,9 @@
         private readonly IConceptRepository conceptRepository;
         private readonly ITagRepository tagRepository;
 
-        public ConceptsService(IConceptRepository conceptRepository, ITagRepository tagRepository)
+        public ConceptsService(
+            IConceptRepository conceptRepository,
+            ITagRepository tagRepository)
         {
             this.conceptRepository = conceptRepository;
             this.tagRepository = tagRepository;

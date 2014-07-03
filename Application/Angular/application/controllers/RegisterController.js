@@ -28,12 +28,17 @@ angular.module('ToBeImplemented')
             var result = authorizationService.register($scope.registrationViewModel);
             result
                 .success(function (opearationResult) {
-                    if (opearationResult.success) {
-                        $location.path('/');
+                    if (opearationResult.Success) {
+                        $location.path('/login');
                     } else {
                         $scope.registrationErrors = opearationResult.Errors;
                     }
                 })
                 .error(function () {});
         };
+
+        $scope.passwordsMatches = function (a, b) {
+            console.log(a);
+            console.log(b);
+        }
     });
