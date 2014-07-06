@@ -13,7 +13,8 @@
     <script src="scripts/angular-route.js"></script>
     <script>
         angular.module('ToBeImplemented', ['ngRoute', 'LocalStorageModule'])
-            .constant('serviceAddress', 'http://localhost:7397')
+         //            .constant('serviceAddress', 'http://localhost:7397')
+        .constant('serviceAddress', 'http://localhost:50000')
             .config(function ($routeProvider, $httpProvider) {
 
                 $httpProvider.interceptors.push('authorizationInterceptorService');
@@ -65,14 +66,12 @@
     <script src="application/services/authorizationService.js"></script>
     <script src="application/services/authorizationInterceptorService.js"></script>
     <script src="application/models/ServiceResult.js"></script>
-    <script src="application/directives/compareValueAttribute.js"></script>
 </head>
 
 <body>
     <div class="container">
         <div ng-include="'/Application/Views/Navigation.html'"></div>
     </div>
-
     <div class="container" style="position: relative; top:70px;" ng-view>
     </div>
 </body>
