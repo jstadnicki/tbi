@@ -1,4 +1,4 @@
-﻿<div class="row col-md-6 col-md-offset-3" ng-controller="LoginController" ng-init="init()">
+<div class="row col-md-6 col-md-offset-3" ng-controller="LoginController" ng-init="init()">
     <form role="form" method="POST" name="tbiLoginForm" novalidate>
         <div class="form-group" ng-class="{'has-error': tbiLoginForm.loginName.$error.required}">
             <label>Login name</label>
@@ -14,8 +14,12 @@
                 Password is required
             </span>
         </div>
-        <div class="form-group">
-            <div class="btn btn-primary pull-right" ng-click="login()" ng-disabled="tbiLoginForm.$invalid">login</div>
+        <div class="form-group" ng-class='{busy: loginViewModel.isBusy}'>
+            <div class="btn btn-primary pull-right" ng-click="login()" ng-disabled="tbiLoginForm.$invalid">
+                <span ng-hide='loginViewModel.isBusy'>login</span>
+                <img ng-show='loginViewModel.isBusy' ng-disabled='loginViewModel.isBusy' src="./content/busyindicator.gif">
+            </div>
         </div>
-    </form>
+</div>
+</form>
 </div>

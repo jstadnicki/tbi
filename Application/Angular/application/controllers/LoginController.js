@@ -3,17 +3,22 @@ angular.module('ToBeImplemented')
 
         $scope.loginViewModel = {
             loginName: '',
-            password: ''
+            password: '',
+            isBusy: false
         };
 
         $scope.init = function () {};
 
         $scope.login = function () {
-            authorizationService.login($scope.loginViewModel).then(function (response) {
-                $location.path('/');
-            }, function (error) {
-                $scope.message = error.error_description;
-            });
+            $scope.loginViewModel.isBusy = true;
+            authorizationService.login($scope.loginViewModel)
+                .then(function (response) {
+                    $scope.loginViewModel.isBusy = false;
+                    $location.path('/');
+                }, function (error) {
+                    $scope.loginViewModel.isBusy = false;
+                    $scope.message = error.error_description;
+                });
         }
 
     });
