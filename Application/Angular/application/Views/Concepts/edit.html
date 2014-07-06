@@ -1,27 +1,37 @@
-﻿<div class="row" ng-controller="EditConceptController" ng-init="init()">
-    <form role="form" name="tbiConceptForm" method="POST" novalidate>
-        <input type="hidden" name='AuthorId' value="{{concept.AuthorId}}" />
-        <input type="hidden" name='Id' value="{{concept.id}}" />
-        <div class="form-group" ng-class="{'has-error': tbiConceptForm.title.$error.required}">
-            <label>Title</label>
-            <input name="title" class="form-control" ng-model="concept.Title" required />
-            <span class="warning" ng-show="tbiConceptForm.title.$error.required">
+<div class="row" ng-controller="EditConceptController" ng-init="init()">
+    <div class="row" ng-show='isBusy.isLoading'>
+        <div class="col-md-1 col-md-offset-5">
+            <img src='/Content/busyindicator.gif'></img>
+        </div>
+    </div>
+    <div class="row" ng-hide='isBusy.isLoading'>
+        <form role="form" name="tbiConceptForm" method="POST" novalidate>
+            <input type="hidden" name='AuthorId' value="{{concept.AuthorId}}" />
+            <input type="hidden" name='Id' value="{{concept.id}}" />
+            <div class="form-group" ng-class="{'has-error': tbiConceptForm.title.$error.required}">
+                <label>Title</label>
+                <input name="title" class="form-control" ng-model="concept.Title" required />
+                <span class="warning" ng-show="tbiConceptForm.title.$error.required">
                 Please enter title
             </span>
-        </div>
-        <div class="form-group" ng-class="{'has-error': tbiConceptForm.description.$error.required}">
-            <label>Description</label>
-            <textarea name="description" class="form-control" ng-model="concept.Description" required></textarea>
-            <span class="warning" ng-show="tbiConceptForm.description.$error.required">
+            </div>
+            <div class="form-group" ng-class="{'has-error': tbiConceptForm.description.$error.required}">
+                <label>Description</label>
+                <textarea name="description" class="form-control" ng-model="concept.Description" required></textarea>
+                <span class="warning" ng-show="tbiConceptForm.description.$error.required">
                 Please enter description
             </span>
+            </div>
+            <div class="form-group">
+                <label name="{{concept.Tags}}">Tags</label>
+                <input type="text" class="form-control" ng-model="concept.Tags" placeholder="semicolon separated" />
+            </div>
+            <div class="form-group">
+                <div class="btn btn-primary pull-right" ng-click="saveChanges()" ng-disabled="tbiConceptForm.$invalid || isBusy.isSaving">
+                    <span ng-hide='isBusy.isSaving'>save changes</span>
+                    <img ng-show='isBusy.isSaving' src="/content/busyindicator.gif"></img>
+                </div>
+        </form>
         </div>
-        <div class="form-group">
-            <label name="{{concept.Tags}}">Tags</label>
-            <input type="text" class="form-control" ng-model="concept.Tags" placeholder="semicolon separated" />
-        </div>
-        <div class="form-group">
-            <div class="btn btn-primary pull-right" ng-click="saveChanges()" ng-disabled="tbiConceptForm.$invalid">save changes</div>
-        </div>
-    </form>
+    </div>
 </div>

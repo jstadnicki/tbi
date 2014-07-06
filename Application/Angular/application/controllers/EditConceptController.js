@@ -2,17 +2,28 @@
 
 angular.module('ToBeImplemented')
     .controller('EditConceptController', function ($scope, $http, $routeParams, $location, serviceAddress) {
-        $scope.data = {};
+        $scope.data = {
+            id: $routeParams.id
+        };
+
+        $scope.isBusy = {
+            isLoading: false,
+            isSaving: false
+        }
+
+
         $scope.concept = {};
-        $scope.data.id = $routeParams.id;
         $scope.init = function () {
+            $scope.isBusy.isLoading = true;
             $http.get(serviceAddress + '/concepts/' + $scope.data.id)
                 .success(function (data, status) {
                     $scope.concept = angular.fromJson(data.Data);
                     $scope.concept.Tags = $scope.concept.Tags.join(';');
+                    $scope.isBusy.isLoading = false;
                 })
                 .error(function (data) {
                     $scope.error = data;
+                    $scope.isBusy.isLoading = false;
                 });
         };
 
@@ -31,12 +42,16 @@ angular.module('ToBeImplemented')
                 Tags: tags
             };
 
+            $scope.isBusy.isSaving = true;
+
             $http.put(serviceAddress + '/concepts', concept)
                 .success(function () {
+                    $scope.isBusy.isSaving = false;
                     $location.path('/concepts/' + id);
                 })
                 .error(function (data, status) {
                     $scope.error = data;
+                    $scope.isBusy.isSaving = false;
                 });
 
 
