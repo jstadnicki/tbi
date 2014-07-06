@@ -1,58 +1,70 @@
 <div ng-controller='RegisterController' ng-init=init()>
-    <div ng-visible='registrationErrors.length>0 ||tbiRegisterForm.invalid' class="has-error">
-        <ul class="has-error">
-            <li ng-repeat='e in registrationErrors'>{{e}}</li>
-        </ul>
-        <li class='warning' ng-show='tbiRegisterForm.DisplayName.$error.required && tbiRegisterForm.DisplayName.dirty'>
-            DisplayName is required
-        </li>
-        <li ng-show='tbiRegisterForm.Email.$error.required && tbiRegisterForm.Email.dirty'>
-            Email is required
-        </li>
-        <li ng-show='tbiRegisterForm.Login.$error.required && tbiRegisterForm.Login.dirty'>
-            Login is required
-        </li>
-        <li ng-show='tbiRegisterForm.Password.$error.required && tbiRegisterForm.Password.dirty'>
-            Password is required
-        </li>
+    <div class="row" ng-show='isBusy.isLoading'>
+        <div class='col-md-1 col-md-offset-5'>
+            <img src='content/busyIndicator.gif'>loading</img>
+        </div>
     </div>
-    <form role="form" name='tbiRegisterForm' novalidate>
-        <div class="form-group" ng-class="{'has-error':tbiRegisterForm.DisplayName.$error.required && tbiRegisterForm.DisplayName.dirty}">
-            <label>DisplayName</label>
-            <input class="form-control" id="DisplayName" name="DisplayName" ng-model='registrationViewModel.DisplayName' required>
+    <div ng-hide='isBusy.isLoading'>
+        <div ng-visible='registrationErrors.length>0 ||tbiRegisterForm.invalid' class="has-error">
+            <ul class="has-error">
+                <li ng-repeat='e in registrationErrors'>{{e}}</li>
+            </ul>
+            <li class='warning' ng-show='tbiRegisterForm.DisplayName.$error.required && tbiRegisterForm.DisplayName.dirty'>
+                DisplayName is required
+            </li>
+            <li ng-show='tbiRegisterForm.Email.$error.required && tbiRegisterForm.Email.dirty'>
+                Email is required
+            </li>
+            <li ng-show='tbiRegisterForm.Login.$error.required && tbiRegisterForm.Login.dirty'>
+                Login is required
+            </li>
+            <li ng-show='tbiRegisterForm.Password.$error.required && tbiRegisterForm.Password.dirty'>
+                Password is required
+            </li>
         </div>
-        <div class="form-group" ng-class="{'has-error':tbiRegisterForm.Email.$error.required && tbiRegisterForm.Email.dirty}">
-            <label>Email</label>
-            <input class="form-control" type="email" id="Email" name="Email" ng-model='registrationViewModel.Email' required>
-        </div>
-        <div class="form-group" ng-class="{'has-error':tbiRegisterForm.Login.$error.required && tbiRegisterForm.Login.dirty}">
-            <label>Login</label>
-            <input class="form-control" id="Login" name="Login" ng-model='registrationViewModel.Username' required>
+        <form role="form" name='tbiRegisterForm' novalidate>
+            <div class="form-group" ng-class="{'has-error':tbiRegisterForm.DisplayName.$error.required && tbiRegisterForm.DisplayName.dirty}">
+                <label>DisplayName</label>
+                <input class="form-control" id="DisplayName" name="DisplayName" ng-model='registrationViewModel.DisplayName' required>
+            </div>
+            <div class="form-group" ng-class="{'has-error':tbiRegisterForm.Email.$error.required && tbiRegisterForm.Email.dirty}">
+                <label>Email</label>
+                <input class="form-control" type="email" id="Email" name="Email" ng-model='registrationViewModel.Email' required>
+            </div>
+            <div class="form-group" ng-class="{'has-error':tbiRegisterForm.Login.$error.required && tbiRegisterForm.Login.dirty}">
+                <label>Login</label>
+                <input class="form-control" id="Login" name="Login" ng-model='registrationViewModel.Username' required>
 
-        </div>
-        <div class="form-group" ng-class="{'has-error':tbiRegisterForm.Password.$error.required && tbiRegisterForm.Password.dirty}">
-            <label>Password</label>
-            <input type='password' class="form-control" id="Password" name="Password" ng-model='registrationViewModel.Password' required>
+            </div>
+            <div class="form-group" ng-class="{'has-error':tbiRegisterForm.Password.$error.required && tbiRegisterForm.Password.dirty}">
+                <label>Password</label>
+                <input type='password' class="form-control" id="Password" name="Password" ng-model='registrationViewModel.Password' required>
 
-        </div>
-        <div class="form-group" ng-class="{'has-error':tbiRegisterForm.ConfirmPassword.$error.required && tbiRegisterForm.ConfirmPassword.dirty}">
-            <label>Confirm password</label>
-            <input type='password' class="form-control" id="ConfirmPassword" name="ConfirmPassword" ng-model='registrationViewModel.PasswordConfirmation' required compare='password'>
-            <span ng-show='tbiRegisterForm.ConfirmPassword.$error.required && tbiRegisterForm.ConfirmPassword.dirty'>
+            </div>
+            <div class="form-group" ng-class="{'has-error':tbiRegisterForm.ConfirmPassword.$error.required && tbiRegisterForm.ConfirmPassword.dirty}">
+                <label>Confirm password</label>
+                <input type='password' class="form-control" id="ConfirmPassword" name="ConfirmPassword" ng-model='registrationViewModel.PasswordConfirmation' required compare='password'>
+                <span ng-show='tbiRegisterForm.ConfirmPassword.$error.required && tbiRegisterForm.ConfirmPassword.dirty'>
                 ConfirmPassword is required
             </span>
-        </div>
-        <div class="form-group">
-            <label>Challenge type: {{registrationViewModel.ChallengeType}}</label>
-        </div>
-        <div class="form-group">
-            <label>Security text: {{registrationViewModel.SecurityChallengeText}}</label>
-        </div>
+            </div>
+            <div class="form-group">
+                <label>Challenge type: {{registrationViewModel.ChallengeType}}</label>
+            </div>
+            <div class="form-group">
+                <label>Security text: {{registrationViewModel.SecurityChallengeText}}</label>
+            </div>
 
-        <div class="form-group">
-            <label>Security result:</label>
-            <input type="text" class="form-control" id="SecurityResult" name="SecurityResult" ng-model='registrationViewModel.SecurityResult' />
-        </div>
-        <button class="btn btn-default pull-right" ng-click='register()'>register</button>
-    </form>
+            <div class="form-group">
+                <label>Security result:</label>
+                <input type="text" class="form-control" id="SecurityResult" name="SecurityResult" ng-model='registrationViewModel.SecurityResult' />
+            </div>
+            <div class="form-group">
+                <div class="btn btn-primary pull-right" ng-click='register()' ng-disabled="tbiRegisterForm.$invalid">
+                    <span ng-hide='isBusy.isSaving'>register</span>
+                    <img ng-show='isBusy.isSaving' src='content/busyIndicator.gif'></img>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
