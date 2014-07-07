@@ -1,19 +1,19 @@
-﻿using System.Web.Http;
-
-namespace ToBeImplemented.Application.Api.Controllers
+﻿namespace ToBeImplemented.Application.Api.Controllers
 {
     using System.Linq;
+    using System.Web;
+    using System.Web.Http;
     using System.Web.Http.Cors;
     using System.Web.Mvc;
 
     using Newtonsoft.Json;
 
     using ToBeImplemented.Business.Interfaces;
-    using ToBeImplemented.Domain.ViewModel;
+    using ToBeImplemented.Common.Web;
     using ToBeImplemented.Domain.ViewModel.Concepts;
 
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class ConceptsController : ApiController
+    public class ConceptsController : ApiController, ITbiControllerExtensionMarker
     {
         private readonly IConceptLogic conceptLogic;
 
@@ -70,7 +70,8 @@ namespace ToBeImplemented.Application.Api.Controllers
 
             if (ModelState.IsValid)
             {
-                this.conceptLogic.UpdateConcept(model);
+                var currentUser = this.CurrentUser();
+                var operationresult = this.conceptLogic.UpdateConcept(model, currentUser);
                 result = new JsonResult { JsonRequestBehavior = JsonRequestBehavior.AllowGet };
                 return result;
             }
@@ -87,6 +88,14 @@ namespace ToBeImplemented.Application.Api.Controllers
             this.conceptLogic.Delete(id);
             var result = new JsonResult { JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             return result;
+        }
+
+        public HttpContext CurrentContext
+        {
+            get
+            {
+                return HttpContext.Current;
+            }
         }
     }
 }

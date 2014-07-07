@@ -1,28 +1,31 @@
 ﻿namespace ToBeImplemented.Business.Interfaces
 {
+    using System.Security.Claims;
+
+    using ToBeImplemented.Common.Data;
     using ToBeImplemented.Domain.ViewModel;
     using ToBeImplemented.Domain.ViewModel.Concepts;
 
     public interface IConceptLogic
     {
-        ListConceptViewModel List();
-        ListConceptViewModel ConceptsOnly();
-        ListConceptViewModel ConceptsWith(string include);
+        OperationResult<ListConceptViewModel> List();
+        OperationResult<ListConceptViewModel>ConceptsOnly();
+        OperationResult<ListConceptViewModel> ConceptsWith(string include);
 
-        ConceptViewModel Details(long id);
-        ConceptViewModel ConceptOnly(long id);
+        OperationResult<ConceptViewModel> Details(long id);
+        OperationResult<ConceptViewModel> ConceptOnly(long id);
 
-        AddConceptViewModel GetAddConceptViewModel();
+        OperationResult<AddConceptViewModel> GetAddConceptViewModel();
 
-        long Add(AddConceptViewModel model);
+        OperationResult<long> Add(AddConceptViewModel model);
 
-        DeleteConceptViewModel GetDeleteViewModel(long id);
+        OperationResult<DeleteConceptViewModel> GetDeleteViewModel(long id);
 
-        void Delete(long id);
+        OperationResult<bool> Delete(long id);
 
-        UpdateConceptViewModel GetEditConceptViewModel(long id);
+        OperationResult<UpdateConceptViewModel> GetEditConceptViewModel(long id);
 
-        void UpdateConcept(UpdateConceptViewModel model);
+        OperationResult<bool> UpdateConcept(UpdateConceptViewModel model, ClaimsPrincipal currentUser);
 
     }
 }

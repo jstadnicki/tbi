@@ -201,6 +201,10 @@
       <Project>{D22D7A38-3A4A-4E0A-A7C4-DD4F7EE4BEE7}</Project>
       <Name>ToBeImplemented.Common.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Common\ToBeImplemented.Common.Web\ToBeImplemented.Common.Web.csproj">
+      <Project>{791D6122-73B5-4769-A740-DE4B8BE2FEB6}</Project>
+      <Name>ToBeImplemented.Common.Web</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Domain\ToBeImplemented.Domain.Model\ToBeImplemented.Domain.Model.csproj">
       <Project>{360F03E7-7C3B-41E1-BA57-7223681833CB}</Project>
       <Name>ToBeImplemented.Domain.Model</Name>
@@ -241,7 +245,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>3847</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

@@ -11,6 +11,7 @@
 
     using ToBeImplemented.Business.Interfaces;
     using ToBeImplemented.Business.Mapper;
+    using ToBeImplemented.Common.Data;
     using ToBeImplemented.Domain.Model;
     using ToBeImplemented.Domain.ViewModel;
     using ToBeImplemented.Domain.ViewModel.Concepts;
@@ -48,7 +49,7 @@
             this.mockConceptService.Setup(s => s.GetAllConceptsWithAllCollections()).Returns(concepts);
 
             // act
-            var result = this.sut.List();
+            var result = this.sut.List().Data;
 
             // assert
             Assert.NotNull(result);
@@ -70,7 +71,7 @@
             this.mockConceptService.Setup(s => s.Details(It.IsAny<long>())).Returns(concept);
 
             // act
-            var result = this.sut.Details(dummyId);
+            var result = this.sut.Details(dummyId).Data;
 
             // assert
             Assert.AreEqual(typeof(ConceptViewModel), result.GetType());
@@ -102,7 +103,7 @@
             // arrange-mock
 
             // act
-            var result = this.sut.GetAddConceptViewModel();
+            var result = this.sut.GetAddConceptViewModel().Data;
 
             // assert
             Assert.NotNull(result);
@@ -125,7 +126,7 @@
             this.mockConceptService.Setup(s => s.Add(It.IsAny<AddConcept>())).Returns(33);
 
             // act
-            var result = this.sut.Add(model);
+            var result = this.sut.Add(model).Data;
 
             // assert
             Assert.AreEqual(33, result);
@@ -144,7 +145,7 @@
             this.mockConceptService.Setup(s => s.GetConceptTitle(It.IsAny<long>())).Returns("test-concept-title");
 
             // act
-            var result = this.sut.GetDeleteViewModel(333);
+            var result = this.sut.GetDeleteViewModel(333).Data;
 
             // assert
             Assert.AreEqual("test-concept-title", result.Title);
@@ -184,7 +185,7 @@
             this.mockConceptService.Setup(s => s.GetConceptWithTags(It.IsAny<long>())).Returns(concept);
 
             // act
-            var result = this.sut.GetEditConceptViewModel(44);
+            var result = this.sut.GetEditConceptViewModel(44).Data;
 
             // assert
             Assert.AreEqual(typeof(UpdateConceptViewModel), result.GetType());
@@ -204,14 +205,18 @@
         {
             // arrange
             var model = UpdateConceptViewModelFactory.CreateValidWithoutTags();
+            var user = ClaimsPrincipalFactory.CreateWithUserId(model.AuthorId);
+            
 
             // arrange-mock
             this.mockConceptService.Setup(s => s.UpdateConcept(It.IsAny<UpdateConcept>())).Verifiable();
 
             // act
-            this.sut.UpdateConcept(model);
+            var result = this.sut.UpdateConcept(model, user);
 
             // assert
+            Assert.NotNull(result);
+            Assert.True(result.Data);
 
             // assert-mock
             this.mockConceptService.Verify(v => v.UpdateConcept(It.Is<UpdateConcept>(r => r.Id == 14)), Times.Once);
@@ -231,7 +236,7 @@
 
             // assert
             Assert.NotNull(result);
-            Assert.AreEqual(typeof(ListConceptViewModel), result.GetType());
+            Assert.AreEqual(typeof(ListConceptViewModel), result.Data.GetType());
 
             // assert-mock
             this.mockConceptService.Verify(v => v.ConceptsOnly(), Times.Once);
@@ -252,7 +257,8 @@
 
             // assert
             Assert.NotNull(result);
-            Assert.AreEqual(typeof(ConceptViewModel), result.GetType());
+            Assert.NotNull(result.Data);
+            Assert.AreEqual(typeof(ConceptViewModel), result.Data.GetType());
 
             // assert-mock
             this.mockConceptService.Verify(v => v.ConceptOnly(It.IsAny<long>()), Times.Once);
@@ -273,7 +279,8 @@
 
             // assert
             Assert.NotNull(result);
-            Assert.AreEqual(typeof(ListConceptViewModel), result.GetType());
+            Assert.NotNull(result.Data);
+            Assert.AreEqual(typeof(ListConceptViewModel), result.Data.GetType());
 
             // assert-mock
             this.mockConceptService.Verify(v => v.ConceptsWithProperties(It.Is<IEnumerable<string>>(
@@ -300,7 +307,9 @@
 
             // assert
             Assert.NotNull(result);
-            Assert.AreEqual(typeof(ListConceptViewModel), result.GetType());
+            Assert.NotNull(result.Data);
+            Assert.AreEqual(typeof(OperationResult<ListConceptViewModel>), result.GetType());
+            Assert.AreEqual(typeof(ListConceptViewModel), result.Data.GetType());
 
             // assert-mock
             this.mockConceptService.Verify(v => v.ConceptsWithProperties(It.Is<IEnumerable<string>>(
@@ -327,7 +336,8 @@
 
             // assert
             Assert.NotNull(result);
-            Assert.AreEqual(typeof(ListConceptViewModel), result.GetType());
+            Assert.NotNull(result.Data);
+            Assert.AreEqual(typeof(ListConceptViewModel), result.Data.GetType());
 
             // assert-mock
             this.mockConceptService.Verify(v => v.ConceptsWithProperties(It.Is<IEnumerable<string>>(
@@ -339,5 +349,29 @@
                         r.Contains("C")
                     )), Times.Once);
         }
+
+        [Test]
+        public void T014_UpdateConcept_Must_Return_False_When_Passed_User_Is_Not_An_Author_Of_Concept()
+        {
+            // arrange
+            var model = UpdateConceptViewModelFactory.CreateValidWithoutTags();
+            var user = ClaimsPrincipalFactory.CreateWithUserId(model.AuthorId+1);
+
+
+            // arrange-mock
+            this.mockConceptService.Setup(s => s.UpdateConcept(It.IsAny<UpdateConcept>())).Verifiable();
+
+            // act
+            var result = this.sut.UpdateConcept(model, user);
+
+            // assert
+            Assert.NotNull(result);
+            Assert.False(result.Data);
+            Assert.AreEqual("--- you will not edit concept not authored by you ---",result.Errors.First());
+
+            // assert-mock
+            this.mockConceptService.Verify(v => v.UpdateConcept(It.Is<UpdateConcept>(r => r.Id == 14)), Times.Never);
+        }
+
     }
 }

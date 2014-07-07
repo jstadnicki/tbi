@@ -6,6 +6,7 @@ namespace ToBeImplemented.Application.Api
     using Microsoft.AspNet.Identity;
     using Microsoft.Owin.Security.OAuth;
 
+    using ToBeImplemented.Common.Data;
     using ToBeImplemented.Domain.Model.Users;
 
     public class SimpleAuthorizationServerProvider : OAuthAuthorizationServerProvider
@@ -33,8 +34,11 @@ namespace ToBeImplemented.Application.Api
             if (u != null)
             {
                 i = new ClaimsIdentity(context.Options.AuthenticationType);
-                i.AddClaim(new Claim("sub", context.UserName));
-                i.AddClaim(new Claim("role", "user"));
+                i.AddClaim(new Claim(ToBeImplementedClaims.UsernameClaim, u.UserName));
+                i.AddClaim(new Claim(ToBeImplementedClaims.DisplayNameClaim, u.DisplayName));
+                i.AddClaim(new Claim(ToBeImplementedClaims.EmailClaim, u.Email));
+                i.AddClaim(new Claim(ToBeImplementedClaims.IdClaim, u.Id.ToString()));
+                i.AddClaim(new Claim(ToBeImplementedClaims.LastLoginDateTimeClaim, u.LastLoginDateTime.HasValue ? u.LastLoginDateTime.Value.ToFileTime().ToString() : "0"));
             }
             var result = context.Validated(i);
 

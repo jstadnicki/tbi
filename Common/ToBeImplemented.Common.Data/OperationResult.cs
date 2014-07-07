@@ -24,4 +24,13 @@ namespace ToBeImplemented.Common.Data
         public bool Success { get; set; }
         public List<string> Errors { get; set; }
     }
+
+    public static class ToBeImplementedClaims
+    {
+        public static string UsernameClaim = "username";
+        public static string DisplayNameClaim = "displayname";
+        public static string EmailClaim = "email";
+        public static string IdClaim = "id";
+        public static string LastLoginDateTimeClaim = "lastlogindatetime";
+    }
 }

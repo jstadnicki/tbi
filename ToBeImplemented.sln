@@ -79,6 +79,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Common.Data
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Application.WebApi.TbiDependencyResolver", "Application\ToBeImplemented.Application.WebApi.TbiDependencyResolver\ToBeImplemented.Application.WebApi.TbiDependencyResolver.csproj", "{09355095-65A3-4CB5-9488-9182BFEF83FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Common.Web", "Common\ToBeImplemented.Common.Web\ToBeImplemented.Common.Web.csproj", "{791D6122-73B5-4769-A740-DE4B8BE2FEB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -185,6 +187,10 @@ Global
 		{09355095-65A3-4CB5-9488-9182BFEF83FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09355095-65A3-4CB5-9488-9182BFEF83FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09355095-65A3-4CB5-9488-9182BFEF83FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{791D6122-73B5-4769-A740-DE4B8BE2FEB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{791D6122-73B5-4769-A740-DE4B8BE2FEB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{791D6122-73B5-4769-A740-DE4B8BE2FEB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{791D6122-73B5-4769-A740-DE4B8BE2FEB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -221,5 +227,6 @@ Global
 		{F3715E4F-DF3F-4FB8-94E3-7FF09CAA7924} = {B62A9401-C920-43F8-A795-E96B45362AD0}
 		{D22D7A38-3A4A-4E0A-A7C4-DD4F7EE4BEE7} = {1A3D502D-773B-475C-9692-FE042C96D24E}
 		{09355095-65A3-4CB5-9488-9182BFEF83FD} = {6EC397CB-723D-4E74-9FA3-87C88C498C5E}
+		{791D6122-73B5-4769-A740-DE4B8BE2FEB6} = {1A3D502D-773B-475C-9692-FE042C96D24E}
 	EndGlobalSection
 EndGlobal

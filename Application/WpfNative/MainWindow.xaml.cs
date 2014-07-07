@@ -3,6 +3,8 @@ using System.Windows;
 
 namespace WpfNative
 {
+    using System.Security.Claims;
+
     using ToBeImplemented.Business.Interfaces;
     using ToBeImplemented.Domain.ViewModel;
     using ToBeImplemented.Domain.ViewModel.Concepts;
@@ -23,7 +25,7 @@ namespace WpfNative
         private void ConceptOnClick(object sender, RoutedEventArgs e)
         {
             var result = this.conceptLogic.List();
-            this.conceptList.ItemsSource = result.Concepts;
+            this.conceptList.ItemsSource = result.Data.Concepts;
         }
 
         private void UpdateSelected(object sender, RoutedEventArgs e)
@@ -36,7 +38,9 @@ namespace WpfNative
                 Id = selected.Id,
                 Title = selected.Title
             };
-            this.conceptLogic.UpdateConcept(updateConceptViewModel);
+
+            ClaimsPrincipal notImplementedYet = null;
+            this.conceptLogic.UpdateConcept(updateConceptViewModel, notImplementedYet);
         }
     }
 }

@@ -2,10 +2,13 @@
 
 namespace ToBeImplemented.Application.Web.Controllers
 {
+    using System.Web;
+
     using ToBeImplemented.Business.Interfaces;
+    using ToBeImplemented.Common.Web;
     using ToBeImplemented.Domain.ViewModel.Concepts;
 
-    public class ConceptsController : Controller
+    public class ConceptsController : Controller, ITbiControllerExtensionMarker
     {
         private readonly IConceptLogic conceptLogic;
 
@@ -84,10 +87,19 @@ namespace ToBeImplemented.Application.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                this.conceptLogic.UpdateConcept(model);
+                var currentUser = this.CurrentUser();
+                this.conceptLogic.UpdateConcept(model, currentUser);
                 return this.RedirectToAction("Details", "Concepts", new { id = model.Id });
             }
             return this.View("Edit", model);
+        }
+
+        public HttpContext CurrentContext
+        {
+            get
+            {
+                return System.Web.HttpContext.Current;
+            }
         }
     }
 }

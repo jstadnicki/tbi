@@ -125,6 +125,10 @@
       <Project>{74E4090B-A7A8-4ECD-8B2E-A32382718F96}</Project>
       <Name>ToBeImplemented.Business.Mapper</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Common\ToBeImplemented.Common.Data\ToBeImplemented.Common.Data.csproj">
+      <Project>{D22D7A38-3A4A-4E0A-A7C4-DD4F7EE4BEE7}</Project>
+      <Name>ToBeImplemented.Common.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\domain\ToBeImplemented.Domain.ViewModel\ToBeImplemented.Domain.ViewModel.csproj">
       <Project>{E240383F-0C66-41EA-A2BD-847C7A51D6F7}</Project>
       <Name>ToBeImplemented.Domain.ViewModel</Name>
