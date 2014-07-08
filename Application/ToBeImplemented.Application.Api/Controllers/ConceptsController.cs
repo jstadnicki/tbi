@@ -1,18 +1,18 @@
 ﻿namespace ToBeImplemented.Application.Api.Controllers
 {
     using System.Linq;
+    using System.Text;
     using System.Web;
     using System.Web.Http;
-    using System.Web.Http.Cors;
-    using System.Web.Mvc;
+    using System.Web.Http.Results;
 
     using Newtonsoft.Json;
 
     using ToBeImplemented.Business.Interfaces;
+    using ToBeImplemented.Common.Data;
     using ToBeImplemented.Common.Web;
     using ToBeImplemented.Domain.ViewModel.Concepts;
 
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ConceptsController : ApiController, ITbiControllerExtensionMarker
     {
         private readonly IConceptLogic conceptLogic;
@@ -22,71 +22,92 @@
             this.conceptLogic = conceptLogic;
         }
 
-        [System.Web.Http.HttpGet]
-        public JsonResult Get(string include = "")
+        [HttpGet]
+        public JsonResult<OperationResult<ListConceptViewModel>> Get(string include = "")
         {
             var viewModel = this.conceptLogic.ConceptsWith(include);
-            var json = JsonConvert.SerializeObject(viewModel);
-            var result = new JsonResult { Data = json, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+
+            var result = new JsonResult<OperationResult<ListConceptViewModel>>(
+                viewModel,
+                new JsonSerializerSettings(),
+                Encoding.Default,
+                this);
 
             return result;
         }
 
-        [System.Web.Http.HttpGet]
-        public JsonResult Get(long id)
+        [HttpGet]
+        public JsonResult<OperationResult<ConceptViewModel>> Get(long id)
         {
             var viewModel = this.conceptLogic.ConceptOnly(id);
-            var json = JsonConvert.SerializeObject(viewModel);
-            var result = new JsonResult { Data = json, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            var result = new JsonResult<OperationResult<ConceptViewModel>>(
+                viewModel,
+                new JsonSerializerSettings(),
+                Encoding.Default,
+                this);
             return result;
         }
 
-        [System.Web.Http.HttpPost]
-        [System.Web.Http.Authorize]
-        public JsonResult Post(AddConceptViewModel model)
+        [HttpPost]
+        [Authorize]
+        public JsonResult<OperationResult<long>> Post(AddConceptViewModel model)
         {
-            string json = null;
-            JsonResult result = null;
-
+            OperationResult<long> operationResult;
             if (ModelState.IsValid)
             {
-                var newid = this.conceptLogic.Add(model);
-                json = JsonConvert.SerializeObject(newid);
-                result = new JsonResult { Data = json, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-                return result;
+                operationResult = this.conceptLogic.Add(model);
+            }
+            else
+            {
+                var errors =
+                    this.ModelState.Values.SelectMany(x => x.Errors).Select(x => x).Select(x => x.ErrorMessage).ToList();
+                operationResult = new OperationResult<long>(0, false, errors);
+
             }
 
-            var errors = ModelState.Values.Select(x => x.Errors).ToList();
-            json = JsonConvert.SerializeObject(errors);
-            result = new JsonResult { Data = json, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            var result = new JsonResult<OperationResult<long>>(
+                 operationResult,
+                 new JsonSerializerSettings(),
+                 Encoding.Default,
+                 this);
+
             return result;
         }
 
-        [System.Web.Http.Authorize]
-        public JsonResult Put(UpdateConceptViewModel model)
+        [Authorize]
+        public JsonResult<OperationResult<bool>> Put(UpdateConceptViewModel model)
         {
-            string json = null;
-            JsonResult result = null;
-
+            OperationResult<bool> operationResult = null;
             if (ModelState.IsValid)
             {
                 var currentUser = this.CurrentUser();
-                var operationresult = this.conceptLogic.UpdateConcept(model, currentUser);
-                result = new JsonResult { JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-                return result;
+                operationResult = this.conceptLogic.UpdateConcept(model, currentUser);
+            }
+            else
+            {
+                var errors = ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage).ToList();
+                operationResult = new OperationResult<bool>(false, false, errors);
             }
 
-            var errors = ModelState.Values.Select(x => x.Errors).ToList();
-            json = JsonConvert.SerializeObject(errors);
-            result = new JsonResult { Data = json, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            var result = new JsonResult<OperationResult<bool>>(
+                operationResult,
+                new JsonSerializerSettings(),
+                Encoding.Default,
+                this);
+
             return result;
         }
 
-        [System.Web.Http.Authorize]
-        public JsonResult Delete(long id)
+        [Authorize]
+        public JsonResult<OperationResult<bool>>  Delete(long id)
         {
-            this.conceptLogic.Delete(id);
-            var result = new JsonResult { JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            var operationResult = this.conceptLogic.Delete(id);
+            var result = new JsonResult<OperationResult<bool>>(
+                operationResult,
+                new JsonSerializerSettings(),
+                Encoding.Default,
+                this);
+
             return result;
         }
 

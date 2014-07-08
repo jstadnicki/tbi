@@ -71,6 +71,7 @@
     <Content Include="application\views\Concepts\edit.html" />
     <Content Include="application\views\Login\index.html" />
     <Content Include="application\views\Logout\index.html" />
+    <Content Include="application\views\Navigation\Index.html" />
     <Content Include="application\views\Register\index.html" />
     <Content Include="scripts\angular-local-storage.min.js" />
     <Content Include="scripts\angular.min.js.map" />
@@ -376,7 +377,6 @@
     <Content Include="scripts\i18n\angular-locale_zu.js" />
     <Content Include="scripts\jquery-2.1.1.js" />
     <Content Include="scripts\jquery-2.1.1.min.js" />
-    <Content Include="application\views\Navigation.html" />
     <Content Include="Web.config" />
     <Content Include="scripts\jquery-2.1.1.min.map" />
     <Content Include="scripts\version.json" />
