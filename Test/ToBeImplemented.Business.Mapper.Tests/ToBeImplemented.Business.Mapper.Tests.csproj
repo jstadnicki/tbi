@@ -67,6 +67,10 @@
       <Project>{360F03E7-7C3B-41E1-BA57-7223681833CB}</Project>
       <Name>ToBeImplemented.Domain.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Domain\ToBeImplemented.Service.Model\ToBeImplemented.Service.Model.csproj">
+      <Project>{38BE673B-96CC-4B36-9B02-B11221EE9F18}</Project>
+      <Name>ToBeImplemented.Service.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ToBeImplemented.Service.Implementations.Tests\ToBeImplemented.Service.Implementations.Tests.csproj">
       <Project>{3EA47B3F-7DE4-4253-BCFF-41ADCA7FAA94}</Project>
       <Name>ToBeImplemented.Service.Implementations.Tests</Name>

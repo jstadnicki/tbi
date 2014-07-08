@@ -79,6 +79,10 @@
       <Project>{360f03e7-7c3b-41e1-ba57-7223681833cb}</Project>
       <Name>ToBeImplemented.Domain.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Domain\ToBeImplemented.Service.Model\ToBeImplemented.Service.Model.csproj">
+      <Project>{38BE673B-96CC-4B36-9B02-B11221EE9F18}</Project>
+      <Name>ToBeImplemented.Service.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\ToBeImplemented.Infrastructure.Interfaces\ToBeImplemented.Infrastructure.Interfaces.csproj">
       <Project>{CA7A85AF-D23F-4C21-A9B2-287F4C2DD3D6}</Project>
       <Name>ToBeImplemented.Infrastructure.Interfaces</Name>

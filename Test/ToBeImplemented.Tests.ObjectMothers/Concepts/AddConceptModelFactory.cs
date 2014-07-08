@@ -3,6 +3,7 @@ namespace ToBeImplemented.Tests.ObjectMothers.Concepts
     using System.Collections.Generic;
 
     using ToBeImplemented.Domain.Model;
+    using ToBeImplemented.Service.Model.Concepts;
 
     public static class AddConceptModelFactory
     {

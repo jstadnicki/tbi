@@ -7,6 +7,7 @@ namespace ToBeImplemented.Service.Implementations
     using ToBeImplemented.Infrastructure.Interfaces;
     using ToBeImplemented.Infrastructure.Repository;
     using ToBeImplemented.Service.Interfaces;
+    using ToBeImplemented.Service.Model.Concepts;
 
     public class ConceptsService : IConceptsService
     {

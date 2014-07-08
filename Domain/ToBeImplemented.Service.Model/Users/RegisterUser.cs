@@ -1,4 +1,4 @@
-namespace ToBeImplemented.Domain.Model.Users
+namespace ToBeImplemented.Service.Model.Users
 {
     using System;
 

@@ -9,6 +9,8 @@
     using ToBeImplemented.Business.ViewModel.Users;
     using ToBeImplemented.Domain.Model;
     using ToBeImplemented.Domain.Model.Users;
+    using ToBeImplemented.Service.Model.Concepts;
+    using ToBeImplemented.Service.Model.Users;
 
     public class TbiMapper
     {

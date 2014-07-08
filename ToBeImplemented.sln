@@ -81,6 +81,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Common.Web"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Business.ViewModel", "Domain\ToBeImplemented.Business.ViewModel\ToBeImplemented.Business.ViewModel.csproj", "{E240383F-0C66-41EA-A2BD-847C7A51D6F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Service.Model", "Domain\ToBeImplemented.Service.Model\ToBeImplemented.Service.Model.csproj", "{38BE673B-96CC-4B36-9B02-B11221EE9F18}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -191,6 +193,10 @@ Global
 		{E240383F-0C66-41EA-A2BD-847C7A51D6F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E240383F-0C66-41EA-A2BD-847C7A51D6F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E240383F-0C66-41EA-A2BD-847C7A51D6F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38BE673B-96CC-4B36-9B02-B11221EE9F18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38BE673B-96CC-4B36-9B02-B11221EE9F18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38BE673B-96CC-4B36-9B02-B11221EE9F18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38BE673B-96CC-4B36-9B02-B11221EE9F18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -228,5 +234,6 @@ Global
 		{09355095-65A3-4CB5-9488-9182BFEF83FD} = {6EC397CB-723D-4E74-9FA3-87C88C498C5E}
 		{791D6122-73B5-4769-A740-DE4B8BE2FEB6} = {1A3D502D-773B-475C-9692-FE042C96D24E}
 		{E240383F-0C66-41EA-A2BD-847C7A51D6F7} = {15158D31-6070-4DAE-9B92-78226FA97B7B}
+		{38BE673B-96CC-4B36-9B02-B11221EE9F18} = {15158D31-6070-4DAE-9B92-78226FA97B7B}
 	EndGlobalSection
 EndGlobal

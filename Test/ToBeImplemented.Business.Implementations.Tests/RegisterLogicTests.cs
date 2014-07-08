@@ -16,6 +16,7 @@ namespace ToBeImplemented.Business.Implementations.Tests
     using ToBeImplemented.Infrastructure.Interfaces.Adapters;
     using ToBeImplemented.Service.Implementations.Tests;
     using ToBeImplemented.Service.Interfaces;
+    using ToBeImplemented.Service.Model.Users;
     using ToBeImplemented.Tests.ObjectMothers.Users;
 
     [TestFixture]

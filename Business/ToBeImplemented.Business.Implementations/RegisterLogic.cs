@@ -8,6 +8,7 @@ namespace ToBeImplemented.Business.Implementations
     using ToBeImplemented.Domain.Model.Users;
     using ToBeImplemented.Infrastructure.Interfaces.Adapters;
     using ToBeImplemented.Service.Interfaces;
+    using ToBeImplemented.Service.Model.Users;
 
     public class RegisterLogic : IRegisterLogic
     {

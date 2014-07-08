@@ -10,6 +10,7 @@
     using ToBeImplemented.Business.ViewModel.Users;
     using ToBeImplemented.Domain.Model.Users;
     using ToBeImplemented.Service.Interfaces;
+    using ToBeImplemented.Service.Model.Users;
 
     public class UserService : UserManager<User, long>, IRegisterService, ILoginService, IUserService
     {

@@ -15,6 +15,8 @@ namespace ToBeImplemented.Business.Mapper.Tests
     using ToBeImplemented.Domain.Model;
     using ToBeImplemented.Domain.Model.Users;
     using ToBeImplemented.Service.Implementations.Tests;
+    using ToBeImplemented.Service.Model.Concepts;
+    using ToBeImplemented.Service.Model.Users;
     using ToBeImplemented.Tests.ObjectMothers;
     using ToBeImplemented.Tests.ObjectMothers.Concepts;
     using ToBeImplemented.Tests.ObjectMothers.Users;

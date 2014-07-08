@@ -2,7 +2,7 @@
 {
     using System;
 
-    using ToBeImplemented.Domain.Model.Users;
+    using ToBeImplemented.Service.Model.Users;
 
     public static class RegisterUserModelFactory
     {

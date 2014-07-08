@@ -12,6 +12,7 @@
     using ToBeImplemented.Common.Data;
     using ToBeImplemented.Domain.Model;
     using ToBeImplemented.Service.Interfaces;
+    using ToBeImplemented.Service.Model.Concepts;
 
     public class ConceptLogic : IConceptLogic
     {

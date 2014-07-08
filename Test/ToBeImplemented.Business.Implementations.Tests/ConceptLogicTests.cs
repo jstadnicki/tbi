@@ -15,6 +15,7 @@
     using ToBeImplemented.Domain.Model;
     using ToBeImplemented.Service.Implementations.Tests;
     using ToBeImplemented.Service.Interfaces;
+    using ToBeImplemented.Service.Model.Concepts;
     using ToBeImplemented.Tests.ObjectMothers;
     using ToBeImplemented.Tests.ObjectMothers.Concepts;
 
