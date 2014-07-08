@@ -2,11 +2,9 @@ namespace ToBeImplemented.Service.Implementations
 {
     using System;
     using System.Linq;
-    using System.Security.Cryptography.X509Certificates;
     using System.Text;
 
-    using ToBeImplemented.Domain.Model;
-    using ToBeImplemented.Domain.ViewModel;
+    using ToBeImplemented.Business.ViewModel;
     using ToBeImplemented.Infrastructure.Interfaces.Adapters;
     using ToBeImplemented.Service.Interfaces;
 

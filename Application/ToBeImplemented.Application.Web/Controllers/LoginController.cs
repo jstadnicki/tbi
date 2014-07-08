@@ -4,7 +4,7 @@
     using System.Web.Mvc;
 
     using ToBeImplemented.Business.Interfaces;
-    using ToBeImplemented.Domain.ViewModel.Users;
+    using ToBeImplemented.Business.ViewModel.Users;
 
     public class LoginController : Controller
     {

@@ -9,9 +9,9 @@
     using Newtonsoft.Json;
 
     using ToBeImplemented.Business.Interfaces;
+    using ToBeImplemented.Business.ViewModel.Concepts;
     using ToBeImplemented.Common.Data;
     using ToBeImplemented.Common.Web;
-    using ToBeImplemented.Domain.ViewModel.Concepts;
 
     public class ConceptsController : ApiController, ITbiControllerExtensionMarker
     {

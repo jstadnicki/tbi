@@ -1,13 +1,11 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 
 namespace WpfNative
 {
     using System.Security.Claims;
 
     using ToBeImplemented.Business.Interfaces;
-    using ToBeImplemented.Domain.ViewModel;
-    using ToBeImplemented.Domain.ViewModel.Concepts;
+    using ToBeImplemented.Business.ViewModel.Concepts;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml

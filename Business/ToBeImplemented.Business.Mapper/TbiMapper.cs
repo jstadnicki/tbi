@@ -2,14 +2,13 @@
 {
     using System;
     using System.Collections.Generic;
-
-    using ToBeImplemented.Domain.Model;
-    using ToBeImplemented.Domain.Model.Users;
-    using ToBeImplemented.Domain.ViewModel;
     using System.Linq;
 
-    using ToBeImplemented.Domain.ViewModel.Concepts;
-    using ToBeImplemented.Domain.ViewModel.Users;
+    using ToBeImplemented.Business.ViewModel;
+    using ToBeImplemented.Business.ViewModel.Concepts;
+    using ToBeImplemented.Business.ViewModel.Users;
+    using ToBeImplemented.Domain.Model;
+    using ToBeImplemented.Domain.Model.Users;
 
     public class TbiMapper
     {

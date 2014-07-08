@@ -10,7 +10,7 @@ namespace ToBeImplemented.Business.Implementations.Tests
     using NUnit.Framework;
 
     using ToBeImplemented.Business.Interfaces;
-    using ToBeImplemented.Domain.ViewModel.Users;
+    using ToBeImplemented.Business.ViewModel.Users;
     using ToBeImplemented.Service.Implementations.Tests;
     using ToBeImplemented.Service.Interfaces;
     using ToBeImplemented.Tests.ObjectMothers.Users;

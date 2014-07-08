@@ -41,9 +41,6 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="ToBeImplemented.Service.Implementations">
-      <HintPath>..\..\Application\ToBeImplemented.Application.Web\Bin\ToBeImplemented.Service.Implementations.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Concepts\AddConcept.cs" />

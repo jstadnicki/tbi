@@ -1,7 +1,6 @@
 ﻿namespace ToBeImplemented.Business.Implementations.Tests
 {
     using System;
-    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -11,10 +10,9 @@
 
     using ToBeImplemented.Business.Interfaces;
     using ToBeImplemented.Business.Mapper;
+    using ToBeImplemented.Business.ViewModel.Concepts;
     using ToBeImplemented.Common.Data;
     using ToBeImplemented.Domain.Model;
-    using ToBeImplemented.Domain.ViewModel;
-    using ToBeImplemented.Domain.ViewModel.Concepts;
     using ToBeImplemented.Service.Implementations.Tests;
     using ToBeImplemented.Service.Interfaces;
     using ToBeImplemented.Tests.ObjectMothers;

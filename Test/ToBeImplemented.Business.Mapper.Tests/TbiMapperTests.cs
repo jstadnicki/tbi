@@ -9,11 +9,11 @@ namespace ToBeImplemented.Business.Mapper.Tests
 
     using NUnit.Framework;
 
+    using ToBeImplemented.Business.ViewModel;
+    using ToBeImplemented.Business.ViewModel.Concepts;
+    using ToBeImplemented.Business.ViewModel.Users;
     using ToBeImplemented.Domain.Model;
     using ToBeImplemented.Domain.Model.Users;
-    using ToBeImplemented.Domain.ViewModel;
-    using ToBeImplemented.Domain.ViewModel.Concepts;
-    using ToBeImplemented.Domain.ViewModel.Users;
     using ToBeImplemented.Service.Implementations.Tests;
     using ToBeImplemented.Tests.ObjectMothers;
     using ToBeImplemented.Tests.ObjectMothers.Concepts;

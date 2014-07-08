@@ -52,13 +52,13 @@
       <Project>{D22D7A38-3A4A-4E0A-A7C4-DD4F7EE4BEE7}</Project>
       <Name>ToBeImplemented.Common.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Domain\ToBeImplemented.Business.ViewModel\ToBeImplemented.Business.ViewModel.csproj">
+      <Project>{E240383F-0C66-41EA-A2BD-847C7A51D6F7}</Project>
+      <Name>ToBeImplemented.Business.ViewModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Domain\ToBeImplemented.Domain.Model\ToBeImplemented.Domain.Model.csproj">
       <Project>{360F03E7-7C3B-41E1-BA57-7223681833CB}</Project>
       <Name>ToBeImplemented.Domain.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\domain\ToBeImplemented.Domain.ViewModel\ToBeImplemented.Domain.ViewModel.csproj">
-      <Project>{E240383F-0C66-41EA-A2BD-847C7A51D6F7}</Project>
-      <Name>ToBeImplemented.Domain.ViewModel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

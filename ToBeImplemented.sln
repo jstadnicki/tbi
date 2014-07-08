@@ -31,8 +31,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Tests.Objec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Infrastructure.Repository.Tests", "test\ToBeImplemented.Infrastructure.Repository.Tests\ToBeImplemented.Infrastructure.Repository.Tests.csproj", "{91B50B56-939B-4E8D-8419-13C2AD3E4751}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Domain.ViewModel", "domain\ToBeImplemented.Domain.ViewModel\ToBeImplemented.Domain.ViewModel.csproj", "{E240383F-0C66-41EA-A2BD-847C7A51D6F7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Business.Implementations.Tests", "Test\ToBeImplemented.Business.Implementations.Tests\ToBeImplemented.Business.Implementations.Tests.csproj", "{4E4A4B7D-4F0F-4CA1-81E1-AABA321B27A2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Business.Implementations", "Business\ToBeImplemented.Business.Implementations\ToBeImplemented.Business.Implementations.csproj", "{20E46D57-C6B9-4658-9765-86290F62804D}"
@@ -81,6 +79,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Application
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Common.Web", "Common\ToBeImplemented.Common.Web\ToBeImplemented.Common.Web.csproj", "{791D6122-73B5-4769-A740-DE4B8BE2FEB6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBeImplemented.Business.ViewModel", "Domain\ToBeImplemented.Business.ViewModel\ToBeImplemented.Business.ViewModel.csproj", "{E240383F-0C66-41EA-A2BD-847C7A51D6F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -119,10 +119,6 @@ Global
 		{91B50B56-939B-4E8D-8419-13C2AD3E4751}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91B50B56-939B-4E8D-8419-13C2AD3E4751}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91B50B56-939B-4E8D-8419-13C2AD3E4751}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E240383F-0C66-41EA-A2BD-847C7A51D6F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E240383F-0C66-41EA-A2BD-847C7A51D6F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E240383F-0C66-41EA-A2BD-847C7A51D6F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E240383F-0C66-41EA-A2BD-847C7A51D6F7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4E4A4B7D-4F0F-4CA1-81E1-AABA321B27A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4E4A4B7D-4F0F-4CA1-81E1-AABA321B27A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E4A4B7D-4F0F-4CA1-81E1-AABA321B27A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -191,6 +187,10 @@ Global
 		{791D6122-73B5-4769-A740-DE4B8BE2FEB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{791D6122-73B5-4769-A740-DE4B8BE2FEB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{791D6122-73B5-4769-A740-DE4B8BE2FEB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E240383F-0C66-41EA-A2BD-847C7A51D6F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E240383F-0C66-41EA-A2BD-847C7A51D6F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E240383F-0C66-41EA-A2BD-847C7A51D6F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E240383F-0C66-41EA-A2BD-847C7A51D6F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -204,7 +204,6 @@ Global
 		{3EA47B3F-7DE4-4253-BCFF-41ADCA7FAA94} = {F46DDDC9-8765-4DE0-BDC0-BE8856F8921C}
 		{7738151A-346C-432C-9E99-CCB202D88CB7} = {F46DDDC9-8765-4DE0-BDC0-BE8856F8921C}
 		{91B50B56-939B-4E8D-8419-13C2AD3E4751} = {F46DDDC9-8765-4DE0-BDC0-BE8856F8921C}
-		{E240383F-0C66-41EA-A2BD-847C7A51D6F7} = {15158D31-6070-4DAE-9B92-78226FA97B7B}
 		{4E4A4B7D-4F0F-4CA1-81E1-AABA321B27A2} = {F46DDDC9-8765-4DE0-BDC0-BE8856F8921C}
 		{20E46D57-C6B9-4658-9765-86290F62804D} = {8F78015B-2A21-45CE-94CF-35E05E94B7A6}
 		{A5A75736-8C6A-4D09-B4C3-398C68C8FA99} = {8F78015B-2A21-45CE-94CF-35E05E94B7A6}
@@ -228,5 +227,6 @@ Global
 		{D22D7A38-3A4A-4E0A-A7C4-DD4F7EE4BEE7} = {1A3D502D-773B-475C-9692-FE042C96D24E}
 		{09355095-65A3-4CB5-9488-9182BFEF83FD} = {6EC397CB-723D-4E74-9FA3-87C88C498C5E}
 		{791D6122-73B5-4769-A740-DE4B8BE2FEB6} = {1A3D502D-773B-475C-9692-FE042C96D24E}
+		{E240383F-0C66-41EA-A2BD-847C7A51D6F7} = {15158D31-6070-4DAE-9B92-78226FA97B7B}
 	EndGlobalSection
 EndGlobal

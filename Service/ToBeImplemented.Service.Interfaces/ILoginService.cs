@@ -3,8 +3,8 @@ namespace ToBeImplemented.Service.Interfaces
     using System.Security.Claims;
     using System.Threading.Tasks;
 
+    using ToBeImplemented.Business.ViewModel.Users;
     using ToBeImplemented.Domain.Model.Users;
-    using ToBeImplemented.Domain.ViewModel.Users;
 
     public interface ILoginService
     {

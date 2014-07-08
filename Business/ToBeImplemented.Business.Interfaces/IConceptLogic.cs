@@ -2,9 +2,8 @@
 {
     using System.Security.Claims;
 
+    using ToBeImplemented.Business.ViewModel.Concepts;
     using ToBeImplemented.Common.Data;
-    using ToBeImplemented.Domain.ViewModel;
-    using ToBeImplemented.Domain.ViewModel.Concepts;
 
     public interface IConceptLogic
     {

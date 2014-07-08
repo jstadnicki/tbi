@@ -2,8 +2,8 @@
 {
     using Microsoft.Owin.Security;
 
+    using ToBeImplemented.Business.ViewModel.Users;
     using ToBeImplemented.Common.Data;
-    using ToBeImplemented.Domain.ViewModel.Users;
 
     public interface ILoginLogic
     {

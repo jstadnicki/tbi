@@ -1,4 +1,4 @@
-﻿namespace ToBeImplemented.Domain.ViewModel.Users
+﻿namespace ToBeImplemented.Business.ViewModel.Users
 {
     using System.ComponentModel.DataAnnotations;
 

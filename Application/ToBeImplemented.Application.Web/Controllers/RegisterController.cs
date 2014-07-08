@@ -5,7 +5,7 @@
     using System.Web.Mvc;
 
     using ToBeImplemented.Business.Interfaces;
-    using ToBeImplemented.Domain.ViewModel.Users;
+    using ToBeImplemented.Business.ViewModel.Users;
 
     [AllowAnonymous]
     public class RegisterController : Controller

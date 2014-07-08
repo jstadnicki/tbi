@@ -1,7 +1,6 @@
 namespace ToBeImplemented.Tests.ObjectMothers.Concepts
 {
-    using ToBeImplemented.Domain.ViewModel;
-    using ToBeImplemented.Domain.ViewModel.Concepts;
+    using ToBeImplemented.Business.ViewModel.Concepts;
 
     public static class UpdateConceptViewModelFactory
     {

@@ -1,4 +1,4 @@
-﻿namespace ToBeImplemented.Domain.ViewModel.Concepts
+﻿namespace ToBeImplemented.Business.ViewModel.Concepts
 {
     using System.ComponentModel.DataAnnotations;
 

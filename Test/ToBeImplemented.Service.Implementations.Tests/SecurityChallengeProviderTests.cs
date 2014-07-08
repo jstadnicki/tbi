@@ -6,7 +6,7 @@
 
     using NUnit.Framework;
 
-    using ToBeImplemented.Domain.ViewModel;
+    using ToBeImplemented.Business.ViewModel;
     using ToBeImplemented.Infrastructure.Interfaces.Adapters;
     using ToBeImplemented.Service.Interfaces;
 

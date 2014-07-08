@@ -7,8 +7,8 @@
 
     using Microsoft.AspNet.Identity;
 
+    using ToBeImplemented.Business.ViewModel.Users;
     using ToBeImplemented.Domain.Model.Users;
-    using ToBeImplemented.Domain.ViewModel.Users;
     using ToBeImplemented.Service.Interfaces;
 
     public class UserService : UserManager<User, long>, IRegisterService, ILoginService, IUserService

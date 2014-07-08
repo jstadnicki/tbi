@@ -1,9 +1,7 @@
 namespace ToBeImplemented.Tests.ObjectMothers.Users
 {
-    using System;
-
-    using ToBeImplemented.Domain.ViewModel;
-    using ToBeImplemented.Domain.ViewModel.Users;
+    using ToBeImplemented.Business.ViewModel;
+    using ToBeImplemented.Business.ViewModel.Users;
 
     public class RegisterUserViewModelFactory
     {

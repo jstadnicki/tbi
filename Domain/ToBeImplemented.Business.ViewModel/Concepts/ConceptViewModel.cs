@@ -1,7 +1,9 @@
-namespace ToBeImplemented.Domain.ViewModel.Concepts
+namespace ToBeImplemented.Business.ViewModel.Concepts
 {
     using System;
     using System.Collections.Generic;
+
+    using ToBeImplemented.Business.ViewModel;
 
     public class ConceptViewModel
     {

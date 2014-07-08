@@ -9,10 +9,10 @@ namespace ToBeImplemented.Business.Implementations.Tests
 
     using ToBeImplemented.Business.Interfaces;
     using ToBeImplemented.Business.Mapper;
+    using ToBeImplemented.Business.ViewModel;
+    using ToBeImplemented.Business.ViewModel.Users;
     using ToBeImplemented.Common.Data;
     using ToBeImplemented.Domain.Model.Users;
-    using ToBeImplemented.Domain.ViewModel;
-    using ToBeImplemented.Domain.ViewModel.Users;
     using ToBeImplemented.Infrastructure.Interfaces.Adapters;
     using ToBeImplemented.Service.Implementations.Tests;
     using ToBeImplemented.Service.Interfaces;

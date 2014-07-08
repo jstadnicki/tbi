@@ -1,6 +1,6 @@
 namespace ToBeImplemented.Service.Interfaces
 {
-    using ToBeImplemented.Domain.ViewModel;
+    using ToBeImplemented.Business.ViewModel;
 
     public interface ISecurityChallengeProvider
     {

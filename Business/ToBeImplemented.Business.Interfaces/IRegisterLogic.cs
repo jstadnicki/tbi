@@ -1,7 +1,7 @@
 ﻿namespace ToBeImplemented.Business.Interfaces
 {
+    using ToBeImplemented.Business.ViewModel.Users;
     using ToBeImplemented.Common.Data;
-    using ToBeImplemented.Domain.ViewModel.Users;
 
     public interface IRegisterLogic
     {

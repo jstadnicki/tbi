@@ -1,6 +1,5 @@
 namespace ToBeImplemented.Application.Api.Controllers
 {
-    using System;
     using System.Linq;
     using System.Text;
     using System.Web.Http;
@@ -9,8 +8,8 @@ namespace ToBeImplemented.Application.Api.Controllers
     using Newtonsoft.Json;
 
     using ToBeImplemented.Business.Interfaces;
+    using ToBeImplemented.Business.ViewModel.Users;
     using ToBeImplemented.Common.Data;
-    using ToBeImplemented.Domain.ViewModel.Users;
 
     public class RegisterController : ApiController
     {

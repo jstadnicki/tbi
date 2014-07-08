@@ -8,9 +8,9 @@
     using AutoMapper;
 
     using ToBeImplemented.Business.Interfaces;
+    using ToBeImplemented.Business.ViewModel.Concepts;
     using ToBeImplemented.Common.Data;
     using ToBeImplemented.Domain.Model;
-    using ToBeImplemented.Domain.ViewModel.Concepts;
     using ToBeImplemented.Service.Interfaces;
 
     public class ConceptLogic : IConceptLogic

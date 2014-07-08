@@ -99,9 +99,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\domain\ToBeImplemented.Domain.ViewModel\ToBeImplemented.Domain.ViewModel.csproj">
+    <ProjectReference Include="..\..\Domain\ToBeImplemented.Business.ViewModel\ToBeImplemented.Business.ViewModel.csproj">
       <Project>{E240383F-0C66-41EA-A2BD-847C7A51D6F7}</Project>
-      <Name>ToBeImplemented.Domain.ViewModel</Name>
+      <Name>ToBeImplemented.Business.ViewModel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,8 +1,8 @@
-namespace ToBeImplemented.Domain.ViewModel.Users
+namespace ToBeImplemented.Business.ViewModel.Users
 {
     using System.Collections.Generic;
 
-    using ToBeImplemented.Domain.ViewModel.Concepts;
+    using ToBeImplemented.Business.ViewModel.Concepts;
 
     public class UserProfileViewModel
     {

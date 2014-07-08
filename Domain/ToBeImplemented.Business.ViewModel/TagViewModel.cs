@@ -1,8 +1,8 @@
-namespace ToBeImplemented.Domain.ViewModel
+namespace ToBeImplemented.Business.ViewModel
 {
     using System.Collections.Generic;
 
-    using ToBeImplemented.Domain.ViewModel.Concepts;
+    using ToBeImplemented.Business.ViewModel.Concepts;
 
     public class TagViewModel
     {

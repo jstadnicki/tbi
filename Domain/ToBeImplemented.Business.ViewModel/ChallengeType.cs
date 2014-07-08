@@ -1,4 +1,4 @@
-namespace ToBeImplemented.Domain.ViewModel
+namespace ToBeImplemented.Business.ViewModel
 {
     public enum ChallengeType
     {

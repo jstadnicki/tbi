@@ -1,8 +1,6 @@
 namespace ToBeImplemented.Tests.ObjectMothers.Users
 {
-    using System;
-
-    using ToBeImplemented.Domain.ViewModel.Users;
+    using ToBeImplemented.Business.ViewModel.Users;
 
     public static class LoginViewModelFactory
     {

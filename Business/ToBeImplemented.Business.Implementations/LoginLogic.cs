@@ -3,8 +3,8 @@
     using Microsoft.Owin.Security;
 
     using ToBeImplemented.Business.Interfaces;
+    using ToBeImplemented.Business.ViewModel.Users;
     using ToBeImplemented.Common.Data;
-    using ToBeImplemented.Domain.ViewModel.Users;
     using ToBeImplemented.Service.Interfaces;
 
     public class LoginLogic : ILoginLogic

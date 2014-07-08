@@ -5,8 +5,8 @@ namespace ToBeImplemented.Application.Web.Controllers
     using System.Web;
 
     using ToBeImplemented.Business.Interfaces;
+    using ToBeImplemented.Business.ViewModel.Concepts;
     using ToBeImplemented.Common.Web;
-    using ToBeImplemented.Domain.ViewModel.Concepts;
 
     public class ConceptsController : Controller, ITbiControllerExtensionMarker
     {
@@ -21,14 +21,14 @@ namespace ToBeImplemented.Application.Web.Controllers
         public ActionResult Index()
         {
             var viewModel = this.conceptLogic.List();
-            return View("Index", viewModel);
+            return View("Index", viewModel.Data);
         }
 
         [HttpGet]
         public ActionResult Details(long id)
         {
             var viewModel = this.conceptLogic.Details(id);
-            return this.View("Details", viewModel);
+            return this.View("Details", viewModel.Data);
         }
 
         [HttpGet]
@@ -36,7 +36,7 @@ namespace ToBeImplemented.Application.Web.Controllers
         public ActionResult Add()
         {
             var viewModel = this.conceptLogic.GetAddConceptViewModel();
-            return this.View("Add", viewModel);
+            return this.View("Add", viewModel.Data);
         }
 
         [HttpPost]
@@ -60,7 +60,7 @@ namespace ToBeImplemented.Application.Web.Controllers
         public ActionResult Delete(long id)
         {
             var viewModel = this.conceptLogic.GetDeleteViewModel(id);
-            return this.View("Delete", viewModel);
+            return this.View("Delete", viewModel.Data);
         }
 
         [HttpPost]
@@ -77,7 +77,7 @@ namespace ToBeImplemented.Application.Web.Controllers
         public ActionResult Edit(long id)
         {
             var viewModel = this.conceptLogic.GetEditConceptViewModel(id);
-            return this.View("Edit", viewModel);
+            return this.View("Edit", viewModel.Data);
         }
 
         [HttpPost]
