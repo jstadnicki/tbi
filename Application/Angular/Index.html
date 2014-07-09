@@ -14,8 +14,8 @@
     <script src="scripts/angular-route.js"></script>
     <script>
         angular.module('ToBeImplemented', ['ngRoute', 'LocalStorageModule'])
-                     .constant('serviceAddress', 'http://localhost:3847')
-//        .constant('serviceAddress', 'http://localhost:50000')
+         //            .constant('serviceAddress', 'http://localhost:3847')
+        .constant('serviceAddress', 'http://localhost:50000')
             .config(function ($routeProvider, $httpProvider) {
 
                 $httpProvider.interceptors.push('authorizationInterceptorService');

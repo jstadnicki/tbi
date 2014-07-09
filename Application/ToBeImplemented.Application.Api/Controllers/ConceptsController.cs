@@ -4,6 +4,7 @@
     using System.Text;
     using System.Web;
     using System.Web.Http;
+    using System.Web.Http.Cors;
     using System.Web.Http.Results;
 
     using Newtonsoft.Json;
@@ -13,6 +14,7 @@
     using ToBeImplemented.Common.Data;
     using ToBeImplemented.Common.Web;
 
+    [EnableCors("*", "*", "*", "*")]
     public class ConceptsController : ApiController, ITbiControllerExtensionMarker
     {
         private readonly IConceptLogic conceptLogic;
@@ -99,7 +101,7 @@
         }
 
         [Authorize]
-        public JsonResult<OperationResult<bool>>  Delete(long id)
+        public JsonResult<OperationResult<bool>> Delete(long id)
         {
             var operationResult = this.conceptLogic.Delete(id);
             var result = new JsonResult<OperationResult<bool>>(

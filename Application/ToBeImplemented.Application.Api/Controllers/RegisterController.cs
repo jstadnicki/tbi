@@ -3,6 +3,7 @@ namespace ToBeImplemented.Application.Api.Controllers
     using System.Linq;
     using System.Text;
     using System.Web.Http;
+    using System.Web.Http.Cors;
     using System.Web.Http.Results;
 
     using Newtonsoft.Json;
@@ -11,6 +12,7 @@ namespace ToBeImplemented.Application.Api.Controllers
     using ToBeImplemented.Business.ViewModel.Users;
     using ToBeImplemented.Common.Data;
 
+    [EnableCors("*", "*", "*", "*")]
     public class RegisterController : ApiController
     {
         private readonly IRegisterLogic registerLogic;
